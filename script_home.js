@@ -3,7 +3,7 @@
   $.fn.menumaker = function(options) {
       
       var cssmenu = $(this), settings = $.extend({
-        title: "Home",
+        title: "URS Sale",
         format: "dropdown",
         sticky: false
       }, options);
@@ -64,7 +64,7 @@
 $(document).ready(function(){
 
 $("#cssmenu").menumaker({
-   title: "Home",
+   title: "URS Sale",
    format: "multitoggle"
 });
 
