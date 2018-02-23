@@ -31,6 +31,20 @@
             display: inline-block;
             vertical-align: top;
         }
+        th, td {
+            padding: 5px;
+            border: 1px solid #000;
+            white-space: nowrap;
+        }
+
+        .table1 {
+            width: 20px;
+            float: left;
+        }
+
+        .table2 {
+            overflow: auto;
+        }
     </style>
 
   <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
@@ -39,7 +53,7 @@
 </head >
       <body>
 
-          <div id="showDataaa">
+           <div id="showDataaa">
           </div>
           <div id="container" style="margin: 0 auto;height:900px;"></div>
           <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -95,7 +109,7 @@
                       var int32View = new Float64Array();
                       var benefSeries = [];
                       var totalSeries = [];
-                      
+                      var table1 = document.getElementById('datatable03');
                           
                       
                       // ADD JSON DATA TO THE TABLE AS ROWS.
@@ -106,199 +120,239 @@
                           if (i == 0) {
                               tr = table.insertRow(-1);
 
-                              var tabCell101 = tr.insertCell(-1);
-                              tabCell101.style.border = "thin solid #a5f448";
-                              tabCell101.style.backgroundColor = "#3a4c39";
-                              tabCell101.style.color = "#e6fee6";
-                              tabCell101.style.width = "5%";
-                              tabCell101.innerHTML = "Sr No ";
+                              tr1 = table1.insertRow(-1);
+                              var tabCell1011 = tr1.insertCell(-1);
+                              tabCell1011.style.border = "thin solid #a5f448";
+                              tabCell1011.style.backgroundColor = "#3a4c39";
+                              tabCell1011.style.color = "#e6fee6";
+                              tabCell1011.style.width = "5%";
+                              tabCell1011.style.fontSize = "10px";
+                              tabCell1011.innerHTML = "No";
+              
 
-                              var tabCell111 = tr.insertCell(-1);
+                              var tabCell111 = tr1.insertCell(-1);
                               tabCell111.style.border = "thin solid #a5f448";
                               tabCell111.style.backgroundColor = "#3a4c39";
                               tabCell111.style.color = "#e6fee6";
-                              tabCell111.style.width = "10%";
+                              tabCell111.style.width = "20px";
+                              tabCell111.style.fontSize = "10px";
                               tabCell111.innerHTML = "Beneficiary";
 
                               var tabCell12 = tr.insertCell(-1);
                               tabCell12.style.border = "thin solid #a5f448";
                               tabCell12.style.backgroundColor = "#3a4c39";
                               tabCell12.style.color = "#e6fee6";
+                              tabCell12.style.fontSize = "10px";
                               tabCell12.innerHTML = "rebatable amount (Rs.-lacs)";
 
                               var tabCell13 = tr.insertCell(-1);
                               tabCell13.style.border = "thin solid #a5f448";
                               tabCell13.style.backgroundColor = "#3a4c39";
                               tabCell13.style.color = "#e6fee6";
+                              tabCell13.style.fontSize = "10px";
                               tabCell13.innerHTML = "non rebatable amount (Rs.-lacs)";
 
                               var tabCell14 = tr.insertCell(-1);
                               tabCell14.style.border = "thin solid #a5f448";
                               tabCell14.style.backgroundColor = "#3a4c39";
                               tabCell14.style.color = "#e6fee6";
+                              tabCell14.style.fontSize = "10px";
                               tabCell14.innerHTML = "interest (Rs.-lacs)";
 
                               var tabCell15 = tr.insertCell(-1);
                               tabCell15.style.border = "thin solid #a5f448";
                               tabCell15.style.backgroundColor = "#3a4c39";
                               tabCell15.style.color = "#e6fee6";
+                              tabCell15.style.fontSize = "10px";
                               tabCell15.innerHTML = "LPSC (Rs.-lacs)";
 
                               var tabCell16 = tr.insertCell(-1);
                               tabCell16.style.border = "thin solid #a5f448";
                               tabCell16.style.backgroundColor = "#3a4c39";
                               tabCell16.style.color = "#e6fee6";
+                              tabCell16.style.fontSize = "10px";
                               tabCell16.innerHTML = "compensation (Rs.-lacs)";
 
                               var tabCell17 = tr.insertCell(-1);
                               tabCell17.style.border = "thin solid #a5f448";
                               tabCell17.style.backgroundColor = "#3a4c39";
                               tabCell17.style.color = "#e6fee6";
+                              tabCell17.style.fontSize = "10px";
                               tabCell17.innerHTML = "URS Gain (Rs.-lacs)";
 
                               var tabCell18 = tr.insertCell(-1);
                               tabCell18.style.border = "thin solid #a5f448";
                               tabCell18.style.backgroundColor = "#3a4c39";
                               tabCell18.style.color = "#e6fee6";
+                              tabCell18.style.fontSize = "10px";
                               tabCell18.innerHTML = "Rebate Adj (Rs.-lacs)";
 
                               var tabCell19 = tr.insertCell(-1);
                               tabCell19.style.border = "thin solid #a5f448";
                               tabCell19.style.backgroundColor = "#3a4c39";
                               tabCell19.style.color = "#e6fee6";
+                              tabCell19.style.fontSize = "10px";
                               tabCell19.innerHTML = "RRAS_credit (Rs.-lacs)";
 
                               var tabCell110 = tr.insertCell(-1);
                               tabCell110.style.border = "thin solid #a5f448";
                               tabCell110.style.backgroundColor = "#3a4c39";
                               tabCell110.style.color = "#e6fee6";
+                              tabCell110.style.fontSize = "10px";
                               tabCell110.innerHTML = "Total (Rs.-lacs)";
 
 
 
                               tr = table.insertRow(-1);
 
-                              var tabCell0 = tr.insertCell(-1);
-                              tabCell0.style.border = "thin solid #a5f448";
-                              tabCell0.style.backgroundColor = "#abb5ff";
-                              tabCell0.style.width = "5%";
+                              tr1 = table1.insertRow(-1);
+                              var tabCell0123 = tr1.insertCell(-1);
+                              tabCell0123.style.border = "thin solid #a5f448";
+                              tabCell0123.style.backgroundColor = "#abb5ff";
+                              tabCell0123.style.width = "5%";
+                              tabCell0123.style.fontSize = "10px";
                               counter = counter + 1;
-                              tabCell0.innerHTML = counter;
+                              tabCell0123.innerHTML = counter;
 
-                              var tabCell1 = tr.insertCell(-1);
+                              
+
+                              var tabCell1 = tr1.insertCell(-1);
                               tabCell1.style.border = "thin solid #a5f448";
                               tabCell1.style.backgroundColor = "#c9ebff";
-                              tabCell1.style.width = "10%";
+                              tabCell1.style.width = "20px";
+                              tabCell1.style.fontSize = "10px";
                               tabCell1.innerHTML = obj.data[i].benef;
 
                               var tabCell3 = tr.insertCell(-1);
                               tabCell3.style.border = "thin solid #a5f448";
                               tabCell3.style.backgroundColor = "#e1f8ff";
+                              tabCell3.style.fontSize = "10px";
                               tabCell3.innerHTML = obj.data[i].rebatableamt;
 
                               var tabCell4 = tr.insertCell(-1);
                               tabCell4.style.border = "thin solid #a5f448";
                               tabCell4.style.backgroundColor = "#e1f8ff";
+                              tabCell4.style.fontSize = "10px";
                               tabCell4.innerHTML = obj.data[i].nonrebatableamt;
 
                               var tabCell5 = tr.insertCell(-1);
                               tabCell5.style.border = "thin solid #a5f448";
                               tabCell5.style.backgroundColor = "#e1f8ff";
+                              tabCell5.style.fontSize = "10px";
                               tabCell5.innerHTML = obj.data[i].int;
 
                               var tabCell6 = tr.insertCell(-1);
                               tabCell6.style.border = "thin solid #a5f448";
                               tabCell6.style.backgroundColor = "#e1f8ff";
+                              tabCell6.style.fontSize = "10px";
                               tabCell6.innerHTML = obj.data[i].lpsc;
 
                               var tabCell7 = tr.insertCell(-1);
                               tabCell7.style.border = "thin solid #a5f448";
                               tabCell7.style.backgroundColor = "#e1f8ff";
+                              tabCell7.style.fontSize = "10px";
                               tabCell7.innerHTML = obj.data[i].comp;
 
                               var tabCell8 = tr.insertCell(-1);
                               tabCell8.style.border = "thin solid #a5f448";
                               tabCell8.style.backgroundColor = "#e1f8ff";
+                              tabCell8.style.fontSize = "10px";
                               tabCell8.innerHTML = obj.data[i].ursgain;
 
                               var tabCell9 = tr.insertCell(-1);
                               tabCell9.style.border = "thin solid #a5f448";
                               tabCell9.style.backgroundColor = "#e1f8ff";
+                              tabCell9.style.fontSize = "10px";
                               tabCell9.innerHTML = obj.data[i].rebateadj;
 
                               var tabCell10 = tr.insertCell(-1);
                               tabCell10.style.border = "thin solid #a5f448";
                               tabCell10.style.backgroundColor = "#e1f8ff";
+                              tabCell10.style.fontSize = "10px";
                               tabCell10.innerHTML = obj.data[i].rrascredit;
 
                               var tabCell11 = tr.insertCell(-1);
                               tabCell11.style.border = "thin solid #a5f448";
                               tabCell11.style.backgroundColor = "#e1f8ff";
+                              tabCell11.style.fontSize = "10px";
                               tabCell11.innerHTML = obj.data[i].total;
 
                           }
                           else {
+                              tr1 = table1.insertRow(-1);
+                              var tabCell0123 = tr1.insertCell(-1);
+                              tabCell0123.style.border = "thin solid #a5f448";
+                              tabCell0123.style.backgroundColor = "#abb5ff";
+                              tabCell0123.style.width = "5%";
+                              tabCell0123.style.fontSize = "10px";
+                              counter = counter + 1;
+                              tabCell0123.innerHTML = counter;
+                              
+                              var tabCell1 = tr1.insertCell(-1);
+                              tabCell1.style.border = "thin solid #a5f448";
+                              tabCell1.style.backgroundColor = "#c9ebff";
+                              tabCell1.style.width = "20px";
+                              tabCell1.style.fontSize = "10px";
+                              tabCell1.innerHTML = obj.data[i].benef;
 
 
 
                               tr = table.insertRow(-1);
+                              
 
-                              var tabCell0 = tr.insertCell(-1);
-                              tabCell0.style.border = "thin solid #a5f448";
-                              tabCell0.style.backgroundColor = "#abb5ff";
-                              tabCell0.style.width = "5%";
-                              counter = counter + 1;
-                              tabCell0.innerHTML = counter;
-
-                              var tabCell1 = tr.insertCell(-1);
-                              tabCell1.style.border = "thin solid #a5f448";
-                              tabCell1.style.backgroundColor = "#c9ebff";
-                              tabCell1.style.width = "10%";
-                              tabCell1.innerHTML = obj.data[i].benef;
 
                               var tabCell3 = tr.insertCell(-1);
                               tabCell3.style.border = "thin solid #a5f448";
                               tabCell3.style.backgroundColor = "#e1f8ff";
+                              tabCell3.style.fontSize = "10px";
                               tabCell3.innerHTML = obj.data[i].rebatableamt;
 
                               var tabCell4 = tr.insertCell(-1);
                               tabCell4.style.border = "thin solid #a5f448";
                               tabCell4.style.backgroundColor = "#e1f8ff";
+                              tabCell4.style.fontSize = "10px";
                               tabCell4.innerHTML = obj.data[i].nonrebatableamt;
 
                               var tabCell5 = tr.insertCell(-1);
                               tabCell5.style.border = "thin solid #a5f448";
                               tabCell5.style.backgroundColor = "#e1f8ff";
+                              tabCell5.style.fontSize = "10px";
                               tabCell5.innerHTML = obj.data[i].int;
 
                               var tabCell6 = tr.insertCell(-1);
                               tabCell6.style.border = "thin solid #a5f448";
                               tabCell6.style.backgroundColor = "#e1f8ff";
+                              tabCell6.style.fontSize = "10px";
                               tabCell6.innerHTML = obj.data[i].lpsc;
 
                               var tabCell7 = tr.insertCell(-1);
                               tabCell7.style.border = "thin solid #a5f448";
                               tabCell7.style.backgroundColor = "#e1f8ff";
+                              tabCell7.style.fontSize = "10px";
                               tabCell7.innerHTML = obj.data[i].comp;
 
                               var tabCell8 = tr.insertCell(-1);
                               tabCell8.style.border = "thin solid #a5f448";
                               tabCell8.style.backgroundColor = "#e1f8ff";
+                              tabCell8.style.fontSize = "10px";
                               tabCell8.innerHTML = obj.data[i].ursgain;
 
                               var tabCell9 = tr.insertCell(-1);
                               tabCell9.style.border = "thin solid #a5f448";
                               tabCell9.style.backgroundColor = "#e1f8ff";
+                              tabCell9.style.fontSize = "10px";
                               tabCell9.innerHTML = obj.data[i].rebateadj;
 
                               var tabCell10 = tr.insertCell(-1);
                               tabCell10.style.border = "thin solid #a5f448";
                               tabCell10.style.backgroundColor = "#e1f8ff";
+                              tabCell10.style.fontSize = "10px";
                               tabCell10.innerHTML = obj.data[i].rrascredit;
 
                               var tabCell11 = tr.insertCell(-1);
                               tabCell11.style.border = "thin solid #a5f448";
                               tabCell11.style.backgroundColor = "#e1f8ff";
+                              tabCell11.style.fontSize = "10px";
                               tabCell11.innerHTML = obj.data[i].total;
                           }
                       }
@@ -381,9 +435,20 @@
         </div>
 
 
+          <div style="width:100%;">
+
+              <table class="table1" id="datatable03">
+              </table>
+
+              <div class="table2">
+                  <table  id="datatable02">                      
+                  </table>
+              </div>
+
+          </div>
          
 
-          <table id="datatable02" cellpadding="0" cellspacing="0"></table>
+          <!--<table id="datatable02" cellpadding="0" cellspacing="0"></table>-->
 
           <div id="showData">
           </div>
