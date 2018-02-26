@@ -51,6 +51,7 @@
     <script src="countUp.js"></script>   
    
 
+
 </head >
       <body>
           <div id="trading_table" style="width:100%;margin: 0 auto;">
@@ -63,12 +64,9 @@
                     <td id="offered_in_1718" style="width:50%;text-align:center;font-size:xx-large;background-color:#bae1e5;color:#4a5a5b;">No internet Connection</td>
                     <td id="cleared_in_1718" style="width:50%;text-align:center;font-size:xx-large;background-color:#c2fec1;color:#4d654d;">no internet connection</td>
                 </tr>
-                <tr>
-                    <td id="update_date" colspan="2" style="text-align:left;color:#9f0000;"></td>
-                </tr>
             </table>
           </div>
-          
+
           <div id="trading_reporttable" style="width:100%;margin: 0 auto;">
               <table style="width:100%;text-align:center;">
                   <tr>
@@ -81,7 +79,12 @@
                   </tr>
               </table>
           </div>
-           <script>
+
+
+          <div id="container" style="margin: 0 auto;height:600px;"></div>
+          <script src="https://code.highcharts.com/highcharts.js"></script>
+          <script src="https://code.highcharts.com/modules/exporting.js"></script>
+          <script>
 
 
               let key,
