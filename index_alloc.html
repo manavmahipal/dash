@@ -1,0 +1,1763 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://manavmahipal.github.io/dash/styles.css">
+    <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://manavmahipal.github.io/dash/script_alloc.js"></script>
+    <title>Allocations</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.bundle.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <script type="text/javascript" src="Chart.PieceLabel.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body style="background-color:#99cfe4;">
+    <div id='cssmenu'>
+        <ul>
+            <li><a href='./index.html'>Critical Issues</a></li>
+            <li><a href='./index_state.html'>State Info</a></li>
+            <li><a href='./index_billing.html'>Billing</a></li>
+            <li><a href='./index_ecr.html'>ECR</a></li>
+            <li><a href='./index_home.html'>URS Sale</a></li>
+            <li><a href='./index_market.html'>Market Analysis</a></li>
+            <li><a href='./index_perf.html'>Performance Report</a></li>
+            <li style="background-color:#707070;"><a href='#'>Allocations</a></listyle="background-color:#707070;">
+        </ul>
+    </div>
+    <section class="container">
+        <div class="switch switch-blue">
+            <input type="radio" class="switch-input" name="view2" value="state" id="weekasd2" checked onchange="handleClick(this)">
+            <label for="weekasd2" class="switch-label switch-label-off">&nbsp;&nbsp;&nbsp;State-Wise&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" class="switch-input" name="view2" value="plant" id="monthasd2" onchange="handleClick(this)">
+            <label for="monthasd2" class="switch-label switch-label-on">&nbsp;&nbsp;&nbsp;Plant-Wise&nbsp;&nbsp;&nbsp;</label>
+            <span class="switch-selection"></span>
+        </div>
+    </section>
+    <span style="color:red;">double click on pie to drill-down</span>
+    <div id="stateselect" style="width:100%;">
+        <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="statedrilldown(this.value)">
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttrakhand">Uttrakhand</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal">Himachal</option>
+            <option value="J&K">J&K</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Chattisgarh">Chattisgarh</option>
+            <option value="Maharastra">Maharastra</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Goa">Goa</option>
+            <option value="Daman & Diu">Daman & Diu</option>
+            <option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Kerala">Kerala</option>
+            <option value="A & N">A & N</option>
+            <option value="TELANGANA">TELANGANA</option>
+            <option value="PUDUCHERRY">PUDUCHERRY</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Assam">Assam</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Arunachal">Arunachal</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Railways">Railways</option>
+            <option value="SAIL">SAIL</option>
+            <option value="DVC">DVC</option>
+            <option value="PGCIL">PGCIL</option>
+            <option value="Bangladesh">Bangladesh</option>
+        </select>
+        </div>
+
+
+    <div id="plantselect" style="width:100%;display:none;">
+        <select name="plantdrop" id="plantdrop" style="width:100%;height:30px;font-size:20px;" onchange="stationdrilldown(this.value)">
+            <option value="Singrauli">Singrauli</option>
+                   <option value="Rihand-I" >Rihand-I</option>
+                   <option value="Rihand-II" >Rihand-II</option>
+                   <option value="Rihand-III" >Rihand-III</option>
+                   <option value="Unch-I" >Unch-I</option>
+                   <option value="Unch-II" >Unch-II</option>
+                   <option value="Unch-III" >Unch-III</option>
+                   <option value="Unch-IV" >Unch-IV</option>
+                   <option value="Dadri-I" >Dadri-I</option>
+                   <option value="Dadri-II" >Dadri-II</option>
+                   <option value="Tanda" >Tanda</option>
+                   <option value="BTPS" >BTPS</option>
+                   <option value="Anta" >Anta</option>
+                   <option value="Auraiya" >Auraiya</option>
+                   <option value="Dadri Gas" >Dadri Gas</option>
+                   <option value="Faridabad" >Faridabad</option>
+                   <option value="Koldam " >Koldam</option>
+                   <option value="Korba I&II" >Korba I&II</option>
+                   <option value="Vind-I" >Vind-I</option>
+                   <option value="Vind-II" >Vind-II</option>
+                   <option value="Vind-III" >Vind-III</option>
+                   <option value="Kawas" >Kawas</option>
+                   <option value="Gandhar" >Gandhar</option>
+                   <option value="Sipat-II" >Sipat-II</option>
+                   <option value="Korba-III" >Korba-III</option>
+                   <option value="Sipat-I" >Sipat-I</option>
+                   <option value="Vind-IV" >Vind-IV</option>
+                   <option value="Mauda-I" >Mauda-I</option>
+                   <option value="Vind-V" >Vind-V</option>
+                   <option value="Mauda-II" >Mauda-II</option>
+                   <option value="Solapur" >Solapur</option>
+                   <option value="Rama-I&II" >Rama-I&II</option>
+                   <option value="Rama-III" >Rama-III</option>
+                   <option value="Simh-I" >Simh-I</option>
+                   <option value="Simh-II" >Simh-II</option>
+                   <option value="Tal-II" >Tal-II</option>
+                   <option value="KyCCPP" >KyCCPP</option>
+                   <option value="Kudgi I" >Kudgi I</option>
+                   <option value="Ramagundam Solar" >Ramagundam Solar</option>
+                   <option value="A&N SOLAR" >A&N SOLAR</option>
+                   <option value="Farakka" >Farakka</option>
+                   <option value="Kh-I" >Kh-I</option>
+                   <option value="Kh-II" >Kh-II</option>
+                   <option value="TSTPS-I" >TSTPS-I</option>
+                   <option value="TTPS" >TTPS</option>
+                   <option value="Farakka-III" >Farakka-III</option>
+                   <option value="BARH" >BARH</option>
+                   <option value="Bongaigaon" >Bongaigaon</option>
+                   <option value="D SOLAR" >D SOLAR</option>
+                   <option value="TAL SOL" >TAL SOL</option>
+                   <option value="UNCH SOL" >UNCH SOL</option>
+                   <option value="FARD SOL" >FARD SOL</option>
+                   <option value="RAJ SOL" >RAJ SOL</option>
+                   <option value="SING SOL" >SING SOL</option>
+                   <option value="Ananthapur Solar" >Ananthapur Solar</option>
+                   <option value="Bhadla Solar" >Bhadla Solar</option>
+                   <option value="Mandsaur Solar" >Mandsaur Solar</option>
+                   <option value="Rojmal Wind Power" >Rojmal Wind Power</option>
+                   <option value="Jhajjar" >Jhajjar</option>
+                   <option value="Vallur" >Vallur</option>
+                   <option value="Ratnagiri" >Ratnagiri</option>
+                   <option value="Muzaffarpur" >Muzaffarpur</option>
+                   <option value="Raurkela" >Raurkela</option>
+                   <option value="Durgapur" >Durgapur</option>
+                   <option value="Bhillai CPP-II" >Bhillai CPP-II</option>
+                   <option value="Bhillai CPP-III" >Bhillai CPP-III</option>
+                   <option value="BRBCL" >BRBCL</option>
+                   <option value="KBUNL-II" >KBUNL-II</option>
+        </select>
+    </div>
+
+
+        <div id="canvas-holder" style="width:100%">
+            <canvas id="chart-area" width="100%" />
+        </div>
+        <div id="canvas-holder1" style="width:100%">
+            <canvas id="chart-area1" width="100%" />
+        </div>
+        <div id="canvas-holder2" style="width:100%">
+            <canvas id="chart-area2" width="100%" />
+        </div>
+        <div id="canvas-holder3" style="width:100%">
+            <canvas id="chart-area3" width="100%" />
+        </div>
+        <div id="canvas-holder4" style="width:100%">
+            <canvas id="chart-area4" width="100%" />
+        </div>
+
+
+
+
+
+
+
+
+       
+
+
+
+
+        <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+        <script src="GetSheetDone.js"></script>
+        <script>
+            function handleClick(myRadio) {                
+                if (myRadio.value == "plant") {
+                    document.getElementById('stateselect').style.display = "none";
+                    document.getElementById('plantselect').style.display = "inline";
+                }
+                else if (myRadio.value == "state") {
+                    document.getElementById('stateselect').style.display = "inline";
+                    document.getElementById('plantselect').style.display = "none";
+                }
+            }
+
+
+            let key,
+                sheetNum,
+                sheetType, counter = 0;
+            function readValues() {
+                key = '1iYytiqDgwxm8-kftu7S8jcAumkgc-zL2TXeivUivGhM';
+                sheetNum = '7';
+                sheetType = 'cols';
+            }
+            window.onload = function (ev) {
+                ev.preventDefault();
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                stateregion();
+
+                /*document.getElementById('chart-area').style.display = "inline";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "none";
+
+
+
+
+
+              let promise;
+              switch (sheetType) {
+                case 'cols':
+                  promise = GetSheetDone.labeledCols(key, sheetNum);
+                  break;
+                case 'cols-rows':
+                  promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                  break;
+                case 'raw':
+                default:
+                  promise = GetSheetDone.raw(key, sheetNum);
+                  break;
+              }
+              promise.then((data) => {
+                  var jsonarray = JSON.stringify(data);
+                //  document.getElementById('outputty').innerHTML = jsonarray;
+                var obj = JSON.parse(jsonarray);
+  var coll = [];
+  for (var i = 0; i < obj.data.length; i++) {
+      for (var ky in obj.data[i]) {
+                  if (coll.indexOf(ky) === -1) {
+                      coll.push(ky);
+                  }
+              }
+          }
+                  // CREATE DYNAMIC TABLE.
+  var benefSeries = [];
+  var totalSeries = [];
+  document.getElementById('datatable01').innerHTML = "";
+  var table = document.getElementById('datatable01');//document.createElement('table');
+          table.style.border = "thin solid #a5f448";
+          for (var i = 2; i < (obj.data.length-1) ; i++) {//(obj.data.length - 2) ; i++) {
+              benefSeries.push(obj.data[i].a);
+              totalSeries.push(parseFloat(obj.data[i].b));
+
+              tr = table.insertRow(-1);
+              var tabCell0 = tr.insertCell(-1);
+              tabCell0.style.border = "thin solid #a5f448";
+              tabCell0.style.backgroundColor = "#abb5ff";
+              tabCell0.style.width = "5%";
+                      counter = counter + 1;
+                      tabCell0.innerHTML = counter;
+              //
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #a5f448";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].a;
+
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #a5f448";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].b;
+
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #a5f448";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].c;
+
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #a5f448";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].d;
+          }
+          document.getElementById('showData').innerHTML = '';
+          document.getElementById('showData').appendChild(table);
+
+
+
+          var ctx = document.getElementById("chart-area").getContext("2d");
+
+          var config = {
+              type: 'pie',
+              data: {
+                  datasets: [{
+                      data: totalSeries,
+                      backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                  }],
+                  labels: benefSeries
+              },
+              options: {
+                  responsive: true,
+                  legend: {
+                      position: 'bottom',
+                      labels: {
+                          boxWidth: 10,
+                          fontStyle: 'bold',
+                          fontSize: 10
+                      }
+                  },
+                  pieceLabel: {
+                      render: function (args) {
+                          return args.label+'  (' + args.value+' MW)  ';
+                      },
+                      fontSize: 9,
+                      fontStyle: 'bold',
+                      fontColor: '#3e2507',
+                      position: 'outside'
+                  }
+              }
+          };
+          //alert("yahoo1");
+          window.myPie = new Chart(ctx, config);
+
+         document.getElementById("chart-area").ondblclick = function (evt) {
+              var activePoint = myPie.getElementAtEvent(evt)[0];
+              var data = activePoint._chart.data;
+              var datasetIndex = activePoint._datasetIndex;
+              var label = data.labels[activePoint._index];
+              var value = data.datasets[datasetIndex].data[activePoint._index];
+            //  alert(label + "---" + value);
+              statedrilldown(label); //console.log(label, value);
+          };
+
+
+              }).catch(err => {
+                console.log('Error');
+                console.log(err);
+                document.getElementById('output').innerHTML = err.message;
+              })*/
+            }
+
+
+            function statedrilldown(statename) {
+                document.getElementById("canvas-holder1").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1"></canvas>';
+
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "inline";
+                document.getElementById('chart-area2').style.display = "none";
+                document.getElementById('chart-area3').style.display = "none";
+                document.getElementById('chart-area4').style.display = "none";
+                //ev.preventDefault();
+                //  alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                    //  document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+
+                ////    var table = document.getElementById('datatable01');//document.createElement('table');
+                  //  table.style.border = "thin solid #a5f448";
+                    for (var i = 0; i < obj.data.length ; i++) {
+
+                        if (obj.data[i].a == statename) {
+                            //  alert(obj.data[i].a + "---" + parseFloat(obj.data[i].b));
+                            if (parseFloat(obj.data[i].e) > 0) {
+                                benefSeries.push(obj.data[0].e);
+                                totalSeries.push(parseFloat(obj.data[i].e));
+                            }
+                            if (parseFloat(obj.data[i].f) > 0) {
+                                benefSeries.push(obj.data[0].f);
+                                totalSeries.push(parseFloat(obj.data[i].f));
+                            }
+                            if (parseFloat(obj.data[i].g) > 0) {
+                                benefSeries.push(obj.data[0].g);
+                                totalSeries.push(parseFloat(obj.data[i].g));
+                            }
+                            if (parseFloat(obj.data[i].h) > 0) {
+                                benefSeries.push(obj.data[0].h);
+                                totalSeries.push(parseFloat(obj.data[i].h));
+                            }
+                            if (parseFloat(obj.data[i].i) > 0) {
+                                benefSeries.push(obj.data[0].i);
+                                totalSeries.push(parseFloat(obj.data[i].i));
+                            }
+                            if (parseFloat(obj.data[i].j) > 0) {
+                                benefSeries.push(obj.data[0].j);
+                                totalSeries.push(parseFloat(obj.data[i].j));
+                            }
+                            if (parseFloat(obj.data[i].k) > 0) {
+                                benefSeries.push(obj.data[0].k);
+                                totalSeries.push(parseFloat(obj.data[i].k));
+                            }
+                            if (parseFloat(obj.data[i].l) > 0) {
+                                benefSeries.push(obj.data[0].l);
+                                totalSeries.push(parseFloat(obj.data[i].l));
+                            }
+                            if (parseFloat(obj.data[i].m) > 0) {
+                                benefSeries.push(obj.data[0].m);
+                                totalSeries.push(parseFloat(obj.data[i].m));
+                            }
+                            if (parseFloat(obj.data[i].n) > 0) {
+                                benefSeries.push(obj.data[0].n);
+                                totalSeries.push(parseFloat(obj.data[i].n));
+                            }
+                            if (parseFloat(obj.data[i].o) > 0) {
+                                benefSeries.push(obj.data[0].o);
+                                totalSeries.push(parseFloat(obj.data[i].o));
+                            }
+                            if (parseFloat(obj.data[i].p) > 0) {
+                                benefSeries.push(obj.data[0].p);
+                                totalSeries.push(parseFloat(obj.data[i].p));
+                            }
+                            if (parseFloat(obj.data[i].q) > 0) {
+                                benefSeries.push(obj.data[0].q);
+                                totalSeries.push(parseFloat(obj.data[i].q));
+                            }
+                            if (parseFloat(obj.data[i].r) > 0) {
+                                benefSeries.push(obj.data[0].r);
+                                totalSeries.push(parseFloat(obj.data[i].r));
+                            }
+                            if (parseFloat(obj.data[i].s) > 0) {
+                                benefSeries.push(obj.data[0].s);
+                                totalSeries.push(parseFloat(obj.data[i].s));
+                            }
+                            if (parseFloat(obj.data[i].t) > 0) {
+                                benefSeries.push(obj.data[0].t);
+                                totalSeries.push(parseFloat(obj.data[i].t));
+                            }
+                            if (parseFloat(obj.data[i].u) > 0) {
+                                benefSeries.push(obj.data[0].u);
+                                totalSeries.push(parseFloat(obj.data[i].u));
+                            }
+                            if (parseFloat(obj.data[i].v) > 0) {
+                                benefSeries.push(obj.data[0].v);
+                                totalSeries.push(parseFloat(obj.data[i].v));
+                            }
+                            if (parseFloat(obj.data[i].w) > 0) {
+                                benefSeries.push(obj.data[0].w);
+                                totalSeries.push(parseFloat(obj.data[i].w));
+                            }
+                            if (parseFloat(obj.data[i].x) > 0) {
+                                benefSeries.push(obj.data[0].x);
+                                totalSeries.push(parseFloat(obj.data[i].x));
+                            }
+                            if (parseFloat(obj.data[i].y) > 0) {
+                                benefSeries.push(obj.data[0].y);
+                                totalSeries.push(parseFloat(obj.data[i].y));
+                            }
+                            if (parseFloat(obj.data[i].z) > 0) {
+                                benefSeries.push(obj.data[0].z);
+                                totalSeries.push(parseFloat(obj.data[i].z));
+                            }
+                            if (parseFloat(obj.data[i].aa) > 0) {
+                                benefSeries.push(obj.data[0].aa);
+                                totalSeries.push(parseFloat(obj.data[i].aa));
+                            }
+                            if (parseFloat(obj.data[i].ab) > 0) {
+                                benefSeries.push(obj.data[0].ab);
+                                totalSeries.push(parseFloat(obj.data[i].ab));
+                            }
+                            if (parseFloat(obj.data[i].ac) > 0) {
+                                benefSeries.push(obj.data[0].ac);
+                                totalSeries.push(parseFloat(obj.data[i].ac));
+                            }
+                            if (parseFloat(obj.data[i].ad) > 0) {
+                                benefSeries.push(obj.data[0].ad);
+                                totalSeries.push(parseFloat(obj.data[i].ad));
+                            }
+                            if (parseFloat(obj.data[i].ae) > 0) {
+                                benefSeries.push(obj.data[0].ae);
+                                totalSeries.push(parseFloat(obj.data[i].ae));
+                            }
+                            if (parseFloat(obj.data[i].af) > 0) {
+                                benefSeries.push(obj.data[0].af);
+                                totalSeries.push(parseFloat(obj.data[i].af));
+                            }
+                            if (parseFloat(obj.data[i].ag) > 0) {
+                                benefSeries.push(obj.data[0].ag);
+                                totalSeries.push(parseFloat(obj.data[i].ag));
+                            }
+                            if (parseFloat(obj.data[i].ah) > 0) {
+                                benefSeries.push(obj.data[0].ah);
+                                totalSeries.push(parseFloat(obj.data[i].ah));
+                            }
+                            if (parseFloat(obj.data[i].ai) > 0) {
+                                benefSeries.push(obj.data[0].ai);
+                                totalSeries.push(parseFloat(obj.data[i].ai));
+                            }
+                            if (parseFloat(obj.data[i].aj) > 0) {
+                                benefSeries.push(obj.data[0].aj);
+                                totalSeries.push(parseFloat(obj.data[i].aj));
+                            }
+                            if (parseFloat(obj.data[i].ak) > 0) {
+                                benefSeries.push(obj.data[0].ak);
+                                totalSeries.push(parseFloat(obj.data[i].ak));
+                            }
+                            if (parseFloat(obj.data[i].al) > 0) {
+                                benefSeries.push(obj.data[0].al);
+                                totalSeries.push(parseFloat(obj.data[i].al));
+                            }
+                            if (parseFloat(obj.data[i].am) > 0) {
+                                benefSeries.push(obj.data[0].am);
+                                totalSeries.push(parseFloat(obj.data[i].am));
+                            }
+                            if (parseFloat(obj.data[i].an) > 0) {
+                                benefSeries.push(obj.data[0].an);
+                                totalSeries.push(parseFloat(obj.data[i].an));
+                            }
+                            if (parseFloat(obj.data[i].ao) > 0) {
+                                benefSeries.push(obj.data[0].ao);
+                                totalSeries.push(parseFloat(obj.data[i].ao));
+                            }
+                            if (parseFloat(obj.data[i].ap) > 0) {
+                                benefSeries.push(obj.data[0].ap);
+                                totalSeries.push(parseFloat(obj.data[i].ap));
+                            }
+                            if (parseFloat(obj.data[i].aq) > 0) {
+                                benefSeries.push(obj.data[0].aq);
+                                totalSeries.push(parseFloat(obj.data[i].aq));
+                            }
+                            if (parseFloat(obj.data[i].ar) > 0) {
+                                benefSeries.push(obj.data[0].ar);
+                                totalSeries.push(parseFloat(obj.data[i].ar));
+                            }
+                            if (parseFloat(obj.data[i].as) > 0) {
+                                benefSeries.push(obj.data[0].as);
+                                totalSeries.push(parseFloat(obj.data[i].as));
+                            }
+                            if (parseFloat(obj.data[i].at) > 0) {
+                                benefSeries.push(obj.data[0].at);
+                                totalSeries.push(parseFloat(obj.data[i].at));
+                            }
+                            if (parseFloat(obj.data[i].au) > 0) {
+                                benefSeries.push(obj.data[0].au);
+                                totalSeries.push(parseFloat(obj.data[i].au));
+                            }
+                            if (parseFloat(obj.data[i].av) > 0) {
+                                benefSeries.push(obj.data[0].av);
+                                totalSeries.push(parseFloat(obj.data[i].av));
+                            }
+                            if (parseFloat(obj.data[i].aw) > 0) {
+                                benefSeries.push(obj.data[0].aw);
+                                totalSeries.push(parseFloat(obj.data[i].aw));
+                            }
+                            if (parseFloat(obj.data[i].ax) > 0) {
+                                benefSeries.push(obj.data[0].ax);
+                                totalSeries.push(parseFloat(obj.data[i].ax));
+                            }
+                            if (parseFloat(obj.data[i].ay) > 0) {
+                                benefSeries.push(obj.data[0].ay);
+                                totalSeries.push(parseFloat(obj.data[i].ay));
+                            }
+                            if (parseFloat(obj.data[i].az) > 0) {
+                                benefSeries.push(obj.data[0].az);
+                                totalSeries.push(parseFloat(obj.data[i].az));
+                            }
+                            if (parseFloat(obj.data[i].ba) > 0) {
+                                benefSeries.push(obj.data[0].ba);
+                                totalSeries.push(parseFloat(obj.data[i].ba));
+                            }
+                            if (parseFloat(obj.data[i].bb) > 0) {
+                                benefSeries.push(obj.data[0].bb);
+                                totalSeries.push(parseFloat(obj.data[i].bb));
+                            }
+                            if (parseFloat(obj.data[i].bc) > 0) {
+                                benefSeries.push(obj.data[0].bc);
+                                totalSeries.push(parseFloat(obj.data[i].bc));
+                            }
+                            if (parseFloat(obj.data[i].bd) > 0) {
+                                benefSeries.push(obj.data[0].bd);
+                                totalSeries.push(parseFloat(obj.data[i].bd));
+                            }
+                            if (parseFloat(obj.data[i].be) > 0) {
+                                benefSeries.push(obj.data[0].be);
+                                totalSeries.push(parseFloat(obj.data[i].be));
+                            }
+                            if (parseFloat(obj.data[i].bf) > 0) {
+                                benefSeries.push(obj.data[0].bf);
+                                totalSeries.push(parseFloat(obj.data[i].bf));
+                            }
+                            if (parseFloat(obj.data[i].bg) > 0) {
+                                benefSeries.push(obj.data[0].bg);
+                                totalSeries.push(parseFloat(obj.data[i].bg));
+                            }
+                            if (parseFloat(obj.data[i].bh) > 0) {
+                                benefSeries.push(obj.data[0].bh);
+                                totalSeries.push(parseFloat(obj.data[i].bh));
+                            }
+                            if (parseFloat(obj.data[i].bi) > 0) {
+                                benefSeries.push(obj.data[0].bi);
+                                totalSeries.push(parseFloat(obj.data[i].bi));
+                            }
+                            if (parseFloat(obj.data[i].bj) > 0) {
+                                benefSeries.push(obj.data[0].bj);
+                                totalSeries.push(parseFloat(obj.data[i].bj));
+                            }
+                            if (parseFloat(obj.data[i].bm) > 0) {
+                                benefSeries.push(obj.data[0].bm);
+                                totalSeries.push(parseFloat(obj.data[i].bm));
+                            }
+                            if (parseFloat(obj.data[i].bn) > 0) {
+                                benefSeries.push(obj.data[0].bn);
+                                totalSeries.push(parseFloat(obj.data[i].bn));
+                            }
+                            if (parseFloat(obj.data[i].bo) > 0) {
+                                benefSeries.push(obj.data[0].bo);
+                                totalSeries.push(parseFloat(obj.data[i].bo));
+                            }
+                            if (parseFloat(obj.data[i].bp) > 0) {
+                                benefSeries.push(obj.data[0].bp);
+                                totalSeries.push(parseFloat(obj.data[i].bp));
+                            }
+                            if (parseFloat(obj.data[i].bq) > 0) {
+                                benefSeries.push(obj.data[0].bq);
+                                totalSeries.push(parseFloat(obj.data[i].bq));
+                            }
+                            if (parseFloat(obj.data[i].br) > 0) {
+                                benefSeries.push(obj.data[0].br);
+                                totalSeries.push(parseFloat(obj.data[i].br));
+                            }
+                            if (parseFloat(obj.data[i].bs) > 0) {
+                                benefSeries.push(obj.data[0].bs);
+                                totalSeries.push(parseFloat(obj.data[i].bs));
+                            }
+                            if (parseFloat(obj.data[i].bt) > 0) {
+                                benefSeries.push(obj.data[0].bt);
+                                totalSeries.push(parseFloat(obj.data[i].bt));
+                            }
+                            if (parseFloat(obj.data[i].bu) > 0) {
+                                benefSeries.push(obj.data[0].bu);
+                                totalSeries.push(parseFloat(obj.data[i].bu));
+                            }
+                            if (parseFloat(obj.data[i].bv) > 0) {
+                                benefSeries.push(obj.data[0].bv);
+                                totalSeries.push(parseFloat(obj.data[i].bv));
+                            }
+                        }
+
+                       
+                    }
+                   
+
+
+
+                    var ctx = document.getElementById("chart-area1").getContext("2d");
+                    //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    //alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+
+                    document.getElementById("chart-area1").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                     //   alert(label + "---" + value);
+                        //window.location.reload();
+                        stationdrilldown(label); //console.log(label, value);
+                    };
+
+
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    document.getElementById('output').innerHTML = err.message;
+                })
+            }
+
+            function stationdrilldown(stationname) {
+                document.getElementById("canvas-holder2").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder2").innerHTML = '<canvas id="chart-area2"></canvas>';
+
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "inline";
+                document.getElementById('chart-area3').style.display = "none";
+                document.getElementById('chart-area4').style.display = "none";
+               // alert(stationname);
+                
+
+                //  alert(stationname);
+                //ev.preventDefault();
+                //  alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                //  alert(stationname+"00");
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                //  alert(stationname + "01");
+                //  alert(stationname == "Singrauli");
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                    //  document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+
+                //    var table = document.getElementById('datatable01');//document.createElement('table');
+               //     table.style.border = "thin solid #a5f448";
+                    //  alert(stationname == "Singrauli");
+                    if (stationname == "Singrauli") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].e) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].e));
+                            }
+                        }
+                    }
+                    else if (stationname == "Rihand-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].f) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].f));
+                            }
+                        }
+                    }
+                    else if (stationname == "Rihand-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].g) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].g));
+                            }
+                        }
+                    }
+                    else if (stationname == "Rihand-III") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].h) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].h));
+                            }
+                        }
+                    }
+                    else if (stationname == "Unch-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].i) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].i));
+                            }
+                        }
+                    }
+                    else if (stationname == "Unch-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].j) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].j));
+                            }
+                        }
+                    }
+                    else if (stationname == "Unch-III") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].k) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].k));
+                            }
+                        }
+                    }
+                    else if (stationname == "Unch-IV") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].l) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].l));
+                            }
+                        }
+                    }
+                    else if (stationname == "Dadri-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].m) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].m));
+                            }
+                        }
+                    }
+                    else if (stationname == "Dadri-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].n) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].n));
+                            }
+                        }
+                    }
+                    else if (stationname == "Tanda") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].o) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].o));
+                            }
+                        }
+                    }
+                    else if (stationname == "BTPS") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].p) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].p));
+                            }
+                        }
+                    }
+                    else if (stationname == "Anta") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].q) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].q));
+                            }
+                        }
+                    }
+                    else if (stationname == "Auraiya") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].r) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].r));
+                            }
+                        }
+                    }
+                    else if (stationname == "Dadri Gas") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].s) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].s));
+                            }
+                        }
+                    }
+                    else if (stationname == "Faridabad") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].t) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].t));
+                            }
+                        }
+                    }
+                    else if (stationname == "Koldam ") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].u) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].u));
+                            }
+                        }
+                    }
+                    else if (stationname == "Korba I&II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].v) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].v));
+                            }
+                        }
+                    }
+                    else if (stationname == "Vind-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].w) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].w));
+                            }
+                        }
+                    }
+                    else if (stationname == "Vind-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].x) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].x));
+                            }
+                        }
+                    }
+                    else if (stationname == "Vind-III") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].y) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].y));
+                            }
+                        }
+                    }
+                    else if (stationname == "Kawas") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].z) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].z));
+                            }
+                        }
+                    }
+                    else if (stationname == "Gandhar") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].aa) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].aa));
+                            }
+                        }
+                    }
+                    else if (stationname == "Sipat-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ab) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ab));
+                            }
+                        }
+                    }
+                    else if (stationname == "Korba-III") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ac) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ac));
+                            }
+                        }
+                    }
+                    else if (stationname == "Sipat-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ad) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ad));
+                            }
+                        }
+                    }
+                    else if (stationname == "Vind-IV") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ae) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ae));
+                            }
+                        }
+                    }
+                    else if (stationname == "Mauda-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].af) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].af));
+                            }
+                        }
+                    }
+                    else if (stationname == "Vind-V") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ag) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ag));
+                            }
+                        }
+                    }
+                    else if (stationname == "Mauda-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ah) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ah));
+                            }
+                        }
+                    }
+                    else if (stationname == "Solapur") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ai) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ai));
+                            }
+                        }
+                    }
+                    else if (stationname == "Rama-I&II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].aj) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].aj));
+                            }
+                        }
+                    }
+                    else if (stationname == "Rama-III") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ak) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ak));
+                            }
+                        }
+                    }
+                    else if (stationname == "Simh-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].al) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].al));
+                            }
+                        }
+                    }
+                    else if (stationname == "Simh-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].am) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].am));
+                            }
+                        }
+                    }
+                    else if (stationname == "Tal-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].an) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].an));
+                            }
+                        }
+                    }
+                    else if (stationname == "KyCCPP") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ao) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ao));
+                            }
+                        }
+                    }
+                    else if (stationname == "Kudgi I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ap) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ap));
+                            }
+                        }
+                    }
+                    else if (stationname == "Ramagundam Solar") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].aq) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].aq));
+                            }
+                        }
+                    }
+                    else if (stationname == "A&N SOLAR") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ar) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ar));
+                            }
+                        }
+                    }
+                    else if (stationname == "Farakka") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].as) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].as));
+                            }
+                        }
+                    }
+                    else if (stationname == "Kh-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].at) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].at));
+                            }
+                        }
+                    }
+                    else if (stationname == "Kh-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].au) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].au));
+                            }
+                        }
+                    }
+                    else if (stationname == "TSTPS-I") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].av) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].av));
+                            }
+                        }
+                    }
+                    else if (stationname == "TTPS") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].aw) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].aw));
+                            }
+                        }
+                    }
+                    else if (stationname == "Farakka-III") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ax) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ax));
+                            }
+                        }
+                    }
+                    else if (stationname == "BARH") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ay) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ay));
+                            }
+                        }
+                    }
+                    else if (stationname == "Bongaigaon") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].az) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].az));
+                            }
+                        }
+                    }
+                    else if (stationname == "D SOLAR") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].ba) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].ba));
+                            }
+                        }
+                    }
+                    else if (stationname == "TAL SOL") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bb) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bb));
+                            }
+                        }
+                    }
+                    else if (stationname == "UNCH SOL") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bc) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bc));
+                            }
+                        }
+                    }
+                    else if (stationname == "FARD SOL") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bd) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bd));
+                            }
+                        }
+                    }
+                    else if (stationname == "RAJ SOL") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].be) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].be));
+                            }
+                        }
+                    }
+                    else if (stationname == "SING SOL") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bf) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bf));
+                            }
+                        }
+                    }
+                    else if (stationname == "Ananthapur Solar") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bg) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bg));
+                            }
+                        }
+                    }
+                    else if (stationname == "Bhadla Solar") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bh) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bh));
+                            }
+                        }
+                    }
+                    else if (stationname == "Mandsaur Solar") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bi) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bi));
+                            }
+                        }
+                    }
+                    else if (stationname == "Rojmal Wind Power") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bj) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bj));
+                            }
+                        }
+                    }
+                    else if (stationname == "Jhajjar") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bm) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bm));
+                            }
+                        }
+                    }
+                    else if (stationname == "Vallur") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bn) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bn));
+                            }
+                        }
+                    }
+                    else if (stationname == "Ratnagiri") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bo) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bo));
+                            }
+                        }
+                    }
+                    else if (stationname == "Muzaffarpur") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bp) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bp));
+                            }
+                        }
+                    }
+                    else if (stationname == "Raurkela") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bq) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bq));
+                            }
+                        }
+                    }
+                    else if (stationname == "Durgapur") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].br) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].br));
+                            }
+                        }
+                    }
+                    else if (stationname == "Bhillai CPP-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bs) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bs));
+                            }
+                        }
+                    }
+                    else if (stationname == "Bhillai CPP-III") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bt) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bt));
+                            }
+                        }
+                    }
+                    else if (stationname == "BRBCL") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bu) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bu));
+                            }
+                        }
+                    }
+                    else if (stationname == "KBUNL-II") {
+                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bv) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bv));
+                            }
+                        }
+                    }
+
+
+
+                    var ctx = document.getElementById("chart-area2").getContext("2d");
+                    //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    //alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+
+                    document.getElementById("chart-area2").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                        // alert(label + "---" + value);
+                        //window.location.reload();
+                        statedrilldown(label); //console.log(label, value);
+                    };
+
+
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    document.getElementById('output').innerHTML = err.message;
+                })
+            }
+
+            function stateregion() {
+                document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3"></canvas>';
+
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "none";
+                document.getElementById('chart-area3').style.display = "inline";
+                document.getElementById('chart-area4').style.display = "none";
+
+                //  alert(stationname);
+                //ev.preventDefault();
+                //  alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                //  alert(stationname+"00");
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                //  alert(stationname + "01");
+                //  alert(stationname == "Singrauli");
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                    //  document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+
+                    var NR = 0;
+                    var SR = 0;
+                    var WR = 0;
+                    var ER = 0;
+                    var SPL = 0;
+
+                  //  var table = document.getElementById('datatable01');//document.createElement('table');
+                 //   table.style.border = "thin solid #a5f448";
+                    //  alert(stationname == "Singrauli");
+
+
+                    for (var i = 2; i < (obj.data.length - 1) ; i++) {
+
+                        if (obj.data[i].a == "Uttar Pradesh" || obj.data[i].a == "Uttrakhand" || obj.data[i].a == "Rajasthan" || obj.data[i].a == "Delhi" || obj.data[i].a == "Punjab" || obj.data[i].a == "Haryana" || obj.data[i].a == "Himachal" || obj.data[i].a == "J&K" || obj.data[i].a == "Chandigarh")
+                            NR += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "Madhya Pradesh" || obj.data[i].a == "Chattisgarh" || obj.data[i].a == "Maharastra" || obj.data[i].a == "Gujarat" || obj.data[i].a == "Goa" || obj.data[i].a == "Daman & Diu" || obj.data[i].a == "Dadra & Nagar Haveli")
+                            WR += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "Andhra Pradesh" || obj.data[i].a == "Karnataka" || obj.data[i].a == "Tamil Nadu" || obj.data[i].a == "Kerala" || obj.data[i].a == "A & N" || obj.data[i].a == "TELANGANA" || obj.data[i].a == "PUDUCHERRY")
+                            SR += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "West Bengal" || obj.data[i].a == "Bihar" || obj.data[i].a == "Jharkhand" || obj.data[i].a == "Odisha" || obj.data[i].a == "Sikkim" || obj.data[i].a == "Assam" || obj.data[i].a == "Meghalaya" || obj.data[i].a == "Tripura" || obj.data[i].a == "Nagaland" || obj.data[i].a == "Arunachal" || obj.data[i].a == "Mizoram" || obj.data[i].a == "Manipur")
+                            ER += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "Railways" || obj.data[i].a == "SAIL" || obj.data[i].a == "DVC" || obj.data[i].a == "PGCIL" || obj.data[i].a == "Bangladesh" || obj.data[i].a == "NTPC Merchant Power")
+                            SPL += parseFloat(obj.data[i].b);
+                    }
+
+
+                    benefSeries.push("NR");
+                    benefSeries.push("WR");
+                    benefSeries.push("SR");
+                    benefSeries.push("ER");
+                    benefSeries.push("Others");
+                    totalSeries.push(parseFloat(NR));
+                    totalSeries.push(parseFloat(SR));
+                    totalSeries.push(parseFloat(WR));
+                    totalSeries.push(parseFloat(ER));
+                    totalSeries.push(parseFloat(SPL));
+
+
+
+                    var ctx = document.getElementById("chart-area3").getContext("2d");
+                    //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    //alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+
+                    document.getElementById("chart-area3").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                        // alert(label + "---" + value);
+                        //window.location.reload();
+                        stateregiondrilldown(label); //console.log(label, value);
+                    };
+
+
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    document.getElementById('output').innerHTML = err.message;
+                })
+            }
+
+            function stateregiondrilldown(region) {
+                document.getElementById("canvas-holder4").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder4").innerHTML = '<canvas id="chart-area4"></canvas>';
+
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "none";
+                document.getElementById('chart-area3').style.display = "none";
+                document.getElementById('chart-area4').style.display = "inline";
+
+                //  alert(stationname);
+                //ev.preventDefault();
+                //  alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                //  alert(stationname+"00");
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                //  alert(stationname + "01");
+                //  alert(stationname == "Singrauli");
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                    //  document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+
+              //      var table = document.getElementById('datatable01');//document.createElement('table');
+              //      table.style.border = "thin solid #a5f448";
+                    //  alert(stationname == "Singrauli");
+
+                    if (region == "NR") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+
+                            if (obj.data[i].a == "Uttar Pradesh" || obj.data[i].a == "Uttrakhand" || obj.data[i].a == "Rajasthan" || obj.data[i].a == "Delhi" || obj.data[i].a == "Punjab" || obj.data[i].a == "Haryana" || obj.data[i].a == "Himachal" || obj.data[i].a == "J&K" || obj.data[i].a == "Chandigarh") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+                            }
+                        }
+                    }
+                    else if (region == "WR") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "Madhya Pradesh" || obj.data[i].a == "Chattisgarh" || obj.data[i].a == "Maharastra" || obj.data[i].a == "Gujarat" || obj.data[i].a == "Goa" || obj.data[i].a == "Daman & Diu" || obj.data[i].a == "Dadra & Nagar Haveli") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+                            }
+                        }
+                    }
+                    else if (region == "SR") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "Andhra Pradesh" || obj.data[i].a == "Karnataka" || obj.data[i].a == "Tamil Nadu" || obj.data[i].a == "Kerala" || obj.data[i].a == "A & N" || obj.data[i].a == "TELANGANA" || obj.data[i].a == "PUDUCHERRY") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+                            }
+                        }
+                    }
+                    else if (region == "ER") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "West Bengal" || obj.data[i].a == "Bihar" || obj.data[i].a == "Jharkhand" || obj.data[i].a == "Odisha" || obj.data[i].a == "Sikkim" || obj.data[i].a == "Assam" || obj.data[i].a == "Meghalaya" || obj.data[i].a == "Tripura" || obj.data[i].a == "Nagaland" || obj.data[i].a == "Arunachal" || obj.data[i].a == "Mizoram" || obj.data[i].a == "Manipur") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+                            }
+                        }
+                    }
+                    else if (region == "SPL") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "Railways" || obj.data[i].a == "SAIL" || obj.data[i].a == "DVC" || obj.data[i].a == "PGCIL" || obj.data[i].a == "Bangladesh" || obj.data[i].a == "NTPC Merchant Power") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+                            }
+                        }
+                    }
+
+
+
+                    var ctx = document.getElementById("chart-area4").getContext("2d");
+                    //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    //alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+
+                    document.getElementById("chart-area4").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                        // alert(label + "---" + value);
+                        //window.location.reload();
+                        statedrilldown(label); //console.log(label, value);
+                    };
+
+
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    document.getElementById('output').innerHTML = err.message;
+                })
+            }
+
+
+
+            // }
+        </script>
+
+</body>
+</html>
