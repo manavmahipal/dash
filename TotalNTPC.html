@@ -5,9 +5,11 @@
    <meta charset='utf-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://manavmahipal.github.io/dash/styles.css">
-   <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="https://manavmahipal.github.io/dash/script_market.js"></script>
+	
+    <link rel="stylesheet" href="https://manavmahipal.github.io/dash/styles.css">
+    <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://manavmahipal.github.io/dash/script_alloc.js"></script>
+	
    <title>CSS MenuMaker</title>
     <style>
         .table1 {
@@ -50,73 +52,161 @@
 	<button id="addDataset">Add Dataset</button>
 	<button id="removeDataset">Remove Dataset</button>
 	<script>
-		var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
-		};
-		var config = {
-			type: 'pie',
-			data: {
-				datasets: [{
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-					],
-					backgroundColor: [
-						window.chartColors.red,
-						window.chartColors.orange,
-						window.chartColors.yellow,
-						window.chartColors.green,
-						window.chartColors.blue,
-					],
-					label: 'Dataset 1'
-				}],
-				labels: [
-					'Orange',
-					'Red',
-					'Yellow',
-					'Green',
-					'Blue'
-				]
-			},
-			options: {
-				responsive: true
-			}
-		};
-		window.onload = function() {
-			var ctx = document.getElementById('chart-area').getContext('2d');
-			window.myPie = new Chart(ctx, config);
-		};
-		document.getElementById('randomizeData').addEventListener('click', function() {
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data = dataset.data.map(function() {
-					return randomScalingFactor();
-				});
-			});
-			window.myPie.update();
-		});
-		var colorNames = Object.keys(window.chartColors);
-		document.getElementById('addDataset').addEventListener('click', function() {
-			var newDataset = {
-				backgroundColor: [],
-				data: [],
-				label: 'New dataset ' + config.data.datasets.length,
-			};
-			for (var index = 0; index < config.data.labels.length; ++index) {
-				newDataset.data.push(randomScalingFactor());
-				var colorName = colorNames[index % colorNames.length];
-				var newColor = window.chartColors[colorName];
-				newDataset.backgroundColor.push(newColor);
-			}
-			config.data.datasets.push(newDataset);
-			window.myPie.update();
-		});
-		document.getElementById('removeDataset').addEventListener('click', function() {
-			config.data.datasets.splice(0, 1);
-			window.myPie.update();
-		});
+		 let key,
+                sheetNum,
+                sheetType, counter = 0;
+            function readValues() {
+                key = '1iYytiqDgwxm8-kftu7S8jcAumkgc-zL2TXeivUivGhM';
+                sheetNum = '7';
+                sheetType = 'cols';
+            }
+            window.onload = function (ev) {
+                ev.preventDefault();
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                stateregion();
+	    }
+		  function stateregion() {
+                document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3"></canvas>';
+
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "none";
+                document.getElementById('chart-area3').style.display = "inline";
+                document.getElementById('chart-area4').style.display = "none";
+
+                //  alert(stationname);
+                //ev.preventDefault();
+                //  alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                //  alert(stationname+"00");
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                //  alert(stationname + "01");
+                //  alert(stationname == "Singrauli");
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                    //  document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+
+                    var NR = 0;
+                    var SR = 0;
+                    var WR = 0;
+                    var ER = 0;
+                    var SPL = 0;
+
+                  //  var table = document.getElementById('datatable01');//document.createElement('table');
+                 //   table.style.border = "thin solid #a5f448";
+                    //  alert(stationname == "Singrauli");
+
+
+                    for (var i = 2; i < (obj.data.length - 1) ; i++) {
+
+                        if (obj.data[i].a == "Uttar Pradesh" || obj.data[i].a == "Uttrakhand" || obj.data[i].a == "Rajasthan" || obj.data[i].a == "Delhi" || obj.data[i].a == "Punjab" || obj.data[i].a == "Haryana" || obj.data[i].a == "Himachal" || obj.data[i].a == "J&K" || obj.data[i].a == "Chandigarh")
+                            NR += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "Madhya Pradesh" || obj.data[i].a == "Chattisgarh" || obj.data[i].a == "Maharastra" || obj.data[i].a == "Gujarat" || obj.data[i].a == "Goa" || obj.data[i].a == "Daman & Diu" || obj.data[i].a == "Dadra & Nagar Haveli")
+                            WR += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "Andhra Pradesh" || obj.data[i].a == "Karnataka" || obj.data[i].a == "Tamil Nadu" || obj.data[i].a == "Kerala" || obj.data[i].a == "A & N" || obj.data[i].a == "TELANGANA" || obj.data[i].a == "PUDUCHERRY")
+                            SR += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "West Bengal" || obj.data[i].a == "Bihar" || obj.data[i].a == "Jharkhand" || obj.data[i].a == "Odisha" || obj.data[i].a == "Sikkim" || obj.data[i].a == "Assam" || obj.data[i].a == "Meghalaya" || obj.data[i].a == "Tripura" || obj.data[i].a == "Nagaland" || obj.data[i].a == "Arunachal" || obj.data[i].a == "Mizoram" || obj.data[i].a == "Manipur")
+                            ER += parseFloat(obj.data[i].b);
+                        if (obj.data[i].a == "Railways" || obj.data[i].a == "SAIL" || obj.data[i].a == "DVC" || obj.data[i].a == "PGCIL" || obj.data[i].a == "Bangladesh" || obj.data[i].a == "NTPC Merchant Power")
+                            SPL += parseFloat(obj.data[i].b);
+                    }
+
+
+                    benefSeries.push("NR");
+                    benefSeries.push("WR");
+                    benefSeries.push("SR");
+                    benefSeries.push("ER");
+                    benefSeries.push("Others");
+                    totalSeries.push(parseFloat(NR));
+                    totalSeries.push(parseFloat(SR));
+                    totalSeries.push(parseFloat(WR));
+                    totalSeries.push(parseFloat(ER));
+                    totalSeries.push(parseFloat(SPL));
+
+
+
+                    var ctx = document.getElementById("chart-area3").getContext("2d");
+                    //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    //alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+
+                    document.getElementById("chart-area3").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                        // alert(label + "---" + value);
+                        //window.location.reload();
+                        stateregiondrilldown(label); //console.log(label, value);
+                    };
+
+
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    document.getElementById('output').innerHTML = err.message;
+                })
+            }
 	</script>
 </body>
 
