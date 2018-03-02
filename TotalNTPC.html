@@ -67,18 +67,7 @@
                 stateregion();
 	    }
 		  function stateregion() {
-                document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3"></canvas>';
-
-                document.getElementById('chart-area').style.display = "none";
-                document.getElementById('chart-area1').style.display = "none";
-                document.getElementById('chart-area2').style.display = "none";
-                document.getElementById('chart-area3').style.display = "inline";
-                document.getElementById('chart-area4').style.display = "none";
-
-                //  alert(stationname);
-                //ev.preventDefault();
-                //  alert(statename + "state name");
+                
                 readValues();
                 console.log(key, sheetNum, sheetType);
                 //  alert(stationname+"00");
@@ -149,10 +138,9 @@
                     totalSeries.push(parseFloat(WR));
                     totalSeries.push(parseFloat(ER));
                     totalSeries.push(parseFloat(SPL));
+			alert(parseFloat(NR));
 
-
-
-                    var ctx = document.getElementById("chart-area3").getContext("2d");
+                    var ctx = document.getElementById("chart-area").getContext("2d");
                     //  alert(benefSeries[0] + "******" + totalSeries[0]);
                     ///   alert(benefSeries[1] + "******" + totalSeries[1]);
                     //   alert(benefSeries[6] + "******" + totalSeries[2]);
@@ -189,7 +177,7 @@
                     //alert("yahoo1");
                     window.myPie = new Chart(ctx, config);
 
-                    document.getElementById("chart-area3").ondblclick = function (evt) {
+                    document.getElementById("chart-area").ondblclick = function (evt) {
                         var activePoint = myPie.getElementAtEvent(evt)[0];
                         var data = activePoint._chart.data;
                         var datasetIndex = activePoint._datasetIndex;
@@ -197,7 +185,7 @@
                         var value = data.datasets[datasetIndex].data[activePoint._index];
                         // alert(label + "---" + value);
                         //window.location.reload();
-                        stateregiondrilldown(label); //console.log(label, value);
+                       // stateregiondrilldown(label); //console.log(label, value);
                     };
 
 
