@@ -50,6 +50,14 @@
         //     console.log('Error');
         //     console.log(err);
         // })
+        function showdesciption(descripcounter) {
+            var x = document.getElementById(descripcounter);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
 
         function readValues() {
           key = '1YTIxCZJL09LWG-MZh9n0XCW4WzaLdL-BM0GKnR4RXgE';
@@ -163,7 +171,7 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                     tabCell2.style.border = "thin solid #a5f448";
                     tabCell2.style.backgroundColor = "#e9ff74";
                     tabCell2.colSpan = "5";
-                    tabCell2.innerHTML ="<b>Desciption : </b><br/>"+ obj.data[i].descrip;
+                    tabCell2.innerHTML = "<b><a href=\"#\" onclick='showdesciption(" + counter + ")'>Desciption : </a></b><br/><div style=\"display:none;\" name=\"" + counter + "\ value=\"" + counter + "\ id=\"" + counter + "\">" + obj.data[i].descrip + "</div>";
 
                     tr2 = table.insertRow(-1);
                     var tabCell4 = tr2.insertCell(-1);
