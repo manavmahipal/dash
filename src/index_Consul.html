@@ -1,0 +1,276 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>get-sheet-done demo</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #theForm {
+            border: 1px solid silver;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        #theForm > div {
+            margin-bottom: 10px;
+        }
+        .label {
+            display: inline-block;
+            width: 150px;
+        }
+        #key {
+            width: 400px;
+            max-width: 100%;
+        }
+        #output {
+            overflow: auto;
+        }
+        .checkboxGroup {
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+
+  <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+  <script src="GetSheetDone.js"></script>
+  <script>
+
+        let key,
+            sheetNum,
+            sheetType,counter=0;
+
+     // attachEvents();
+
+        // GetSheetDone(KEY, 1, false, true).then((data) => {
+        //     console.log('Data');
+        //     console.log(JSON.stringify(data));
+        // }).catch(err => {
+        //     console.log('Error');
+        //     console.log(err);
+        // })
+       /* function showdesciption(descripcounter) {
+            var x = document.getElementById(descripcounter);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        */
+        function readValues() {
+          key = '1YTIxCZJL09LWG-MZh9n0XCW4WzaLdL-BM0GKnR4RXgE';
+            sheetNum ='2';
+            sheetType = 'cols';
+        }
+       // $form.submit();
+        //function attachEvents() {
+         // alert("I am an alert box!");
+          //document.getElementById('theForm').submit();
+          window.onload = function (ev) { 
+           // alert("I am an alert boxasdfsadas!");
+             ev.preventDefault();
+            readValues();
+            console.log(key, sheetNum, sheetType);
+
+            let promise;
+            switch (sheetType) {
+              case 'cols':
+                promise = GetSheetDone.labeledCols(key, sheetNum);
+                break;
+              case 'cols-rows':
+                promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                break;
+              case 'raw':
+              default:
+                promise = GetSheetDone.raw(key, sheetNum);
+                break;
+            }
+          //  alert("I am an alert boxasdfsadas!");
+            promise.then((data) => {
+          //    console.log('Data');
+           //   console.log(data);
+            //  document.getElementById('output').innerHTML = JSON.stringify(data.data);
+
+              var jsonarray = JSON.stringify(data);
+              var obj = JSON.parse(jsonarray);
+             // document.getElementById("showDatafirst").innerHTML = obj.title + ", " + obj.updated + ", " + obj.data.length + "</span><br/>";
+
+             // var objjjjj = JSON.parse(obj.data);
+            
+              alert(jsonarray);
+             
+
+
+             // JSON.Array jsonaaarray = new JSONArray(jsonString);
+//document.getElementById('showDatafirst').innerHTML = "</span><br/>" + jsonarray;
+var coll = [];
+for (var i = 0; i < obj.data.length; i++) {
+    for (var ky in obj.data[i]) {
+                if (coll.indexOf(ky) === -1) {
+                    coll.push(ky);
+                }
+            }
+        }
+
+// CREATE DYNAMIC TABLE.
+var table = document.getElementById('datatable01');//document.createElement('table');
+        table.style.border = "thin solid #a5f448";
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+      //  var tr = table.insertRow(-1);                   // TABLE ROW.
+
+      /*  for (var i = 0; i < 8; i++) {
+            var th = document.createElement("th");
+            th.style.border = "thin solid #a5f448";
+            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 6)
+            {
+                th.innerHTML = coll[i];
+                tr.appendChild(th);
+            }
+            else if (i == 7) {
+                th.innerHTML = coll[10];
+                tr.appendChild(th);
+            }
+            else
+            {
+                th.innerHTML = "";//coll[i];
+                tr.appendChild(th);
+            }            
+        }
+ */
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < obj.data.length; i++) {
+
+            
+            tr = table.insertRow(-1);
+            
+            var tabCell0 = tr.insertCell(-1);
+            tabCell0.style.border = "thin solid #a5f448";
+            tabCell0.style.backgroundColor = "#abb5ff";
+            tabCell0.style.width = "5%";
+                    counter = counter + 1;
+                    tabCell0.innerHTML = counter;
+
+
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.style.border = "thin solid #a5f448";
+                    tabCell1.style.backgroundColor = "#e1f8ff";
+                    tabCell1.colSpan = "3";
+                    tabCell1.innerHTML = "Issue: " + obj.data[i].issue + " <span style=\"color:#fa8072;\">(Raised By: " + obj.data[i].raisedby + ")</span>";
+
+                    tr1 = table.insertRow(-1);
+                    var tabCell2 = tr1.insertCell(-1);
+                    tabCell2.style.border = "thin solid #a5f448";
+                    tabCell2.style.backgroundColor = "#e9ff74";
+                    tabCell2.colSpan = "5";
+                    tabCell2.innerHTML = "<b>Action Plan : </b><br/>" + obj.data[i].actionplan;
+
+                    tr1 = table.insertRow(-1);
+                    var tabCell2 = tr1.insertCell(-1);
+                    tabCell2.style.border = "thin solid #a5f448";
+                    tabCell2.style.backgroundColor = "#e9ff74";
+                    tabCell2.colSpan = "5";
+                    tabCell2.innerHTML = "<b>Status : </b><br/>" + obj.data[i].status;
+
+
+                    tr2 = table.insertRow(-1);
+                    var tabCell4 = tr2.insertCell(-1);
+                    tabCell4.style.border = "thin solid #a5f448";
+                    tabCell4.style.backgroundColor = "#f6ffc7";
+                    tabCell4.style.width = "33%";
+                    tabCell4.colSpan = "3";
+                    tabCell4.innerHTML = "Target date -" + obj.data[i].targetdate;
+
+                    var tabCell5 = tr2.insertCell(-1);
+                    tabCell5.style.border = "thin solid #a5f448";
+                    tabCell5.style.backgroundColor = "#f6ffc7";
+                    tabCell5.innerHTML = "commitment -" + obj.data[i].presentcommitment;
+
+                    tr2 = table.insertRow(-1);
+                    var tabCell4 = tr2.insertCell(-1);
+                    tabCell4.style.border = "thin solid #a5f448";
+                    tabCell4.style.backgroundColor = "#f6ffc7";
+                    tabCell4.style.width = "33%";
+                    tabCell4.colSpan = "3";
+                    tabCell4.innerHTML = "Responsibility -" + obj.data[i].responsibility;
+
+                    var tabCell5 = tr2.insertCell(-1);
+                    tabCell5.style.border = "thin solid #a5f448";
+                    tabCell5.style.backgroundColor = "#f6ffc7";
+                    tabCell5.innerHTML = "Monitored by -" + obj.data[i].monitoredby;
+
+                    tr1 = table.insertRow(-1);
+                    var tabCell2 = tr1.insertCell(-1);
+                    tabCell2.style.border = "thin solid #a5f448";
+                    tabCell2.style.backgroundColor = "#e9ff74";
+                    tabCell2.colSpan = "5";
+                    tabCell2.innerHTML = "<b>Remarks by D(Comm) : </b><br/>" + obj.data[i].remarksdcom;
+
+                    tr1 = table.insertRow(-1);
+                    var tabCell2 = tr1.insertCell(-1);
+                    tabCell2.style.border = "thin solid #a5f448";
+                    tabCell2.style.backgroundColor = "#f6fcff";
+                    tabCell2.colSpan = "5";
+                    tabCell2.innerHTML = "&nbsp;&nbsp;";
+
+
+                    
+
+           // }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        
+        document.getElementById('showData').innerHTML = '';
+        document.getElementById('showData').appendChild(table);
+
+
+
+
+
+
+
+            }).catch(err => {
+              console.log('Error');
+              console.log(err);
+              document.getElementById('output').innerHTML = err.message;
+            })
+          }
+
+
+
+      
+
+      // }
+  </script>
+</head >
+      <body>
+
+          <div id="typeselect" style="width:100%;display:none;">
+              <select name="typedrop" id="typedrop" style="width:100%;height:30px;font-size:20px;"> <!-- onchange="typeselect(this.value)">-->
+                  <option value="1">Regulatory Issues</option>
+                  <option value="2">Billing & Realization</option>
+                  <option value="3">Allocation</option>
+                  <option value="4">PPA</option>
+                  <option value="5">Misc.</option>
+              </select>
+          </div>
+
+          <br/>
+          <div id="output">
+        </div>
+
+<div id="showDatafirst">
+        </div>
+
+
+          <table id="datatable01" cellpadding="0" cellspacing="0">
+          </table>
+
+<div id="showData">
+        </div>
+
+</body>
+</html>
