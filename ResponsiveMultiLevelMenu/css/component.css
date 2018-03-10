@@ -28,7 +28,7 @@
 .dl-menuwrapper button {
 	background: #08cbc4;
 	border: none;
-	width: 10%;
+	width: 15%;
 	height: 10vh;
     vertical-align:top;
 	text-indent: -900em;
@@ -46,6 +46,7 @@
 
 .dl-menuwrapper button:after {
 	content: '';
+    align-self:center;
 	position: absolute;
 	width: 68%;
 	height: 5px;
