@@ -49,15 +49,32 @@
 
   <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
   <script src="GetSheetDone.js"></script>
+    <script src="Chart.PieceLabel.js"></script>
+
+    <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="utils.js"></script>
+
+    <script type="text/javascript" src="https://manavmahipal.github.io/dash/Chart.PieceLabel.js"></script>
+
+    <script src="chartjs-plugin-datalabels.js"></script>
 
 </head >
       <body>
-
-           <div id="showDataaa">
+          <div id="typeselect" style="width:100%;">
+              <select name="typedrop" id="typedrop" style="width:100%;height:30px;font-size:20px;" onchange="typeselect(this.value)">
+                  <option value="1">Dues more than 60 days</option>
+                  <option value="2">Dues more than 30 days</option>
+                  <option value="3">Dues less than 30 days</option>
+              </select>
           </div>
-          <div id="container" style="margin: 0 auto;height:900px;"></div>
-          <script src="https://code.highcharts.com/highcharts.js"></script>
-          <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+          <div id="canvas-holder3" style="width:100%;height:500px;overflow:scroll;">
+              <canvas id="chart-area3"  style="width:100%;height:480px;" />
+          </div>
+          <div style="width: 75%">
+              <canvas id="canvas"></canvas>
+          </div>
           <script>
 
 
@@ -67,7 +84,7 @@
 
               function readValues() {
                   key = '1GLmA6FKZ166Fq4l0y6CwyEGJopgtcZiIFtyKdU02nvc';
-                  sheetNum = '1';
+                  sheetNum = '3';
                   sheetType = 'cols';
               }
 
@@ -101,307 +118,139 @@
                           }
                       }
                       // CREATE DYNAMIC TABLE.
-                      var table = document.getElementById('datatable02');//document.createElement('table');
+                    //  var table = document.getElementById('datatable02');//document.createElement('table');
                     //  table.style.border = "thin solid #a5f448";
                       // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-                      var plantlist = obj.data;
+                   //   var plantlist = obj.data;
                      // document.getElementById('showDataaa').innerHTML = jsonarray;
                       var int32View = new Float64Array();
                       var benefSeries = [];
                       var totalSeries = [];
-                      var table1 = document.getElementById('datatable03');
-                          
+
+                      var raj = 0;
+                      var del = 0;
+                      var pgcil = 0;
+                      var mp = 0;
+                      var kar = 0;
+                     // var table1 = document.getElementById('datatable03');
+                 //     alert(jsonarray);
                       
                       // ADD JSON DATA TO THE TABLE AS ROWS.
                       for (var i = 0; i < obj.data.length; i++) {
-                          benefSeries.push(obj.data[i].benef);
-                          totalSeries.push(parseFloat(obj.data[i].total));
-
-                          if (i == 0) {
-                              tr = table.insertRow(-1);
-
-                              tr1 = table1.insertRow(-1);
-                              var tabCell1011 = tr1.insertCell(-1);
-                              tabCell1011.style.border = "thin solid #a5f448";
-                              tabCell1011.style.backgroundColor = "#3a4c39";
-                              tabCell1011.style.color = "#e6fee6";
-                              tabCell1011.style.width = "5%";
-                              tabCell1011.style.fontSize = "10px";
-                              tabCell1011.innerHTML = "No";
-              
-
-                              var tabCell111 = tr1.insertCell(-1);
-                              tabCell111.style.border = "thin solid #a5f448";
-                              tabCell111.style.backgroundColor = "#3a4c39";
-                              tabCell111.style.color = "#e6fee6";
-                              tabCell111.style.width = "20px";
-                              tabCell111.style.fontSize = "10px";
-                              tabCell111.innerHTML = "Beneficiary";
-
-                              var tabCell12 = tr.insertCell(-1);
-                              tabCell12.style.border = "thin solid #a5f448";
-                              tabCell12.style.backgroundColor = "#3a4c39";
-                              tabCell12.style.color = "#e6fee6";
-                              tabCell12.style.fontSize = "10px";
-                              tabCell12.innerHTML = "rebatable amount (Rs.-lacs)";
-
-                              var tabCell13 = tr.insertCell(-1);
-                              tabCell13.style.border = "thin solid #a5f448";
-                              tabCell13.style.backgroundColor = "#3a4c39";
-                              tabCell13.style.color = "#e6fee6";
-                              tabCell13.style.fontSize = "10px";
-                              tabCell13.innerHTML = "non rebatable amount (Rs.-lacs)";
-
-                              var tabCell14 = tr.insertCell(-1);
-                              tabCell14.style.border = "thin solid #a5f448";
-                              tabCell14.style.backgroundColor = "#3a4c39";
-                              tabCell14.style.color = "#e6fee6";
-                              tabCell14.style.fontSize = "10px";
-                              tabCell14.innerHTML = "interest (Rs.-lacs)";
-
-                              var tabCell15 = tr.insertCell(-1);
-                              tabCell15.style.border = "thin solid #a5f448";
-                              tabCell15.style.backgroundColor = "#3a4c39";
-                              tabCell15.style.color = "#e6fee6";
-                              tabCell15.style.fontSize = "10px";
-                              tabCell15.innerHTML = "LPSC (Rs.-lacs)";
-
-                              var tabCell16 = tr.insertCell(-1);
-                              tabCell16.style.border = "thin solid #a5f448";
-                              tabCell16.style.backgroundColor = "#3a4c39";
-                              tabCell16.style.color = "#e6fee6";
-                              tabCell16.style.fontSize = "10px";
-                              tabCell16.innerHTML = "compensation (Rs.-lacs)";
-
-                              var tabCell17 = tr.insertCell(-1);
-                              tabCell17.style.border = "thin solid #a5f448";
-                              tabCell17.style.backgroundColor = "#3a4c39";
-                              tabCell17.style.color = "#e6fee6";
-                              tabCell17.style.fontSize = "10px";
-                              tabCell17.innerHTML = "URS Gain (Rs.-lacs)";
-
-                              var tabCell18 = tr.insertCell(-1);
-                              tabCell18.style.border = "thin solid #a5f448";
-                              tabCell18.style.backgroundColor = "#3a4c39";
-                              tabCell18.style.color = "#e6fee6";
-                              tabCell18.style.fontSize = "10px";
-                              tabCell18.innerHTML = "Rebate Adj (Rs.-lacs)";
-
-                              var tabCell19 = tr.insertCell(-1);
-                              tabCell19.style.border = "thin solid #a5f448";
-                              tabCell19.style.backgroundColor = "#3a4c39";
-                              tabCell19.style.color = "#e6fee6";
-                              tabCell19.style.fontSize = "10px";
-                              tabCell19.innerHTML = "RRAS_credit (Rs.-lacs)";
-
-                              var tabCell110 = tr.insertCell(-1);
-                              tabCell110.style.border = "thin solid #a5f448";
-                              tabCell110.style.backgroundColor = "#3a4c39";
-                              tabCell110.style.color = "#e6fee6";
-                              tabCell110.style.fontSize = "10px";
-                              tabCell110.innerHTML = "Total (Rs.-lacs)";
-
-
-
-                              tr = table.insertRow(-1);
-
-                              tr1 = table1.insertRow(-1);
-                              var tabCell0123 = tr1.insertCell(-1);
-                              tabCell0123.style.border = "thin solid #a5f448";
-                              tabCell0123.style.backgroundColor = "#abb5ff";
-                              tabCell0123.style.width = "5%";
-                              tabCell0123.style.fontSize = "10px";
-                              counter = counter + 1;
-                              tabCell0123.innerHTML = counter;
-
-                              
-
-                              var tabCell1 = tr1.insertCell(-1);
-                              tabCell1.style.border = "thin solid #a5f448";
-                              tabCell1.style.backgroundColor = "#c9ebff";
-                              tabCell1.style.width = "20px";
-                              tabCell1.style.fontSize = "10px";
-                              tabCell1.innerHTML = obj.data[i].benef;
-
-                              var tabCell3 = tr.insertCell(-1);
-                              tabCell3.style.border = "thin solid #a5f448";
-                              tabCell3.style.backgroundColor = "#e1f8ff";
-                              tabCell3.style.fontSize = "10px";
-                              tabCell3.innerHTML = obj.data[i].rebatableamt;
-
-                              var tabCell4 = tr.insertCell(-1);
-                              tabCell4.style.border = "thin solid #a5f448";
-                              tabCell4.style.backgroundColor = "#e1f8ff";
-                              tabCell4.style.fontSize = "10px";
-                              tabCell4.innerHTML = obj.data[i].nonrebatableamt;
-
-                              var tabCell5 = tr.insertCell(-1);
-                              tabCell5.style.border = "thin solid #a5f448";
-                              tabCell5.style.backgroundColor = "#e1f8ff";
-                              tabCell5.style.fontSize = "10px";
-                              tabCell5.innerHTML = obj.data[i].int;
-
-                              var tabCell6 = tr.insertCell(-1);
-                              tabCell6.style.border = "thin solid #a5f448";
-                              tabCell6.style.backgroundColor = "#e1f8ff";
-                              tabCell6.style.fontSize = "10px";
-                              tabCell6.innerHTML = obj.data[i].lpsc;
-
-                              var tabCell7 = tr.insertCell(-1);
-                              tabCell7.style.border = "thin solid #a5f448";
-                              tabCell7.style.backgroundColor = "#e1f8ff";
-                              tabCell7.style.fontSize = "10px";
-                              tabCell7.innerHTML = obj.data[i].comp;
-
-                              var tabCell8 = tr.insertCell(-1);
-                              tabCell8.style.border = "thin solid #a5f448";
-                              tabCell8.style.backgroundColor = "#e1f8ff";
-                              tabCell8.style.fontSize = "10px";
-                              tabCell8.innerHTML = obj.data[i].ursgain;
-
-                              var tabCell9 = tr.insertCell(-1);
-                              tabCell9.style.border = "thin solid #a5f448";
-                              tabCell9.style.backgroundColor = "#e1f8ff";
-                              tabCell9.style.fontSize = "10px";
-                              tabCell9.innerHTML = obj.data[i].rebateadj;
-
-                              var tabCell10 = tr.insertCell(-1);
-                              tabCell10.style.border = "thin solid #a5f448";
-                              tabCell10.style.backgroundColor = "#e1f8ff";
-                              tabCell10.style.fontSize = "10px";
-                              tabCell10.innerHTML = obj.data[i].rrascredit;
-
-                              var tabCell11 = tr.insertCell(-1);
-                              tabCell11.style.border = "thin solid #a5f448";
-                              tabCell11.style.backgroundColor = "#e1f8ff";
-                              tabCell11.style.fontSize = "10px";
-                              tabCell11.innerHTML = obj.data[i].total;
-
-                          }
-                          else {
-                              tr1 = table1.insertRow(-1);
-                              var tabCell0123 = tr1.insertCell(-1);
-                              tabCell0123.style.border = "thin solid #a5f448";
-                              tabCell0123.style.backgroundColor = "#abb5ff";
-                              tabCell0123.style.width = "5%";
-                              tabCell0123.style.fontSize = "10px";
-                              counter = counter + 1;
-                              tabCell0123.innerHTML = counter;
-                              
-                              var tabCell1 = tr1.insertCell(-1);
-                              tabCell1.style.border = "thin solid #a5f448";
-                              tabCell1.style.backgroundColor = "#c9ebff";
-                              tabCell1.style.width = "20px";
-                              tabCell1.style.fontSize = "10px";
-                              tabCell1.innerHTML = obj.data[i].benef;
-
-
-
-                              tr = table.insertRow(-1);
-                              
-
-
-                              var tabCell3 = tr.insertCell(-1);
-                              tabCell3.style.border = "thin solid #a5f448";
-                              tabCell3.style.backgroundColor = "#e1f8ff";
-                              tabCell3.style.fontSize = "10px";
-                              tabCell3.innerHTML = obj.data[i].rebatableamt;
-
-                              var tabCell4 = tr.insertCell(-1);
-                              tabCell4.style.border = "thin solid #a5f448";
-                              tabCell4.style.backgroundColor = "#e1f8ff";
-                              tabCell4.style.fontSize = "10px";
-                              tabCell4.innerHTML = obj.data[i].nonrebatableamt;
-
-                              var tabCell5 = tr.insertCell(-1);
-                              tabCell5.style.border = "thin solid #a5f448";
-                              tabCell5.style.backgroundColor = "#e1f8ff";
-                              tabCell5.style.fontSize = "10px";
-                              tabCell5.innerHTML = obj.data[i].int;
-
-                              var tabCell6 = tr.insertCell(-1);
-                              tabCell6.style.border = "thin solid #a5f448";
-                              tabCell6.style.backgroundColor = "#e1f8ff";
-                              tabCell6.style.fontSize = "10px";
-                              tabCell6.innerHTML = obj.data[i].lpsc;
-
-                              var tabCell7 = tr.insertCell(-1);
-                              tabCell7.style.border = "thin solid #a5f448";
-                              tabCell7.style.backgroundColor = "#e1f8ff";
-                              tabCell7.style.fontSize = "10px";
-                              tabCell7.innerHTML = obj.data[i].comp;
-
-                              var tabCell8 = tr.insertCell(-1);
-                              tabCell8.style.border = "thin solid #a5f448";
-                              tabCell8.style.backgroundColor = "#e1f8ff";
-                              tabCell8.style.fontSize = "10px";
-                              tabCell8.innerHTML = obj.data[i].ursgain;
-
-                              var tabCell9 = tr.insertCell(-1);
-                              tabCell9.style.border = "thin solid #a5f448";
-                              tabCell9.style.backgroundColor = "#e1f8ff";
-                              tabCell9.style.fontSize = "10px";
-                              tabCell9.innerHTML = obj.data[i].rebateadj;
-
-                              var tabCell10 = tr.insertCell(-1);
-                              tabCell10.style.border = "thin solid #a5f448";
-                              tabCell10.style.backgroundColor = "#e1f8ff";
-                              tabCell10.style.fontSize = "10px";
-                              tabCell10.innerHTML = obj.data[i].rrascredit;
-
-                              var tabCell11 = tr.insertCell(-1);
-                              tabCell11.style.border = "thin solid #a5f448";
-                              tabCell11.style.backgroundColor = "#e1f8ff";
-                              tabCell11.style.fontSize = "10px";
-                              tabCell11.innerHTML = obj.data[i].total;
+                          if (parseFloat(obj.data[i].outstanding60) > 0) {
+                              if (obj.data[i].state == "Raj")
+                                  raj += parseFloat(obj.data[i].outstanding60);
+                              else if (obj.data[i].state == "Del")
+                                  del += parseFloat(obj.data[i].outstanding60);
+                              else if (obj.data[i].state == "PGCIL")
+                                  pgcil += parseFloat(obj.data[i].outstanding60);
+                              else if (obj.data[i].state == "MP")
+                                  mp += parseFloat(obj.data[i].outstanding60);
+                              else if (obj.data[i].state == "Kar")
+                                  kar += parseFloat(obj.data[i].outstanding60);
+                              else {
+                                  benefSeries.push(obj.data[i].state);
+                                  totalSeries.push(parseFloat(obj.data[i].outstanding60));
+                              }
                           }
                       }
+
+                      if (raj > 0) {
+                          benefSeries.push("Raj");
+                          totalSeries.push(raj);
+                      }
+                      if (del > 0) {
+                          benefSeries.push("Del");
+                          totalSeries.push(del);
+                      }
+                      if (pgcil > 0) {
+                          benefSeries.push("PGCIL");
+                          totalSeries.push(pgcil);
+                      }
+                      if (mp > 0) {
+                          benefSeries.push("MP");
+                          totalSeries.push(mp);
+                      }
+                      if (kar > 0) {
+                          benefSeries.push("Kar");
+                          totalSeries.push(kar);
+                      }
+                      
+
                       // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
 
+                     
 
-                      Highcharts.chart('container', {
-                          chart: {
-                              type: 'bar'
+                      var ctx = document.getElementById("chart-area3").getContext("2d");
+                      //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                      ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                      //   alert(benefSeries[6] + "******" + totalSeries[2]);
+
+                   //   alert("yahoo");
+
+                      var config = {
+                          type: 'bar',
+                          data: {
+                              datasets: [{
+                                  label: 'Outstanding',
+                                  backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"],
+                                  borderColor: window.chartColors.red,
+                                  borderWidth: 1,
+                                  data: totalSeries,
+                                  datalabels: {
+                                      align: 'center',
+                                      anchor: 'end',
+                                      rotation: -90
+                                     }
+                              }],
+                              labels: benefSeries
                           },
-                          title: {
-                              text: 'Feb, 2018 BILLING'
-                          },
-                          xAxis: {
-                              categories: benefSeries//[plantlist[0].benef, plantlist[1].benef, plantlist[2].benef, plantlist[3].benef, plantlist[4].benef, plantlist[5].benef, plantlist[6].benef, plantlist[7].benef, plantlist[8].benef, plantlist[9].benef, plantlist[10].benef, plantlist[11].benef, plantlist[12].benef, plantlist[13].benef, plantlist[14].benef, plantlist[15].benef, plantlist[16].benef, plantlist[17].benef, plantlist[18].benef, plantlist[19].benef, plantlist[20].benef, plantlist[21].benef, plantlist[22].benef, plantlist[23].benef, plantlist[24].benef, plantlist[25].benef, plantlist[26].benef, plantlist[27].benef]
-                          },
-                          yAxis: {
-                              min: 0,
-                              title: {
-                                  text: 'Bill (Rs.-(lacs).)'
-                              }
-                          },
-                          legend: {
-                              reversed: true
-                          }, credits: {
-                              enabled: false
-                          },
-                          plotOptions: {
-                              series: {
-                                  dataLabels: {
-                                      enabled: true,
-                                      align: 'left',
-                                      color: '#e9ff74',
-                                      x: -10,
-                                      style: {
-                                          fontWeight: 'lighter'
-                                      }
+                          options: {
+                              plugins: {
+                                  datalabels: {
+                                      color: '#0345af',
+                                      display: function (context) {
+                                          return context.dataset.data[context.dataIndex] > 15;
+                                      },
+                                      font: {
+                                          weight: 'bold'
+                                      },
+                                      formatter: Math.round
+                                  }
+                              },
+                              responsive: true,
+                              legend: {
+                                  position: 'bottom',
+                                  labels: {
+                                      boxWidth: 10,
+                                      fontStyle: 'bold',
+                                      fontSize: 10
+                                  }
+                              },
+                              pieceLabel: {
+                                  render: function (args) {
+                                    //  alert(args.label + "---" + args.value);
+                                      return args.label + '  (' + args.value + ' MW)  ';
                                   },
-                                  pointPadding: 0.5,
-                                  groupPadding: 0.1,
-                                  pointWidth: 15
+                                  fontSize: 9,
+                                  fontColor: '#3e2507'
                               }
-                          },
-                          series: [{
-                              name: 'Feb-2018',
-                              data: totalSeries//[parseFloat(plantlist[0].total), parseFloat(plantlist[1].total), parseFloat(plantlist[2].total), parseFloat(plantlist[3].total), parseFloat(plantlist[4].total), parseFloat(plantlist[5].total), parseFloat(plantlist[6].total), parseFloat(plantlist[7].total), parseFloat(plantlist[8].total), parseFloat(plantlist[9].total), parseFloat(plantlist[10].total), parseFloat(plantlist[11].total), parseFloat(plantlist[12].total), parseFloat(plantlist[13].total), parseFloat(plantlist[14].total), parseFloat(plantlist[15].total), parseFloat(plantlist[16].total), parseFloat(plantlist[17].total), parseFloat(plantlist[18].total), parseFloat(plantlist[19].total), parseFloat(plantlist[20].total), parseFloat(plantlist[21].total), parseFloat(plantlist[22].total), parseFloat(plantlist[23].total), parseFloat(plantlist[24].total), parseFloat(plantlist[25].total), parseFloat(plantlist[26].total), parseFloat(plantlist[27].total)]
-                          }]
-                      });
+                          }
+                      };
 
+                      window.myBar = new Chart(ctx, config);
+                      document.getElementById("chart-area3").ondblclick = function (evt) {
+                          var activePoint = myBar.getElementAtEvent(evt)[0];
+                          var data = activePoint._chart.data;
+                          var datasetIndex = activePoint._datasetIndex;
+                          var label = data.labels[activePoint._index];
+                          var value = data.datasets[datasetIndex].data[activePoint._index];
+                           alert(label + "---" + value);
+                          //window.location.reload();
+                         // stateregiondrilldown(label); //console.log(label, value);
+                      };
+                   
+                     // alert("yahoo2");
                     
 //
 
@@ -420,7 +269,253 @@
 
 
 
+              function typeselect(typename) {
 
+
+                  document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
+                  if (typename == "1")
+                  {
+                      document.getElementById("canvas-holder3").style.height = "500px";
+                      document.getElementById("canvas-holder3").style.minWidth = "500px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;height:480px;"></canvas>';
+                  }
+                  if (typename == "2") {
+                      document.getElementById("canvas-holder3").style.height = "500px";
+                      document.getElementById("canvas-holder3").style.minWidth = "1000px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;height:480px;"></canvas>';
+                  }
+                  if (typename == "3") {
+                      document.getElementById("canvas-holder3").style.height = "500px";
+                      document.getElementById("canvas-holder3").style.minWidth = "1800px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;height:480px;"></canvas>';
+                  }
+
+
+                  //alert(typename=="1");
+
+                 // ev.preventDefault();
+                  readValues();
+                  console.log(key, sheetNum, sheetType);
+
+                  let promise;
+                  switch (sheetType) {
+                      case 'cols':
+                          promise = GetSheetDone.labeledCols(key, sheetNum);
+                          break;
+                      case 'cols-rows':
+                          promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                          break;
+                      case 'raw':
+                      default:
+                          promise = GetSheetDone.raw(key, sheetNum);
+                          break;
+                  }
+                  promise.then((data) => {
+                      var jsonarray = JSON.stringify(data);
+                      var obj = JSON.parse(jsonarray);
+                      var coll = [];
+                      for (var i = 0; i < obj.data.length; i++) {
+                          for (var ky in obj.data[i]) {
+                              if (coll.indexOf(ky) === -1) {
+                                  coll.push(ky);
+                              }
+                          }
+                      }
+                      // CREATE DYNAMIC TABLE.
+                      //  var table = document.getElementById('datatable02');//document.createElement('table');
+                      //  table.style.border = "thin solid #a5f448";
+                      // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+                      //   var plantlist = obj.data;
+                      // document.getElementById('showDataaa').innerHTML = jsonarray;
+                      var int32View = new Float64Array();
+                      var benefSeries = [];
+                      var totalSeries = [];
+
+                      var raj = 0;
+                      var del = 0;
+                      var pgcil = 0;
+                      var mp = 0;
+                      var kar = 0;
+                      // var table1 = document.getElementById('datatable03');
+                      //     alert(jsonarray);
+
+                      // ADD JSON DATA TO THE TABLE AS ROWS.
+                      if (typename == "1") {
+                          for (var i = 0; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].outstanding60) > 0) {
+                                  if (obj.data[i].state == "Raj")
+                                      raj += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "Del")
+                                      del += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "PGCIL")
+                                      pgcil += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "MP")
+                                      mp += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "Kar")
+                                      kar += parseFloat(obj.data[i].outstanding60);
+                                  else {
+                                      benefSeries.push(obj.data[i].state);
+                                      totalSeries.push(parseFloat(obj.data[i].outstanding60));
+                                  }
+                              }
+                          }
+                        //  alert(typename == "1");
+                      }
+                      else if (typename == "2") {
+                          for (var i = 0; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].outstanding30) > 0) {
+                                  if (obj.data[i].state == "Raj")
+                                      raj += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "Del")
+                                      del += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "PGCIL")
+                                      pgcil += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "MP")
+                                      mp += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "Kar")
+                                      kar += parseFloat(obj.data[i].outstanding30);
+                                  else {
+                                      benefSeries.push(obj.data[i].state);
+                                      totalSeries.push(parseFloat(obj.data[i].outstanding30));
+                                  }
+                              }
+                          }
+                      }
+                      else if (typename =="3") {
+                          for (var i = 0; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].outstanding) > 0) {
+                                  if (obj.data[i].state == "Raj")
+                                      raj += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "Del")
+                                      del += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "PGCIL")
+                                      pgcil += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "MP")
+                                      mp += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "Kar")
+                                      kar += parseFloat(obj.data[i].outstanding);
+                                  else {
+                                      benefSeries.push(obj.data[i].state);
+                                      totalSeries.push(parseFloat(obj.data[i].outstanding));
+                                  }
+                              }
+                          }
+                      }
+                      if (raj > 0) {
+                          benefSeries.push("Raj");
+                          totalSeries.push(raj);
+                      }
+                      if (del > 0) {
+                          benefSeries.push("Del");
+                          totalSeries.push(del);
+                      }
+                      if (pgcil > 0) {
+                          benefSeries.push("PGCIL");
+                          totalSeries.push(pgcil);
+                      }
+                      if (mp > 0) {
+                          benefSeries.push("MP");
+                          totalSeries.push(mp);
+                      }
+                      if (kar > 0) {
+                          benefSeries.push("Kar");
+                          totalSeries.push(kar);
+                      }
+
+
+                      // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+
+
+
+                      var ctx = document.getElementById("chart-area3").getContext("2d");
+                      //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                      ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                      //   alert(benefSeries[6] + "******" + totalSeries[2]);
+
+                      //   alert("yahoo");
+
+                      var config = {
+                          type: 'bar',
+                          data: {
+                              datasets: [{
+                                  label: 'Outstanding',
+                                  backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"],
+                                  borderColor: window.chartColors.red,
+                                  borderWidth: 1,
+                                  data: totalSeries,
+                                  datalabels: {
+                                      align: 'center',
+                                      anchor: 'end',
+                                      rotation: -90
+                                  }
+                              }],
+                              labels: benefSeries
+                          },
+                          options: {
+                              plugins: {
+                                  datalabels: {
+                                      color: '#0345af',
+                                      display: function (context) {
+                                          return context.dataset.data[context.dataIndex] > 15;
+                                      },
+                                      font: {
+                                          weight: 'bold'
+                                      },
+                                      formatter: Math.round
+                                  }
+                              },
+                              responsive: true,
+                              legend: {
+                                  position: 'bottom',
+                                  labels: {
+                                      boxWidth: 10,
+                                      fontStyle: 'bold',
+                                      fontSize: 10
+                                  }
+                              },
+                              scales: {
+                                  xAxes: [{
+                                      barThickness: 20,
+                                      
+                                  }]
+                              },
+                              pieceLabel: {
+                                  render: function (args) {
+                                      //  alert(args.label + "---" + args.value);
+                                      return args.label + '  (' + args.value + ' MW)  ';
+                                  },
+                                  fontSize: 9,
+                                  fontColor: '#3e2507'
+                              }
+                          }
+                      };
+
+                      window.myBar = new Chart(ctx, config);
+                      document.getElementById("chart-area3").ondblclick = function (evt) {
+                          var activePoint = myBar.getElementAtEvent(evt)[0];
+                          var data = activePoint._chart.data;
+                          var datasetIndex = activePoint._datasetIndex;
+                          var label = data.labels[activePoint._index];
+                          var value = data.datasets[datasetIndex].data[activePoint._index];
+                          alert(label + "---" + value);
+                          //window.location.reload();
+                          // stateregiondrilldown(label); //console.log(label, value);
+                      };
+
+                      // alert("yahoo2");
+
+                      //
+
+                  }).catch(err => {
+                      console.log('Error');
+                      console.log(err);
+                      document.getElementById('output').innerHTML = err.message;
+                  })
+
+
+
+
+              }
 
        
           </script>
@@ -428,32 +523,7 @@
 
 
 
-        <div id="output">
-        </div>
+       
 
-<div id="showDatafirst">
-        </div>
-
-
-          <div style="width:100%;">
-
-              <table class="table1" id="datatable03">
-              </table>
-
-              <div class="table2">
-                  <table  id="datatable02">                      
-                  </table>
-              </div>
-
-          </div>
-         
-
-          <!--<table id="datatable02" cellpadding="0" cellspacing="0"></table>-->
-
-          <div id="showData">
-          </div>
-
-          <div id="totalarray">
-          </div>
 </body>
 </html>
