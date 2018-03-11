@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
     <title>get-sheet-done demo</title>
@@ -35,14 +35,19 @@
 
   <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
   <script src="GetSheetDone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="utils.js"></script>
+
+    <script type="text/javascript" src="https://manavmahipal.github.io/dash/Chart.PieceLabel.js"></script>
+
+    <script src="chartjs-plugin-datalabels.js"></script>
 </head >
       <body>
 
-        <div id="showDataaa">
-        </div>
-        <div id="container" style="margin: 0 auto;height:800px;"></div>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+          <div id="canvas-holder3" style="width:3000px;height:400px;overflow:scroll;">
+              <canvas id="chart-area3" style="width:100%;height:380px;" />
+          </div>
 
         <script>
 
@@ -86,210 +91,108 @@
                   }
                 }
               }
+             // alert(jsonarray);
               // CREATE DYNAMIC TABLE.
-              var table = document.getElementById('datatable02');//document.createElement('table');
+             // var table = document.getElementById('datatable02');//document.createElement('table');
               //  table.style.border = "thin solid #a5f448";
               // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-              var plantlist = obj.data;
+             // var plantlist = obj.data;
               // document.getElementById('showDataaa').innerHTML = jsonarray;
-              var stationarray = new Array();
-              var ecrarray = new Array();
+             
+              var benefSeries = [];
+              var totalSeries = [];
+                // var table1 = document.getElementById('datatable03');
+                //     alert(jsonarray);
 
-
-              for (st = 0; st < plantlist.length; st++) {
-                stationarray[st] = plantlist[st].station
+                // ADD JSON DATA TO THE TABLE AS ROWS.
+              for (var i = 0; i < obj.data.length; i++) {
+                          benefSeries.push(obj.data[i].station);
+                          totalSeries.push(parseFloat(obj.data[i].jan18));
               }
 
 
+                // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
 
-              for (ec = 0; ec < obj.data.length; ec++) {
-                ecrarray[ec] = parseFloat(obj.data[ec].ecr)
-              }
 
-              Highcharts.chart('container', {
-                chart: {
-                  type: 'bar'
-                },
-                title: {
-                  text: 'Jan, 2018 ECR'
-                },
-                xAxis: {
-                  categories: stationarray
-                },
-                yAxis: {
-                  min: 0,
-                  title: {
-                    text: 'ECR (Rs./KWHr)'
-                  }
-                },
-                legend: {
-                  reversed: true
-                }, credits: {
-                  enabled: false
-                },
-                plotOptions: {
-                  series: {
-                    dataLabels: {
-                      enabled: true,
-                      align: 'left',
-                      color: '#e9ff74',
-                      x: -10,
-                      style: {
-                        fontWeight: 'lighter'
+
+              var ctx = document.getElementById("chart-area3").getContext("2d");
+                //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                //   alert(benefSeries[6] + "******" + totalSeries[2]);
+
+                //   alert("yahoo");
+
+              var config = {
+                  type: 'bar',
+                  data: {
+                      datasets: [{
+                          label: 'ECR',
+                          backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"],
+                          borderColor: window.chartColors.red,
+                          borderWidth: 1,
+                          data: totalSeries,
+                          datalabels: {
+                              align: 'center',
+                              anchor: 'center',
+                              rotation: -90
+                          }
+                      }],
+                      labels: benefSeries
+                  },
+                  options: {
+                      plugins: {
+                          datalabels: {
+                              color: '#0345af',
+                              display: function (context) {
+                                  return context.dataset.data[context.dataIndex] > 15;
+                              },
+                              font: {
+                                  weight: 'bold',
+                                  size: 20
+                              },
+                              formatter: Math.round
+                          }
+                      },
+                      responsive: true,
+                      legend: {
+                          position: 'bottom',
+                          labels: {
+                              boxWidth: 10,
+                              fontStyle: 'bold',
+                              fontSize: 10
+                          }
+                      },
+                      scales: {
+                          xAxes: [{
+                              barThickness: 20,
+                          }]
+                      },
+                      pieceLabel: {
+                          render: function (args) {
+                              //  alert(args.label + "---" + args.value);
+                              return args.label + '  (' + args.value + ' MW)  ';
+                          },
+                          fontSize: 9,
+                          fontColor: '#3e2507'
                       }
-                    },
-                    pointPadding: 10,
-                    groupPadding: 0.4,
-                    pointWidth: 10
                   }
-                },
-                series: [{
-                  name: 'Jan-2018',
-                  data: ecrarray
-                }]
-              });
+              };
+
+              window.myBar = new Chart(ctx, config);
+              document.getElementById("chart-area3").ondblclick = function (evt) {
+                  var activePoint = myBar.getElementAtEvent(evt)[0];
+                  var data = activePoint._chart.data;
+                  var datasetIndex = activePoint._datasetIndex;
+                  var label = data.labels[activePoint._index];
+                  var value = data.datasets[datasetIndex].data[activePoint._index];
+                  alert(label + "---" + value);
+                  //window.location.reload();
+                  // stateregiondrilldown(label); //console.log(label, value);
+              };
+            
 
 
-              // ADD JSON DATA TO THE TABLE AS ROWS.
-            /*  for (var i = 0; i < obj.data.length; i++) {
-
-                if (i == 0) {
-                  tr = table.insertRow(-1);
-
-                  var tabCell0 = tr.insertCell(-1);
-                  tabCell0.style.border = "thin solid #a5f448";
-                  tabCell0.style.backgroundColor = "#3a4c39";
-                  tabCell0.style.color = "#e6fee6";
-                  tabCell0.style.width = "5%";
-                  tabCell0.innerHTML = "Sr No ";
-
-                  var tabCell1 = tr.insertCell(-1);
-                  tabCell1.style.border = "thin solid #a5f448";
-                  tabCell1.style.backgroundColor = "#3a4c39";
-                  tabCell1.style.color = "#e6fee6";
-                  tabCell1.style.width = "10%";
-                  tabCell1.innerHTML = "stationiciary";
-
-                  var tabCell2 = tr.insertCell(-1);
-                  tabCell2.style.border = "thin solid #a5f448";
-                  tabCell2.style.backgroundColor = "#3a4c39";
-                  tabCell2.style.color = "#e6fee6";
-                  tabCell2.innerHTML = "rebatable amount";
-
-                  var tabCell3 = tr.insertCell(-1);
-                  tabCell3.style.border = "thin solid #a5f448";
-                  tabCell3.style.backgroundColor = "#3a4c39";
-                  tabCell3.style.color = "#e6fee6";
-                  tabCell3.innerHTML = "non rebatable amount";
-
-                  var tabCell4 = tr.insertCell(-1);
-                  tabCell4.style.border = "thin solid #a5f448";
-                  tabCell4.style.backgroundColor = "#3a4c39";
-                  tabCell4.style.color = "#e6fee6";
-                  tabCell4.innerHTML = "interest";
-
-                  var tabCell5 = tr.insertCell(-1);
-                  tabCell5.style.border = "thin solid #a5f448";
-                  tabCell5.style.backgroundColor = "#3a4c39";
-                  tabCell5.style.color = "#e6fee6";
-                  tabCell5.innerHTML = "LPSC";
-
-                  var tabCell6 = tr.insertCell(-1);
-                  tabCell6.style.border = "thin solid #a5f448";
-                  tabCell6.style.backgroundColor = "#3a4c39";
-                  tabCell6.style.color = "#e6fee6";
-                  tabCell6.innerHTML = "compensation";
-
-                  var tabCell7 = tr.insertCell(-1);
-                  tabCell7.style.border = "thin solid #a5f448";
-                  tabCell7.style.backgroundColor = "#3a4c39";
-                  tabCell7.style.color = "#e6fee6";
-                  tabCell7.innerHTML = "URS Gain";
-
-                  var tabCell8 = tr.insertCell(-1);
-                  tabCell8.style.border = "thin solid #a5f448";
-                  tabCell8.style.backgroundColor = "#3a4c39";
-                  tabCell8.style.color = "#e6fee6";
-                  tabCell8.innerHTML = "Rebate Adj";
-
-                  var tabCell9 = tr.insertCell(-1);
-                  tabCell9.style.border = "thin solid #a5f448";
-                  tabCell9.style.backgroundColor = "#3a4c39";
-                  tabCell9.style.color = "#e6fee6";
-                  tabCell9.innerHTML = "RRAS_credit";
-
-                  var tabCell10 = tr.insertCell(-1);
-                  tabCell10.style.border = "thin solid #a5f448";
-                  tabCell10.style.backgroundColor = "#3a4c39";
-                  tabCell10.style.color = "#e6fee6";
-                  tabCell10.innerHTML = "Total";
-                }
-                else {
-
-
-
-                  tr = table.insertRow(-1);
-
-                  var tabCell0 = tr.insertCell(-1);
-                  tabCell0.style.border = "thin solid #a5f448";
-                  tabCell0.style.backgroundColor = "#abb5ff";
-                  tabCell0.style.width = "5%";
-                  counter = counter + 1;
-                  tabCell0.innerHTML = counter;
-
-                  var tabCell1 = tr.insertCell(-1);
-                  tabCell1.style.border = "thin solid #a5f448";
-                  tabCell1.style.backgroundColor = "#c9ebff";
-                  tabCell1.style.width = "10%";
-                  tabCell1.innerHTML = obj.data[i].benef;
-
-                  var tabCell3 = tr.insertCell(-1);
-                  tabCell3.style.border = "thin solid #a5f448";
-                  tabCell3.style.backgroundColor = "#e1f8ff";
-                  tabCell3.innerHTML = obj.data[i].rebatableamt;
-
-                  var tabCell4 = tr.insertCell(-1);
-                  tabCell4.style.border = "thin solid #a5f448";
-                  tabCell4.style.backgroundColor = "#e1f8ff";
-                  tabCell4.innerHTML = obj.data[i].nonrebatableamt;
-
-                  var tabCell5 = tr.insertCell(-1);
-                  tabCell5.style.border = "thin solid #a5f448";
-                  tabCell5.style.backgroundColor = "#e1f8ff";
-                  tabCell5.innerHTML = obj.data[i].int;
-
-                  var tabCell6 = tr.insertCell(-1);
-                  tabCell6.style.border = "thin solid #a5f448";
-                  tabCell6.style.backgroundColor = "#e1f8ff";
-                  tabCell6.innerHTML = obj.data[i].lpsc;
-
-                  var tabCell7 = tr.insertCell(-1);
-                  tabCell7.style.border = "thin solid #a5f448";
-                  tabCell7.style.backgroundColor = "#e1f8ff";
-                  tabCell7.innerHTML = obj.data[i].comp;
-
-                  var tabCell8 = tr.insertCell(-1);
-                  tabCell8.style.border = "thin solid #a5f448";
-                  tabCell8.style.backgroundColor = "#e1f8ff";
-                  tabCell8.innerHTML = obj.data[i].ursgain;
-
-                  var tabCell9 = tr.insertCell(-1);
-                  tabCell9.style.border = "thin solid #a5f448";
-                  tabCell9.style.backgroundColor = "#e1f8ff";
-                  tabCell9.innerHTML = obj.data[i].rebateadj;
-
-                  var tabCell10 = tr.insertCell(-1);
-                  tabCell10.style.border = "thin solid #a5f448";
-                  tabCell10.style.backgroundColor = "#e1f8ff";
-                  tabCell10.innerHTML = obj.data[i].rrascredit;
-
-                  var tabCell11 = tr.insertCell(-1);
-                  tabCell11.style.border = "thin solid #a5f448";
-                  tabCell11.style.backgroundColor = "#e1f8ff";
-                  tabCell11.innerHTML = obj.data[i].total;
-                }
-              }*/
-              // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+              
             }).catch(err => {
               console.log('Error');
               console.log(err);
