@@ -35,6 +35,7 @@
 
   <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
   <script src="GetSheetDone.js"></script>
+    <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
     <script src="utils.js"></script>
 
@@ -43,7 +44,9 @@
     <script src="chartjs-plugin-datalabels.js"></script>
 </head >
       <body>
-
+          <div id="backbutton">
+              <a href="https://manavmahipal.github.io/dash/src/index - Copy (2).html">back</a><br/>
+          </div>
 
           <div id="canvas-holder3" style="width:1100px;height:400px;overflow:scroll;">
               <canvas id="chart-area3" style="width:100%;height:380px;" />
@@ -63,6 +66,8 @@
           }
 
           window.onload = function (ev) {
+
+              document.getElementById("backbutton").style.display = 'none';
             ev.preventDefault();
             readValues();
             console.log(key, sheetNum, sheetType);
@@ -132,8 +137,8 @@
                           borderWidth: 1,
                           data: totalSeries,
                           datalabels: {
-                              align: 'center',
-                              anchor: 'center',
+                              align: 'end',
+                              anchor: 'end',
                               rotation: -90
                           }
                       }],
@@ -144,13 +149,12 @@
                           datalabels: {
                               color: '#0345af',
                               display: function (context) {
-                                  return context.dataset.data[context.dataIndex] > 15;
+                                  return context.dataset.data[context.dataIndex] > 0;
                               },
                               font: {
                                   weight: 'bold',
-                                  size: 20
-                              },
-                              formatter: Math.round
+                                  size: 9
+                              }
                           }
                       },
                       responsive: true,
@@ -190,9 +194,9 @@
                   var datasetIndex = activePoint._datasetIndex;
                   var label = data.labels[activePoint._index];
                   var value = data.datasets[datasetIndex].data[activePoint._index];
-                  alert(label + "---" + value);
+                 // alert(label + "---" + value);
                   //window.location.reload();
-                  // stateregiondrilldown(label); //console.log(label, value);
+                   ecrdrilldown(label); //console.log(label, value);
               };
             
 
@@ -213,7 +217,171 @@
               // }
 
 
+          function ecrdrilldown(station) {
+              document.getElementById("backbutton").style.display = 'inline-block';
+              document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
+                  document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;height:380px;"></canvas>';
 
+
+              //ev.preventDefault();
+              readValues();
+              console.log(key, sheetNum, sheetType);
+
+              let promise;
+              switch (sheetType) {
+                  case 'cols':
+                      promise = GetSheetDone.labeledCols(key, sheetNum);
+                      break;
+                  case 'cols-rows':
+                      promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                      break;
+                  case 'raw':
+                  default:
+                      promise = GetSheetDone.raw(key, sheetNum);
+                      break;
+              }
+              promise.then((data) => {
+                  var jsonarray = JSON.stringify(data);
+                  var obj = JSON.parse(jsonarray);
+                  var coll = [];
+                  for (var i = 0; i < obj.data.length; i++) {
+                      for (var ky in obj.data[i]) {
+                          if (coll.indexOf(ky) === -1) {
+                              coll.push(ky);
+                          }
+                      }
+                  }
+                  // alert(jsonarray);
+                  // CREATE DYNAMIC TABLE.
+                  // var table = document.getElementById('datatable02');//document.createElement('table');
+                  //  table.style.border = "thin solid #a5f448";
+                  // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+                  // var plantlist = obj.data;
+                  // document.getElementById('showDataaa').innerHTML = jsonarray;
+
+                  var benefSeries = [];
+                  var totalSeries = [];
+                  // var table1 = document.getElementById('datatable03');
+                  //     alert(jsonarray);
+
+                  // ADD JSON DATA TO THE TABLE AS ROWS.
+                  for (var i = 0; i < obj.data.length; i++) {
+                      if (obj.data[i].station == station) {
+                          benefSeries.push("Jan-18");
+                          totalSeries.push(parseFloat(obj.data[i].jan18));
+                          benefSeries.push("Dec-17");
+                          totalSeries.push(parseFloat(obj.data[i].dec17));
+                          benefSeries.push("Nov-17");
+                          totalSeries.push(parseFloat(obj.data[i].nov17));
+                          benefSeries.push("Oct-17");
+                          totalSeries.push(parseFloat(obj.data[i].oct17));
+                          benefSeries.push("Sep-17");
+                          totalSeries.push(parseFloat(obj.data[i].sep17));
+                          benefSeries.push("Aug-17");
+                          totalSeries.push(parseFloat(obj.data[i].aug17));
+                          benefSeries.push("Jul-17");
+                          totalSeries.push(parseFloat(obj.data[i].jul17));
+                      }
+                  }
+
+
+                  // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+
+
+
+                  var ctx = document.getElementById("chart-area3").getContext("2d");
+                  //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                  ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                  //   alert(benefSeries[6] + "******" + totalSeries[2]);
+
+                  //   alert("yahoo");
+
+                  var config = {
+                      type: 'bar',
+                      data: {
+                          datasets: [{
+                              label: 'ECR',
+                              backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"],
+                              borderColor: window.chartColors.red,
+                              borderWidth: 1,
+                              data: totalSeries,
+                              datalabels: {
+                                  align: 'end',
+                                  anchor: 'end',
+                                  rotation: -90
+                              }
+                          }],
+                          labels: benefSeries
+                      },
+                      options: {
+                          plugins: {
+                              datalabels: {
+                                  color: '#0345af',
+                                  display: function (context) {
+                                      return context.dataset.data[context.dataIndex] > 0;
+                                  },
+                                  font: {
+                                      weight: 'bold',
+                                      size: 9
+                                  }
+                              }
+                          },
+                          responsive: true,
+                          legend: {
+                              position: 'bottom',
+                              labels: {
+                                  boxWidth: 10,
+                                  fontStyle: 'bold',
+                                  fontSize: 10
+                              }
+                          },
+                          scales: {
+                              xAxes: [{
+                                  barThickness: 20,
+                                  ticks: {
+                                      stepSize: 1,
+                                      min: 0,
+                                      autoSkip: false
+                                  }
+                              }]
+                          },
+                          pieceLabel: {
+                              render: function (args) {
+                                  //  alert(args.label + "---" + args.value);
+                                  return args.label + '  (' + args.value + ' MW)  ';
+                              },
+                              fontSize: 9,
+                              fontColor: '#3e2507'
+                          }
+                      }
+                  };
+
+                  window.myBar = new Chart(ctx, config);
+                  document.getElementById("chart-area3").ondblclick = function (evt) {
+                      var activePoint = myBar.getElementAtEvent(evt)[0];
+                      var data = activePoint._chart.data;
+                      var datasetIndex = activePoint._datasetIndex;
+                      var label = data.labels[activePoint._index];
+                      var value = data.datasets[datasetIndex].data[activePoint._index];
+                      // alert(label + "---" + value);
+                      //window.location.reload();
+                      ecrdrilldown(label); //console.log(label, value);
+                  };
+
+
+
+
+              }).catch(err => {
+                  console.log('Error');
+                  console.log(err);
+                  document.getElementById('output').innerHTML = err.message;
+              })
+
+
+
+
+
+          }
 
 
 
