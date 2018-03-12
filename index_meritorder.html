@@ -274,22 +274,10 @@
 
 
                   document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
-                  if (typename == "1")
-                  {
+                  
                       document.getElementById("canvas-holder3").style.height = "400px";
                       document.getElementById("canvas-holder3").style.minWidth = "400px";
                       document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:880px;height:380px;"></canvas>';
-                  }
-                  if (typename == "2") {
-                      document.getElementById("canvas-holder3").style.height = "400px";
-                      document.getElementById("canvas-holder3").style.minWidth = "400px";
-                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:880px;height:380px;"></canvas>';
-                  }
-                  if (typename == "3") {
-                      document.getElementById("canvas-holder3").style.height = "400px";
-                      document.getElementById("canvas-holder3").style.minWidth = "400px";
-                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:880px;height:380px;"></canvas>';
-                  }
 
 
                   //alert(typename=="1");
@@ -346,7 +334,7 @@
                           }
                         //  alert(typename == "1");
                       }
-                      else if (typename == "Uttarakhand") {
+                      else if (typename == "Uttrakhand") {
                           for (var i = 1; i < obj.data.length; i++) {
                               if (parseFloat(obj.data[i].uttrakhandvc) > 0) {
                                   benefSeries.push(obj.data[i].uttrakhand);
@@ -364,8 +352,82 @@
                           }
                           //  alert(typename == "1");
                       }
-
-
+                      else if (typename == "Delhi") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].delhivc) > 0) {
+                                  benefSeries.push(obj.data[i].delhi);
+                                  totalSeries.push(parseFloat(obj.data[i].delhivc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Punjab") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].punjabvc) > 0) {
+                                  benefSeries.push(obj.data[i].punjab);
+                                  totalSeries.push(parseFloat(obj.data[i].punjabvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Haryana") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].haryanavc) > 0) {
+                                  benefSeries.push(obj.data[i].haryana);
+                                  totalSeries.push(parseFloat(obj.data[i].haryanavc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Himachal") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].himachalvc) > 0) {
+                                  benefSeries.push(obj.data[i].himachal);
+                                  totalSeries.push(parseFloat(obj.data[i].himachalvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Chandigarh") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].chandigarhvc) > 0) {
+                                  benefSeries.push(obj.data[i].chandigarh);
+                                  totalSeries.push(parseFloat(obj.data[i].chandigarhvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                         /* <option value="Madhya Pradesh">Madhya Pradesh</option>
+                          <option value="Chattisgarh">Chattisgarh</option>
+                          <option value="Maharastra">Maharastra</option>
+                          <option value="Gujarat">Gujarat</option>
+                          <option value="Goa">Goa</option>
+                          <option value="Daman & Diu">Daman & Diu</option>
+                          <option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
+                          <option value="Andhra Pradesh">Andhra Pradesh</option>
+                          <option value="Karnataka">Karnataka</option>
+                          <option value="Tamil Nadu">Tamil Nadu</option>
+                          <option value="Kerala">Kerala</option>
+                          <option value="A & N">A & N</option>
+                          <option value="TELANGANA">TELANGANA</option>
+                          <option value="PUDUCHERRY">PUDUCHERRY</option>
+                          <option value="West Bengal">West Bengal</option>
+                          <option value="Bihar">Bihar</option>
+                          <option value="Jharkhand">Jharkhand</option>
+                          <option value="Odisha">Odisha</option>
+                          <option value="Sikkim">Sikkim</option>
+                          <option value="Assam">Assam</option>
+                          <option value="Meghalaya">Meghalaya</option>
+                          <option value="Tripura">Tripura</option>
+                          <option value="Nagaland">Nagaland</option>
+                          <option value="Arunachal">Arunachal</option>
+                          <option value="Mizoram">Mizoram</option>
+                          <option value="Manipur">Manipur</option>
+                          <option value="Railways">Railways</option>
+                          <option value="SAIL">SAIL</option>
+                          <option value="DVC">DVC</option>
+                          <option value="PGCIL">PGCIL</option>
+                          <option value="Bangladesh">Bangladesh</option>*/
                       // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
 
 
@@ -381,7 +443,7 @@
                           type: 'bar',
                           data: {
                               datasets: [{
-                                  label: 'Outstanding',
+                                  label: 'Merit Order',
                                   backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"],
                                   borderColor: window.chartColors.red,
                                   borderWidth: 1,
@@ -419,7 +481,11 @@
                               scales: {
                                   xAxes: [{
                                       barThickness: 20,
-
+                                      ticks: {
+                                          stepSize: 1,
+                                          min: 0,
+                                          autoSkip: false
+                                      }
                                   }]
                               },
                               pieceLabel: {
@@ -440,7 +506,7 @@
                           var datasetIndex = activePoint._datasetIndex;
                           var label = data.labels[activePoint._index];
                           var value = data.datasets[datasetIndex].data[activePoint._index];
-                          alert(label + "---" + value);
+                          //alert(label + "---" + value);
                           //window.location.reload();
                           // stateregiondrilldown(label); //console.log(label, value);
                       };
