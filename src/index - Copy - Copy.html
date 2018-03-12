@@ -228,6 +228,16 @@
                                       fontSize: 10
                                   }
                               },
+                              scales: {
+                                  xAxes: [{
+                                      barThickness: 20,
+                                      ticks: {
+                                          stepSize: 1,
+                                          min: 0,
+                                          autoSkip: false
+                                      }
+                                  }]
+                              },
                               pieceLabel: {
                                   render: function (args) {
                                     //  alert(args.label + "---" + args.value);
@@ -498,7 +508,11 @@
                               scales: {
                                   xAxes: [{
                                       barThickness: 20,
-                                      
+                                      ticks: {
+                                          stepSize: 1,
+                                          min: 0,
+                                          autoSkip: false
+                                      }
                                   }]
                               },
                               pieceLabel: {
