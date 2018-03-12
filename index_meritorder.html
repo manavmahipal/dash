@@ -157,6 +157,8 @@
                     //  alert(jsonarray);
 
                       // ADD JSON DATA TO THE TABLE AS ROWS.
+                      
+
                       for (var i = 1; i < obj.data.length; i++) {
                           if (parseFloat(obj.data[i].uttarpradeshvc) > 0) {
                               benefSeries.push(obj.data[i].uttarpradesh);
@@ -330,95 +332,37 @@
                       var benefSeries = [];
                       var totalSeries = [];
 
-                      var raj = 0;
-                      var del = 0;
-                      var pgcil = 0;
-                      var mp = 0;
-                      var kar = 0;
+                      
                       // var table1 = document.getElementById('datatable03');
                       //     alert(jsonarray);
 
                       // ADD JSON DATA TO THE TABLE AS ROWS.
-                      if (typename == "1") {
-                          for (var i = 0; i < obj.data.length; i++) {
-                              if (parseFloat(obj.data[i].outstanding60) > 0) {
-                                  if (obj.data[i].state == "Raj")
-                                      raj += parseFloat(obj.data[i].outstanding60);
-                                  else if (obj.data[i].state == "Del")
-                                      del += parseFloat(obj.data[i].outstanding60);
-                                  else if (obj.data[i].state == "PGCIL")
-                                      pgcil += parseFloat(obj.data[i].outstanding60);
-                                  else if (obj.data[i].state == "MP")
-                                      mp += parseFloat(obj.data[i].outstanding60);
-                                  else if (obj.data[i].state == "Kar")
-                                      kar += parseFloat(obj.data[i].outstanding60);
-                                  else {
-                                      benefSeries.push(obj.data[i].state);
-                                      totalSeries.push(parseFloat(obj.data[i].outstanding60));
-                                  }
+                      if (typename == "Uttar Pradesh") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].uttarpradeshvc) > 0) {
+                                  benefSeries.push(obj.data[i].uttarpradesh);
+                                  totalSeries.push(parseFloat(obj.data[i].uttarpradeshvc));
                               }
                           }
                         //  alert(typename == "1");
                       }
-                      else if (typename == "2") {
-                          for (var i = 0; i < obj.data.length; i++) {
-                              if (parseFloat(obj.data[i].outstanding30) > 0) {
-                                  if (obj.data[i].state == "Raj")
-                                      raj += parseFloat(obj.data[i].outstanding30);
-                                  else if (obj.data[i].state == "Del")
-                                      del += parseFloat(obj.data[i].outstanding30);
-                                  else if (obj.data[i].state == "PGCIL")
-                                      pgcil += parseFloat(obj.data[i].outstanding30);
-                                  else if (obj.data[i].state == "MP")
-                                      mp += parseFloat(obj.data[i].outstanding30);
-                                  else if (obj.data[i].state == "Kar")
-                                      kar += parseFloat(obj.data[i].outstanding30);
-                                  else {
-                                      benefSeries.push(obj.data[i].state);
-                                      totalSeries.push(parseFloat(obj.data[i].outstanding30));
-                                  }
+                      else if (typename == "Uttarakhand") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].uttrakhandvc) > 0) {
+                                  benefSeries.push(obj.data[i].uttrakhand);
+                                  totalSeries.push(parseFloat(obj.data[i].uttrakhandvc));
                               }
                           }
+                          //  alert(typename == "1");
                       }
-                      else if (typename =="3") {
-                          for (var i = 0; i < obj.data.length; i++) {
-                              if (parseFloat(obj.data[i].outstanding) > 0) {
-                                  if (obj.data[i].state == "Raj")
-                                      raj += parseFloat(obj.data[i].outstanding);
-                                  else if (obj.data[i].state == "Del")
-                                      del += parseFloat(obj.data[i].outstanding);
-                                  else if (obj.data[i].state == "PGCIL")
-                                      pgcil += parseFloat(obj.data[i].outstanding);
-                                  else if (obj.data[i].state == "MP")
-                                      mp += parseFloat(obj.data[i].outstanding);
-                                  else if (obj.data[i].state == "Kar")
-                                      kar += parseFloat(obj.data[i].outstanding);
-                                  else {
-                                      benefSeries.push(obj.data[i].state);
-                                      totalSeries.push(parseFloat(obj.data[i].outstanding));
-                                  }
+                      else if (typename == "Rajasthan") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].rajsthanvc) > 0) {
+                                  benefSeries.push(obj.data[i].rajsthan);
+                                  totalSeries.push(parseFloat(obj.data[i].rajsthanvc));
                               }
                           }
-                      }
-                      if (raj > 0) {
-                          benefSeries.push("Raj");
-                          totalSeries.push(raj);
-                      }
-                      if (del > 0) {
-                          benefSeries.push("Del");
-                          totalSeries.push(del);
-                      }
-                      if (pgcil > 0) {
-                          benefSeries.push("PGCIL");
-                          totalSeries.push(pgcil);
-                      }
-                      if (mp > 0) {
-                          benefSeries.push("MP");
-                          totalSeries.push(mp);
-                      }
-                      if (kar > 0) {
-                          benefSeries.push("Kar");
-                          totalSeries.push(kar);
+                          //  alert(typename == "1");
                       }
 
 
