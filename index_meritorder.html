@@ -59,20 +59,15 @@
             <option value="Punjab">Punjab</option>
             <option value="Haryana">Haryana</option>
             <option value="Himachal">Himachal</option>
-            <option value="J&K">J&K</option>
             <option value="Chandigarh">Chandigarh</option>
             <option value="Madhya Pradesh">Madhya Pradesh</option>
             <option value="Chattisgarh">Chattisgarh</option>
             <option value="Maharastra">Maharastra</option>
             <option value="Gujarat">Gujarat</option>
-            <option value="Goa">Goa</option>
-            <option value="Daman & Diu">Daman & Diu</option>
-            <option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Karnataka">Karnataka</option>
             <option value="Tamil Nadu">Tamil Nadu</option>
             <option value="Kerala">Kerala</option>
-            <option value="A & N">A & N</option>
             <option value="TELANGANA">TELANGANA</option>
             <option value="PUDUCHERRY">PUDUCHERRY</option>
             <option value="West Bengal">West Bengal</option>
@@ -81,17 +76,6 @@
             <option value="Odisha">Odisha</option>
             <option value="Sikkim">Sikkim</option>
             <option value="Assam">Assam</option>
-            <option value="Meghalaya">Meghalaya</option>
-            <option value="Tripura">Tripura</option>
-            <option value="Nagaland">Nagaland</option>
-            <option value="Arunachal">Arunachal</option>
-            <option value="Mizoram">Mizoram</option>
-            <option value="Manipur">Manipur</option>
-            <option value="Railways">Railways</option>
-            <option value="SAIL">SAIL</option>
-            <option value="DVC">DVC</option>
-            <option value="PGCIL">PGCIL</option>
-            <option value="Bangladesh">Bangladesh</option>
         </select>
     </div>
 
@@ -397,37 +381,150 @@
                           }
                           //  alert(typename == "1");
                       }
-                         /* <option value="Madhya Pradesh">Madhya Pradesh</option>
-                          <option value="Chattisgarh">Chattisgarh</option>
-                          <option value="Maharastra">Maharastra</option>
-                          <option value="Gujarat">Gujarat</option>
-                          <option value="Goa">Goa</option>
-                          <option value="Daman & Diu">Daman & Diu</option>
-                          <option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
-                          <option value="Andhra Pradesh">Andhra Pradesh</option>
-                          <option value="Karnataka">Karnataka</option>
-                          <option value="Tamil Nadu">Tamil Nadu</option>
-                          <option value="Kerala">Kerala</option>
-                          <option value="A & N">A & N</option>
-                          <option value="TELANGANA">TELANGANA</option>
-                          <option value="PUDUCHERRY">PUDUCHERRY</option>
-                          <option value="West Bengal">West Bengal</option>
-                          <option value="Bihar">Bihar</option>
-                          <option value="Jharkhand">Jharkhand</option>
-                          <option value="Odisha">Odisha</option>
-                          <option value="Sikkim">Sikkim</option>
-                          <option value="Assam">Assam</option>
-                          <option value="Meghalaya">Meghalaya</option>
-                          <option value="Tripura">Tripura</option>
-                          <option value="Nagaland">Nagaland</option>
-                          <option value="Arunachal">Arunachal</option>
-                          <option value="Mizoram">Mizoram</option>
-                          <option value="Manipur">Manipur</option>
-                          <option value="Railways">Railways</option>
-                          <option value="SAIL">SAIL</option>
-                          <option value="DVC">DVC</option>
-                          <option value="PGCIL">PGCIL</option>
-                          <option value="Bangladesh">Bangladesh</option>*/
+                      else if (typename == "Madhya Pradesh") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].madhyapradeshvc) > 0) {
+                                  benefSeries.push(obj.data[i].madhyapradesh);
+                                  totalSeries.push(parseFloat(obj.data[i].madhyapradeshvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Chattisgarh") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].chhatisgarhvc) > 0) {
+                                  benefSeries.push(obj.data[i].chhatisgarh);
+                                  totalSeries.push(parseFloat(obj.data[i].chhatisgarhvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Maharastra") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].maharashtravc) > 0) {
+                                  benefSeries.push(obj.data[i].maharashtra);
+                                  totalSeries.push(parseFloat(obj.data[i].maharashtravc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Gujarat") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].gujaratvc) > 0) {
+                                  benefSeries.push(obj.data[i].gujarat);
+                                  totalSeries.push(parseFloat(obj.data[i].gujaratvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Andhra Pradesh") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].andhrapradeshvc) > 0) {
+                                  benefSeries.push(obj.data[i].andhrapradesh);
+                                  totalSeries.push(parseFloat(obj.data[i].andhrapradeshvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Karnataka") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].karnatakavc) > 0) {
+                                  benefSeries.push(obj.data[i].karnataka);
+                                  totalSeries.push(parseFloat(obj.data[i].karnatakavc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Tamil Nadu") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].tamilnaduvc) > 0) {
+                                  benefSeries.push(obj.data[i].tamilnadu);
+                                  totalSeries.push(parseFloat(obj.data[i].tamilnaduvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Kerala") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].keralavc) > 0) {
+                                  benefSeries.push(obj.data[i].kerala);
+                                  totalSeries.push(parseFloat(obj.data[i].keralavc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "TELANGANA") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].telanganavc) > 0) {
+                                  benefSeries.push(obj.data[i].telangana);
+                                  totalSeries.push(parseFloat(obj.data[i].telanganavc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "PUDUCHERRY") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].pudducheryvc) > 0) {
+                                  benefSeries.push(obj.data[i].pudduchery);
+                                  totalSeries.push(parseFloat(obj.data[i].pudducheryvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "West Bengal") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].westbengalvc) > 0) {
+                                  benefSeries.push(obj.data[i].westbengal);
+                                  totalSeries.push(parseFloat(obj.data[i].westbengalvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Bihar") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].biharvc) > 0) {
+                                  benefSeries.push(obj.data[i].bihar);
+                                  totalSeries.push(parseFloat(obj.data[i].biharvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Jharkhand") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].jharkhandvc) > 0) {
+                                  benefSeries.push(obj.data[i].jharkhand);
+                                  totalSeries.push(parseFloat(obj.data[i].jharkhandvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Odisha") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].odishavc) > 0) {
+                                  benefSeries.push(obj.data[i].odisha);
+                                  totalSeries.push(parseFloat(obj.data[i].odishavc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Sikkim") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].sikkimvc) > 0) {
+                                  benefSeries.push(obj.data[i].sikkim);
+                                  totalSeries.push(parseFloat(obj.data[i].sikkimvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "Assam") {
+                          for (var i = 1; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].assamvc) > 0) {
+                                  benefSeries.push(obj.data[i].assam);
+                                  totalSeries.push(parseFloat(obj.data[i].assamvc));
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
                       // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
 
 
