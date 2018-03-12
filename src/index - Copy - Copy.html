@@ -284,8 +284,12 @@
 
 
                   document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
-                  if (typename == "1")
-                  {
+                  if (typename == "4") {
+                      document.getElementById("canvas-holder3").style.height = "400px";
+                      document.getElementById("canvas-holder3").style.minWidth = "1100px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:1050px;height:380px;"></canvas>';
+                  }
+                  if (typename == "1") {
                       document.getElementById("canvas-holder3").style.height = "400px";
                       document.getElementById("canvas-holder3").style.minWidth = "880px";
                       document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:860px;height:380px;"></canvas>';
