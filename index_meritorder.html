@@ -260,10 +260,17 @@
                   document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
                   
                       document.getElementById("canvas-holder3").style.height = "400px";
-                      document.getElementById("canvas-holder3").style.minWidth = "900px";
-                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:880px;height:380px;"></canvas>';
+                      if (typename == "Gujarat") {
+                          document.getElementById("canvas-holder3").style.minWidth = "1300px";
+                          document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:1200px;height:380px;"></canvas>';
+                      }
+                      else {
+                          document.getElementById("canvas-holder3").style.minWidth = "900px";
+                          document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:880px;height:380px;"></canvas>';
+                      }
 
 
+                      
                   //alert(typename=="1");
 
                  // ev.preventDefault();
