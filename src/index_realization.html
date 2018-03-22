@@ -1,0 +1,814 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>get-sheet-done demo</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #theForm {
+            border: 1px solid silver;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        #theForm > div {
+            margin-bottom: 10px;
+        }
+        .label {
+            display: inline-block;
+            width: 150px;
+        }
+        #key {
+            width: 400px;
+            max-width: 100%;
+        }
+        #output {
+            overflow: auto;
+        }
+        .checkboxGroup {
+            display: inline-block;
+            vertical-align: top;
+        }
+        th, td {
+            padding: 5px;
+            border: 1px solid #000;
+            white-space: nowrap;
+        }
+
+        .table1 {
+            width: 20px;
+            float: left;
+        }
+
+        .table2 {
+            overflow: auto;
+        }
+    </style>
+
+  <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+  <script src="GetSheetDone.js"></script>
+    <script src="Chart.PieceLabel.js"></script>
+
+    <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="utils.js"></script>
+
+    <script type="text/javascript" src="https://manavmahipal.github.io/dash/Chart.PieceLabel.js"></script>
+
+    <script src="chartjs-plugin-datalabels.js"></script>
+
+    <script src="countUp.js"></script>
+
+
+</head >
+      <body>
+          <table id="datatable01" cellpadding="0" cellspacing="0">
+              <tr>
+                  <td colspan="3" style="border:thin solid #a5f448;background-color:#2ce0f0;width:5%;text-align:center;">Todays Payments</td>
+              </tr>
+              <tr>
+                  <td style="border:thin solid #a5f448;background-color:#5062e5;width:5%;color:#dbdffc;">SNo.</td>
+                  <td style="border:thin solid #a5f448;background-color:#5062e5;width:10%;color:#dbdffc;">State</td>
+                  <td style="border:thin solid #a5f448;background-color:#5062e5;width:10%;color:#dbdffc;">Payments</td>
+              </tr>
+          </table>
+          <br /><br /><div id="typeselect" style="width:100%;">
+              <select name="typedrop" id="typedrop" style="width:100%;height:30px;font-size:20px;" onchange="typeselect(this.value)">
+                  <option value="4">Total Dues</option>
+                  <option value="1">Dues more than 60 days</option>
+                  <option value="2">Dues more than 30 days</option>
+                  <option value="3">Dues less than 30 days</option>
+              </select>
+          </div>
+
+          <div id="canvas-holder3" style="width:100%;min-width:900px;height:400px;overflow:scroll;">
+              <canvas id="chart-area3"  style="width:100%;min-width:880px;height:380px;" />
+          </div>
+
+          <div style="width: 75%">
+              <canvas id="canvas"></canvas>
+          </div>
+          
+          
+
+
+          <script>
+
+
+              let key,
+                  sheetNum,
+                  sheetType, counter = 0, cc = 0;
+
+              function readValues() {
+                  key = '1GLmA6FKZ166Fq4l0y6CwyEGJopgtcZiIFtyKdU02nvc';
+                  sheetNum = '3';
+                  sheetType = 'cols';
+              }
+
+              window.onload = function (ev) {
+                  ev.preventDefault();
+                  readValues();
+                  console.log(key, sheetNum, sheetType);
+
+                  let promise;
+                  switch (sheetType) {
+                      case 'cols':
+                          promise = GetSheetDone.labeledCols(key, sheetNum);
+                          break;
+                      case 'cols-rows':
+                          promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                          break;
+                      case 'raw':
+                      default:
+                          promise = GetSheetDone.raw(key, sheetNum);
+                          break;
+                  }
+                  promise.then((data) => {
+                      var jsonarray = JSON.stringify(data);
+                      var obj = JSON.parse(jsonarray);
+                      var coll = [];
+                      for (var i = 0; i < obj.data.length; i++) {
+                          for (var ky in obj.data[i]) {
+                              if (coll.indexOf(ky) === -1) {
+                                  coll.push(ky);
+                              }
+                          }
+                      }
+                      // CREATE DYNAMIC TABLE.
+                    //  var table = document.getElementById('datatable02');//document.createElement('table');
+                    //  table.style.border = "thin solid #a5f448";
+                      // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+                   //   var plantlist = obj.data;
+                     // document.getElementById('showDataaa').innerHTML = jsonarray;
+                      var int32View = new Float64Array();
+                      var benefSeries = [];
+                      var totalSeries = [];
+                      var benefSeries60 = [];
+                      var totalSeries60 = [];
+                      var benefSeries30 = [];
+                      var totalSeries30 = [];
+                      var benefSeries00 = [];
+                      var totalSeries00 = [];
+
+                      var raj = 0;
+                      var del = 0;
+                      var pgcil = 0;
+                      var mp = 0;
+                      var kar = 0;
+                      var raj60 = 0;
+                      var del60 = 0;
+                      var pgcil60 = 0;
+                      var mp60 = 0;
+                      var kar60 = 0;
+                      var raj30 = 0;
+                      var del30 = 0;
+                      var pgcil30 = 0;
+                      var mp30 = 0;
+                      var kar30 = 0;
+                      var raj00 = 0;
+                      var del00 = 0;
+                      var pgcil00 = 0;
+                      var mp00 = 0;
+                      var kar00 = 0;
+                      var totrealtoday = 0;
+                     // var table1 = document.getElementById('datatable03');
+                 //     alert(jsonarray);
+                      var table = document.getElementById('datatable01');//document.createElement('table');
+                      table.style.border = "thin solid #a5f448";
+                      // ADD JSON DATA TO THE TABLE AS ROWS.
+                      for (var i = 0; i < obj.data.length; i++) {
+                          if (parseFloat(obj.data[i].todaypayments60) > 0) {
+                              totrealtoday += parseFloat(obj.data[i].todaypayments60);
+                              if (obj.data[i].state == "Rajasthan")
+                                  raj60 += parseFloat(obj.data[i].todaypayments60);
+                              else if (obj.data[i].state == "Delhi")
+                                  del60 += parseFloat(obj.data[i].todaypayments60);
+                              else if (obj.data[i].state == "PGCIL")
+                                  pgcil60 += parseFloat(obj.data[i].todaypayments60);
+                              else if (obj.data[i].state == "Madhya Pradesh")
+                                  mp60 += parseFloat(obj.data[i].todaypayments60);
+                              else if (obj.data[i].state == "Karnataka")
+                                  kar60 += parseFloat(obj.data[i].todaypayments60);
+                              else {
+                                  benefSeries60.push(obj.data[i].state);
+                                  totalSeries60.push(parseFloat(obj.data[i].todaypayments60));
+                              }
+                          }
+                          if (parseFloat(obj.data[i].todaypayments30) > 0) {
+                              totrealtoday += parseFloat(obj.data[i].todaypayments30);
+                              if (obj.data[i].state == "Rajasthan")
+                                  raj30 += parseFloat(obj.data[i].todaypayments30);
+                              else if (obj.data[i].state == "Delhi")
+                                  del30 += parseFloat(obj.data[i].todaypayments30);
+                              else if (obj.data[i].state == "PGCIL")
+                                  pgcil30 += parseFloat(obj.data[i].todaypayments30);
+                              else if (obj.data[i].state == "Madhya Pradesh")
+                                  mp30 += parseFloat(obj.data[i].todaypayments30);
+                              else if (obj.data[i].state == "Karnataka")
+                                  kar30 += parseFloat(obj.data[i].todaypayments30);
+                              else {
+                                  benefSeries30.push(obj.data[i].state);
+                                  totalSeries30.push(parseFloat(obj.data[i].todaypayments30));
+                              }
+                          }
+                          if (parseFloat(obj.data[i].todaypayments) > 0){
+                              totrealtoday += parseFloat(obj.data[i].todaypayments);
+                              if (obj.data[i].state == "Rajasthan")
+                                  raj00 += parseFloat(obj.data[i].todaypayments);
+                              else if (obj.data[i].state == "Delhi")
+                                  del00 += parseFloat(obj.data[i].todaypayments);
+                              else if (obj.data[i].state == "PGCIL")
+                                  pgcil00 += parseFloat(obj.data[i].todaypayments);
+                              else if (obj.data[i].state == "Madhya Pradesh")
+                                  mp00 += parseFloat(obj.data[i].todaypayments);
+                              else if (obj.data[i].state == "Karnataka")
+                                  kar00 += parseFloat(obj.data[i].todaypayments);
+                              else {
+                                  benefSeries00.push(obj.data[i].state);
+                                  totalSeries00.push(parseFloat(obj.data[i].todaypayments));
+                              }
+                          }
+
+                          if (parseFloat(obj.data[i].totaldues) > 0) {
+                              if (obj.data[i].state == "Rajasthan")
+                                  raj += parseFloat(obj.data[i].totaldues);
+                              else if (obj.data[i].state == "Delhi")
+                                  del += parseFloat(obj.data[i].totaldues);
+                              else if (obj.data[i].state == "PGCIL")
+                                  pgcil += parseFloat(obj.data[i].totaldues);
+                              else if (obj.data[i].state == "Madhya Pradesh")
+                                  mp += parseFloat(obj.data[i].totaldues);
+                              else if (obj.data[i].state == "Karnataka")
+                                  kar += parseFloat(obj.data[i].totaldues);
+                              else {
+                                  benefSeries.push(obj.data[i].state);
+                                  totalSeries.push(parseFloat(obj.data[i].totaldues));
+                              }
+                          }
+                      }
+
+                      if (raj > 0) {
+                          benefSeries.push("Rajasthan");
+                          totalSeries.push(raj);
+                      }
+                      if (del > 0) {
+                          benefSeries.push("Delhi");
+                          totalSeries.push(del);
+                      }
+                      if (pgcil > 0) {
+                          benefSeries.push("PGCIL");
+                          totalSeries.push(pgcil);
+                      }
+                      if (mp > 0) {
+                          benefSeries.push("Madhya Pradesh");
+                          totalSeries.push(mp);
+                      }
+                      if (kar > 0) {
+                          benefSeries.push("Karnataka");
+                          totalSeries.push(kar);
+                      }
+                      
+                      if (raj60 > 0) {
+                          benefSeries60.push("Rajasthan");
+                          totalSeries60.push(raj60);
+                      }
+                      if (del60 > 0) {
+                          benefSeries60.push("Delhi");
+                          totalSeries60.push(del60);
+                      }
+                      if (pgcil60 > 0) {
+                          benefSeries60.push("PGCIL");
+                          totalSeries60.push(pgcil60);
+                      }
+                      if (mp60 > 0) {
+                          benefSeries60.push("Madhya Pradesh");
+                          totalSeries60.push(mp60);
+                      }
+                      if (kar60 > 0) {
+                          benefSeries60.push("Karnataka");
+                          totalSeries60.push(kar60);
+                      }
+
+                      if (raj30 > 0) {
+                          benefSeries30.push("Rajasthan");
+                          totalSeries30.push(raj30);
+                      }
+                      if (del30 > 0) {
+                          benefSeries30.push("Delhi");
+                          totalSeries30.push(del30);
+                      }
+                      if (pgcil30 > 0) {
+                          benefSeries30.push("PGCIL");
+                          totalSeries30.push(pgcil30);
+                      }
+                      if (mp30 > 0) {
+                          benefSeries30.push("Madhya Pradesh");
+                          totalSeries30.push(mp30);
+                      }
+                      if (kar30 > 0) {
+                          benefSeries30.push("Karnataka");
+                          totalSeries30.push(kar30);
+                      }
+
+
+                      if (raj00 > 0) {
+                          benefSeries00.push("Rajasthan");
+                          totalSeries00.push(raj00);
+                      }
+                      if (del00 > 0) {
+                          benefSeries00.push("Delhi");
+                          totalSeries00.push(del00);
+                      }
+                      if (pgcil00 > 0) {
+                          benefSeries00.push("PGCIL");
+                          totalSeries00.push(pgcil00);
+                      }
+                      if (mp00 > 0) {
+                          benefSeries00.push("Madhya Pradesh");
+                          totalSeries00.push(mp00);
+                      }
+                      if (kar00 > 0) {
+                          benefSeries00.push("Karnataka");
+                          totalSeries00.push(kar00);
+                      }
+                      // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+
+                      for (var i = 0; i < benefSeries60.length; i++) {
+                          if (i == 0) {
+                              tr = table.insertRow(-1);
+                              var tabCell01 = tr.insertCell(-1);
+                              tabCell01.style.border = "thin solid #a5f448";
+                              tabCell01.style.backgroundColor = "#abb5ff";
+                              tabCell01.colSpan = "3";
+                             // counter = counter + 1;
+                              tabCell01.innerHTML = "Payments for dues more than 60 days";
+                          }
+                          tr = table.insertRow(-1);
+                          var tabCell0 = tr.insertCell(-1);
+                          tabCell0.style.border = "thin solid #a5f448";
+                          tabCell0.style.backgroundColor = "#abb5ff";
+                          tabCell0.style.width = "5%";
+                          counter = counter + 1;
+                          tabCell0.innerHTML = counter;
+                          var tabCell1 = tr.insertCell(-1);
+                          tabCell1.style.border = "thin solid #a5f448";
+                          tabCell1.style.backgroundColor = "#c9ebff";
+                          tabCell1.style.width = "10%";
+                          tabCell1.innerHTML = benefSeries60[i];
+                          var tabCell2 = tr.insertCell(-1);
+                          tabCell2.style.border = "thin solid #a5f448";
+                          tabCell2.style.backgroundColor = "#c9ebff";
+                          tabCell2.style.width = "10%";
+                          tabCell2.innerHTML = totalSeries60[i];
+                      }
+
+
+                      for (var i = 0; i < benefSeries30.length; i++) {
+                          if (i == 0) {
+                              tr = table.insertRow(-1);
+                              var tabCell01 = tr.insertCell(-1);
+                              tabCell01.style.border = "thin solid #a5f448";
+                              tabCell01.style.backgroundColor = "#abb5ff";
+                              tabCell01.colSpan = "3";
+                              // counter = counter + 1;
+                              tabCell01.innerHTML = "Payments for dues more than 30 days";
+                          }
+                          tr = table.insertRow(-1);
+                          var tabCell0 = tr.insertCell(-1);
+                          tabCell0.style.border = "thin solid #a5f448";
+                          tabCell0.style.backgroundColor = "#abb5ff";
+                          tabCell0.style.width = "5%";
+                          counter = counter + 1;
+                          tabCell0.innerHTML = counter;
+                          var tabCell1 = tr.insertCell(-1);
+                          tabCell1.style.border = "thin solid #a5f448";
+                          tabCell1.style.backgroundColor = "#c9ebff";
+                          tabCell1.style.width = "10%";
+                          tabCell1.innerHTML = benefSeries30[i];
+                          var tabCell2 = tr.insertCell(-1);
+                          tabCell2.style.border = "thin solid #a5f448";
+                          tabCell2.style.backgroundColor = "#c9ebff";
+                          tabCell2.style.width = "10%";
+                          tabCell2.innerHTML = totalSeries30[i];
+                      }
+
+                      for (var i = 0; i < benefSeries00.length; i++) {
+                          if (i == 0) {
+                              tr = table.insertRow(-1);
+                              var tabCell01 = tr.insertCell(-1);
+                              tabCell01.style.border = "thin solid #a5f448";
+                              tabCell01.style.backgroundColor = "#abb5ff";
+                              tabCell01.colSpan = "3";
+                              // counter = counter + 1;
+                              tabCell01.innerHTML = "Payments for dues less than 30 days";
+                          }
+                          tr = table.insertRow(-1);
+                          var tabCell0 = tr.insertCell(-1);
+                          tabCell0.style.border = "thin solid #a5f448";
+                          tabCell0.style.backgroundColor = "#abb5ff";
+                          tabCell0.style.width = "5%";
+                          counter = counter + 1;
+                          tabCell0.innerHTML = counter;
+                          var tabCell1 = tr.insertCell(-1);
+                          tabCell1.style.border = "thin solid #a5f448";
+                          tabCell1.style.backgroundColor = "#c9ebff";
+                          tabCell1.style.width = "10%";
+                          tabCell1.innerHTML = benefSeries00[i];
+                          var tabCell2 = tr.insertCell(-1);
+                          tabCell2.style.border = "thin solid #a5f448";
+                          tabCell2.style.backgroundColor = "#c9ebff";
+                          tabCell2.style.width = "10%";
+                          tabCell2.innerHTML = totalSeries00[i];
+                      }
+
+                      tr = table.insertRow(-1);
+
+                      var tabCell0 = tr.insertCell(-1);
+                      tabCell0.style.border = "thin solid #a5f448";
+                      tabCell0.style.backgroundColor = "#abb5ff";
+                      tabCell0.colSpan = "2";
+                      tabCell0.innerHTML = "Total Payments";
+
+                      var tabCell2 = tr.insertCell(-1);
+                      tabCell2.style.border = "thin solid #a5f448";
+                      tabCell2.style.backgroundColor = "#c9ebff";
+                      tabCell2.style.width = "10%";
+                      tabCell2.innerHTML = totrealtoday;
+
+
+                      var ctx = document.getElementById("chart-area3").getContext("2d");
+                      //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                      ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                      //   alert(benefSeries[6] + "******" + totalSeries[2]);
+                   //   alert("yahoo");
+
+                      var config = {
+                          type: 'bar',
+                          data: {
+                              datasets: [{
+                                  backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"],
+                                  borderColor: window.chartColors.red,
+                                  borderWidth: 1,
+                                  data: totalSeries,
+                                  datalabels: {
+                                      align: 'center',
+                                      anchor: 'end',
+                                      rotation: -90
+                                     }
+                              }],
+                              labels: benefSeries
+                          },
+                          options: {
+                              legend: {
+                                  display: false
+                              },
+                              plugins: {
+                                  datalabels: {
+                                      color: '#0345af',
+                                      display: function (context) {
+                                          return context.dataset.data[context.dataIndex] > 15;
+                                      },
+                                      font: {
+                                          weight: 'bold'
+                                      },
+                                      formatter: Math.round
+                                  }
+                              },
+                              responsive: true,
+                              scales: {
+                                  xAxes: [{
+                                      barThickness: 20,
+                                      ticks: {
+                                          stepSize: 1,
+                                          min: 0,
+                                          autoSkip: false
+                                      }
+                                  }]
+                              },
+                              pieceLabel: {
+                                  render: function (args) {
+                                    //  alert(args.label + "---" + args.value);
+                                      return args.label + '  (' + args.value + ' MW)  ';
+                                  },
+                                  fontSize: 9,
+                                  fontColor: '#3e2507'
+                              }
+                          }
+                      };
+
+                      window.myBar = new Chart(ctx, config);
+                      document.getElementById("chart-area3").ondblclick = function (evt) {
+                          var activePoint = myBar.getElementAtEvent(evt)[0];
+                          var data = activePoint._chart.data;
+                          var datasetIndex = activePoint._datasetIndex;
+                          var label = data.labels[activePoint._index];
+                          var value = data.datasets[datasetIndex].data[activePoint._index];
+                           alert(label + "---" + value);
+                          //window.location.reload();
+                         // stateregiondrilldown(label); //console.log(label, value);
+                      };
+                   
+                     // alert("yahoo2");
+                    
+//
+
+                  }).catch(err => {
+                      console.log('Error');
+                      console.log(err);
+                      document.getElementById('output').innerHTML = err.message;
+                  })
+
+
+
+                  
+              }
+
+              // }
+
+
+
+              function typeselect(typename) {
+
+
+                  document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
+                  if (typename == "4") {
+                      document.getElementById("canvas-holder3").style.height = "400px";
+                      document.getElementById("canvas-holder3").style.minWidth = "1100px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:1050px;height:380px;"></canvas>';
+                  }
+                  if (typename == "1") {
+                      document.getElementById("canvas-holder3").style.height = "400px";
+                      document.getElementById("canvas-holder3").style.minWidth = "880px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:860px;height:380px;"></canvas>';
+                  }
+                  if (typename == "2") {
+                      document.getElementById("canvas-holder3").style.height = "400px";
+                      document.getElementById("canvas-holder3").style.minWidth = "880px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:860px;height:380px;"></canvas>';
+                  }
+                  if (typename == "3") {
+                      document.getElementById("canvas-holder3").style.height = "400px";
+                      document.getElementById("canvas-holder3").style.minWidth = "880px";
+                      document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;min-width:860px;height:380px;"></canvas>';
+                  }
+
+
+                  //alert(typename=="1");
+
+                 // ev.preventDefault();
+                  readValues();
+                  console.log(key, sheetNum, sheetType);
+
+                  let promise;
+                  switch (sheetType) {
+                      case 'cols':
+                          promise = GetSheetDone.labeledCols(key, sheetNum);
+                          break;
+                      case 'cols-rows':
+                          promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                          break;
+                      case 'raw':
+                      default:
+                          promise = GetSheetDone.raw(key, sheetNum);
+                          break;
+                  }
+                  promise.then((data) => {
+                      var jsonarray = JSON.stringify(data);
+                      var obj = JSON.parse(jsonarray);
+                      var coll = [];
+                      for (var i = 0; i < obj.data.length; i++) {
+                          for (var ky in obj.data[i]) {
+                              if (coll.indexOf(ky) === -1) {
+                                  coll.push(ky);
+                              }
+                          }
+                      }
+                      // CREATE DYNAMIC TABLE.
+                      //  var table = document.getElementById('datatable02');//document.createElement('table');
+                      //  table.style.border = "thin solid #a5f448";
+                      // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+                      //   var plantlist = obj.data;
+                      // document.getElementById('showDataaa').innerHTML = jsonarray;
+                      var int32View = new Float64Array();
+                      var benefSeries = [];
+                      var totalSeries = [];
+
+                      var raj = 0;
+                      var del = 0;
+                      var pgcil = 0;
+                      var mp = 0;
+                      var kar = 0;
+                      // var table1 = document.getElementById('datatable03');
+                      //     alert(jsonarray);
+
+                      // ADD JSON DATA TO THE TABLE AS ROWS.
+                      if (typename == "4") {
+                          for (var i = 0; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].totaldues) > 0) {
+                                  if (obj.data[i].state == "Rajasthan")
+                                      raj += parseFloat(obj.data[i].totaldues);
+                                  else if (obj.data[i].state == "Delhi")
+                                      del += parseFloat(obj.data[i].totaldues);
+                                  else if (obj.data[i].state == "PGCIL")
+                                      pgcil += parseFloat(obj.data[i].totaldues);
+                                  else if (obj.data[i].state == "Madhya Pradesh")
+                                      mp += parseFloat(obj.data[i].totaldues);
+                                  else if (obj.data[i].state == "Karnataka")
+                                      kar += parseFloat(obj.data[i].totaldues);
+                                  else {
+                                      benefSeries.push(obj.data[i].state);
+                                      totalSeries.push(parseFloat(obj.data[i].totaldues));
+                                  }
+                              }
+                          }
+                          //  alert(typename == "1");
+                      }
+                      else if (typename == "1") {
+                          for (var i = 0; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].outstanding60) > 0) {
+                                  if (obj.data[i].state == "Rajasthan")
+                                      raj += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "Delhi")
+                                      del += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "PGCIL")
+                                      pgcil += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "Madhya Pradesh")
+                                      mp += parseFloat(obj.data[i].outstanding60);
+                                  else if (obj.data[i].state == "Karnataka")
+                                      kar += parseFloat(obj.data[i].outstanding60);
+                                  else {
+                                      benefSeries.push(obj.data[i].state);
+                                      totalSeries.push(parseFloat(obj.data[i].outstanding60));
+                                  }
+                              }
+                          }
+                        //  alert(typename == "1");
+                      }
+                      else if (typename == "2") {
+                          for (var i = 0; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].outstanding30) > 0) {
+                                  if (obj.data[i].state == "Rajasthan")
+                                      raj += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "Delhi")
+                                      del += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "PGCIL")
+                                      pgcil += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "Madhya Pradesh")
+                                      mp += parseFloat(obj.data[i].outstanding30);
+                                  else if (obj.data[i].state == "Karnataka")
+                                      kar += parseFloat(obj.data[i].outstanding30);
+                                  else {
+                                      benefSeries.push(obj.data[i].state);
+                                      totalSeries.push(parseFloat(obj.data[i].outstanding30));
+                                  }
+                              }
+                          }
+                      }
+                      else if (typename =="3") {
+                          for (var i = 0; i < obj.data.length; i++) {
+                              if (parseFloat(obj.data[i].outstanding) > 0) {
+                                  if (obj.data[i].state == "Rajasthan")
+                                      raj += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "Delhi")
+                                      del += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "PGCIL")
+                                      pgcil += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "Madhya Pradesh")
+                                      mp += parseFloat(obj.data[i].outstanding);
+                                  else if (obj.data[i].state == "Karnataka")
+                                      kar += parseFloat(obj.data[i].outstanding);
+                                  else {
+                                      benefSeries.push(obj.data[i].state);
+                                      totalSeries.push(parseFloat(obj.data[i].outstanding));
+                                  }
+                              }
+                          }
+                      }
+                      if (raj > 0) {
+                          benefSeries.push("Rajasthan");
+                          totalSeries.push(raj);
+                      }
+                      if (del > 0) {
+                          benefSeries.push("Delhi");
+                          totalSeries.push(del);
+                      }
+                      if (pgcil > 0) {
+                          benefSeries.push("PGCIL");
+                          totalSeries.push(pgcil);
+                      }
+                      if (mp > 0) {
+                          benefSeries.push("Madhya Pradesh");
+                          totalSeries.push(mp);
+                      }
+                      if (kar > 0) {
+                          benefSeries.push("Karnataka");
+                          totalSeries.push(kar);
+                      }
+
+
+                      // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+
+
+
+                      var ctx = document.getElementById("chart-area3").getContext("2d");
+                      //  alert(benefSeries[0] + "******" + totalSeries[0]);
+                      ///   alert(benefSeries[1] + "******" + totalSeries[1]);
+                      //   alert(benefSeries[6] + "******" + totalSeries[2]);
+
+                      //   alert("yahoo");
+
+                      var config = {
+                          type: 'bar',
+                          data: {
+                              datasets: [{
+                                  label: 'Outstanding',
+                                  backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"],
+                                  borderColor: window.chartColors.red,
+                                  borderWidth: 1,
+                                  data: totalSeries,
+                                  datalabels: {
+                                      align: 'center',
+                                      anchor: 'end',
+                                      rotation: -90
+                                  }
+                              }],
+                              labels: benefSeries
+                          },
+                          options: {
+                              plugins: {
+                                  datalabels: {
+                                      color: '#0345af',
+                                      display: function (context) {
+                                          return context.dataset.data[context.dataIndex] > 15;
+                                      },
+                                      font: {
+                                          weight: 'bold'
+                                      },
+                                      formatter: Math.round
+                                  }
+                              },
+                              responsive: true,
+
+                              legend: {
+                                  display: false
+                              },
+                              scales: {
+                                  xAxes: [{
+                                      barThickness: 20,
+                                      ticks: {
+                                          stepSize: 1,
+                                          min: 0,
+                                          autoSkip: false
+                                      }
+                                  }]
+                              },
+                              pieceLabel: {
+                                  render: function (args) {
+                                      //  alert(args.label + "---" + args.value);
+                                      return args.label + '  (' + args.value + ' MW)  ';
+                                  },
+                                  fontSize: 9,
+                                  fontColor: '#3e2507'
+                              }
+                          }
+                      };
+
+                      window.myBar = new Chart(ctx, config);
+                      document.getElementById("chart-area3").ondblclick = function (evt) {
+                          var activePoint = myBar.getElementAtEvent(evt)[0];
+                          var data = activePoint._chart.data;
+                          var datasetIndex = activePoint._datasetIndex;
+                          var label = data.labels[activePoint._index];
+                          var value = data.datasets[datasetIndex].data[activePoint._index];
+                          alert(label + "---" + value);
+                          //window.location.reload();
+                          // stateregiondrilldown(label); //console.log(label, value);
+                      };
+
+                      // alert("yahoo2");
+
+                      //
+
+                  }).catch(err => {
+                      console.log('Error');
+                      console.log(err);
+                      document.getElementById('output').innerHTML = err.message;
+                  })
+
+
+
+
+              }
+
+       
+          </script>
+
+
+
+
+       
+
+</body>
+</html>
