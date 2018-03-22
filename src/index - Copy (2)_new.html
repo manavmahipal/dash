@@ -107,25 +107,25 @@
           <script>
               window.onload = function (ev) {
                   document.getElementById("trading_reporttable").style.visibility = "visible";
-                  document.getElementById("trading_reporttable1").style.minWidth = "hidden";
-                  document.getElementById("trading_reporttable2").style.minWidth = "hidden";
+                  document.getElementById("trading_reporttable1").style.visibility = "hidden";
+                  document.getElementById("trading_reporttable2").style.visibility = "hidden";
               }
 
               function typeselect(typename) {
                   if (typename == "1") {
                       document.getElementById("trading_reporttable").style.visibility = "visible";
-                      document.getElementById("trading_reporttable1").style.minWidth = "hidden";
-                      document.getElementById("trading_reporttable2").style.minWidth = "hidden";
+                      document.getElementById("trading_reporttable1").style.visibility = "hidden";
+                      document.getElementById("trading_reporttable2").style.visibility = "hidden";
                   }
                   if (typename == "2") {
                       document.getElementById("trading_reporttable").style.visibility = "hidden";
-                      document.getElementById("trading_reporttable1").style.minWidth = "visible";
-                      document.getElementById("trading_reporttable2").style.minWidth = "hidden";
+                      document.getElementById("trading_reporttable1").style.visibility = "visible";
+                      document.getElementById("trading_reporttable2").style.visibility = "hidden";
                   }
                   if (typename == "3") {
                       document.getElementById("trading_reporttable").style.visibility = "hidden";
-                      document.getElementById("trading_reporttable1").style.minWidth = "hidden";
-                      document.getElementById("trading_reporttable2").style.minWidth = "visible";
+                      document.getElementById("trading_reporttable1").style.visibility = "hidden";
+                      document.getElementById("trading_reporttable2").style.visibility = "visible";
                   }
               }
           </script>
