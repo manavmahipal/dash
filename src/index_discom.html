@@ -1,63 +1,110 @@
 ﻿<!doctype html>
 <html>
 <head>
-    <title>get-sheet-done demo</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style>
-        body {
-            font-family: sans-serif;
-        }
-
-        #theForm {
-            border: 1px solid silver;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-            #theForm > div {
-                margin-bottom: 10px;
-            }
-
-        .label {
-            display: inline-block;
-            width: 150px;
-        }
-
-        #key {
-            width: 400px;
-            max-width: 100%;
-        }
-
-        #output {
-            overflow: auto;
-        }
-
-        .checkboxGroup {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .table1 {
-            width: 29%;
-            max-width: 130px;
-            float: left;
-            overflow: hidden;
-        }
-
-        .table2 {
-            width: 69%;
-            padding-left: 0px;
-            float: left;
-            overflow: auto;
-        }
-    </style>
-
-  <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
-  <script src="GetSheetDone.js"></script>
    
-</head >
-      <body>
-         Page Under Development
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://manavmahipal.github.io/dash/styles.css">
+    <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://manavmahipal.github.io/dash/script_state.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>State Officials Information</title>
+
+</head>
+<body>
+    <span style="color:#ff6a00;">* Data updated for Southern Region and Eastern Region states<br/></span>
+    <br />
+    <div id="stateselect" style="width:100%;">
+        <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="stateinfo(this.value)">
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal">Himachal</option>
+            <option value="J&K">J&K</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Chattisgarh">Chattisgarh</option>
+            <option value="Maharastra">Maharastra</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Goa">Goa</option>
+            <option value="Daman & Diu">Daman & Diu</option>
+            <option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Kerala">Kerala</option>
+            <option value="A & N">A & N</option>
+            <option value="TELANGANA">TELANGANA</option>
+            <option value="PUDUCHERRY">PUDUCHERRY</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Assam">Assam</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Arunachal">Arunachal</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Railways">Railways</option>
+            <option value="SAIL">SAIL</option>
+            <option value="DVC">DVC</option>
+            <option value="PGCIL">PGCIL</option>
+            <option value="Bangladesh">Bangladesh</option>
+        </select>
+    </div>
+    <br />
+    <table style="width:100%; text-align:center;font-size:x-large;color:#677c74;">
+        <tr>
+            <td style="width:100%; text-align:center;font-size:x-large;color:#677c74;">
+                <iframe id="stateframe" name="stateframe" style="height: 100%; width:99%;overflow-x:scroll;min-height:1700px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=0&range=A1:B37"></iframe>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function stateinfo(statename) {
+            var source = 'https://manavmahipal.github.io/dash/index_bd.html';
+            var iframe = document.getElementById('stateframe');
+
+            if (statename == "Andhra Pradesh")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=0&range=A1:B40';
+            else if (statename == "Bihar")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=2119954298&range=A1:B40';
+            else if (statename == "Jharkhand")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=210443644&range=A1:B40';
+            else if (statename == "Karnataka")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1336235328&range=A1:B40';
+            else if (statename == "Kerala")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=16037417&range=A1:B40';
+            else if (statename == "Sikkim")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=713657273&range=A1:B40';
+            else if (statename == "PUDUCHERRY")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=226797579&range=A1:B40';
+            else if (statename == "TELANGANA")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=932351762&range=A1:B40';
+            else if (statename == "Tamil Nadu")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1928767664&range=A1:B40';
+            else if (statename == "West Bengal")
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=412892272&range=A1:B40';
+            else
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=853163234&range=A1:B10';
+            iframe.src = source;
+            iframe.reload();
+        }
+    </script>
+
+
+
+
+
+
 </body>
+
 </html>
