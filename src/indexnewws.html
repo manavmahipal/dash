@@ -56,13 +56,21 @@
         //     console.log('Error');
         //     console.log(err);
         // })
+
         function showdesciption(descripcounter) {
             var x = document.getElementById(descripcounter);
-            if (x.style.display === "none") {
+            for (var i = 0; i < 50; i++) {
+                alert(parseFloat(descripcounter));
+                if (i === parseFloat(descripcounter))
+                    document.getElementById(i).style.display = "block";
+                else
+                    document.getElementById(i).style.display = "none";
+            }
+           /* if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
-            }
+            }*/
         }
 
         function readValues() {
