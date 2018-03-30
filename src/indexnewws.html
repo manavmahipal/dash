@@ -104,7 +104,7 @@
                 // document.getElementById("showDatafirst").innerHTML = obj.title + ", " + obj.updated + ", " + obj.data.length + "</span><br/>";
 
                 // var objjjjj = JSON.parse(obj.data);
-                alert(jsonarray);
+              //  alert(jsonarray);
 
 
 
@@ -154,8 +154,6 @@
                         tr = table.insertRow(-1);
                         counter = counter + 1;
                         var tabCell3 = tr.insertCell(-1);
-                        tabCell3.style.border = "thin solid #a5f448";
-                        tabCell3.style.backgroundColor = "#c9ebff";
                         tabCell3.style.width = "10%";
                         tabCell3.innerHTML = obj.data[i].data;
                     }
@@ -163,29 +161,29 @@
                         tr = table.insertRow(-1);
                         counter = counter + 1;
                         var tabCell3 = tr.insertCell(-1);
-                        tabCell3.style.border = "thin solid #a5f448";
-                        tabCell3.style.backgroundColor = "#c9ebff";
                         tabCell3.style.width = "10%";
-                        tabCell3.innerHTML = "<a href=\"" + obj.data[i].data + "\">View Source</a>";
+                        tabCell3.innerHTML = "<div style=\"width:100%; text-align:right;border-bottom: thin solid #a5f448;\"><a href=\"" + obj.data[i].data + "\">View Source</a></div>";
+                        tr1 = table.insertRow(-1);
+                        var tabCell31 = tr1.insertCell(-1);
+                        tabCell31.innerHTML = "&nbsp;&nbsp;";
                     }
                     else {
                         tr = table.insertRow(-1);
                         counter = counter + 1;
                         var tabCell3 = tr.insertCell(-1);
-                        tabCell3.style.border = "thin solid #a5f448";
                         tabCell3.style.backgroundColor = "#c9ebff";
                         tabCell3.style.width = "10%";
-                        tabCell3.innerHTML = "<b><a href=\"#\" onclick='showdesciption(" + counter + ")'>Desciption : </a></b><br/><div style=\"display:none;\" name=\"" + counter + "\ value=\"" + counter + "\ id=\"" + counter + "\">" + obj.data[i].data ;
+                        tabCell3.innerHTML = "<b><a href=\"#\" onclick='showdesciption(" + counter + ")'>Desciption : </a></b><br/><div style=\"display:none;\" name=\"" + counter + "\ value=\"" + counter + "\ id=\"" + counter + "\">" + obj.data[i].data + "</div>";;
                         for (var k = i+1; k < obj.data.length; k++ ) {
                             if (obj.data[k].type == "point") {
-                                tabCell3.innerHTML += "<br/>" + obj.data[k].data;
+                                document.getElementById(counter).innerHTML += "<br/>" + obj.data[k].data;
                                 i++;
                             }
                             else
                                 break;
                         }
 
-                        tabCell3.innerHTML +=  "</div>"
+                      //  tabCell3.innerHTML += "</div>";
                     }
                      /*   tr = table.insertRow(-1);
 
