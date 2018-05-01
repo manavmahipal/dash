@@ -160,19 +160,19 @@
 
 
     <div id="canvas-holder" style="width:100%;">
-        <canvas id="chart-area" style="width:100%;height:500px;" />
+        <canvas id="chart-area" style="width:100%;height:400px;" />
     </div>
     <div id="canvas-holder1" style="width:100%;">
-        <canvas id="chart-area1" style="width:100%;height:500px;" />
+        <canvas id="chart-area1" style="width:100%;height:400px;" />
     </div>
     <div id="canvas-holder2" style="width:100%;">
-        <canvas id="chart-area2" style="width:100%;height:500px;" />
+        <canvas id="chart-area2" style="width:100%;height:400px;" />
     </div>
     <div id="canvas-holder3" style="width:100%;">
-        <canvas id="chart-area3" style="width:100%;height:100vh;" />
+        <canvas id="chart-area3" style="width:100%;height:80vh;" />
     </div>
     <div id="canvas-holder4" style="width:100%;">
-        <canvas id="chart-area4" style="width:100%;height:100vh;" />
+        <canvas id="chart-area4" style="width:100%;height:80vh;" />
     </div>
 
 
@@ -331,7 +331,7 @@
             }
           function statedrilldown(statename) {
                 document.getElementById("canvas-holder1").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:100%;height:900px;"></canvas>';
+                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:100%;height:90vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
                 document.getElementById('chart-area1').style.display = "inline";
                 document.getElementById('chart-area2').style.display = "none";
@@ -1328,7 +1328,7 @@
             }
             function stationdrilldown(stationname) {
                 document.getElementById("canvas-holder2").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder2").innerHTML = '<canvas id="chart-area2" style="width:100%;height:900px;"></canvas>';
+                document.getElementById("canvas-holder2").innerHTML = '<canvas id="chart-area2" style="width:100%;height:90vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
                 document.getElementById('chart-area1').style.display = "none";
                 document.getElementById('chart-area2').style.display = "inline";
@@ -2487,7 +2487,7 @@
             }
             function stateregion() {
                 document.getElementById("canvas-holder3").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;height:600px;"></canvas>';
+                document.getElementById("canvas-holder3").innerHTML = '<canvas id="chart-area3" style="width:100%;height:90vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
                 document.getElementById('chart-area1').style.display = "none";
                 document.getElementById('chart-area2').style.display = "none";
@@ -2726,7 +2726,7 @@
             }
             function stateregiondrilldown(region) {
                 document.getElementById("canvas-holder4").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder4").innerHTML = '<canvas id="chart-area4" style="width:100%;height:700px;"></canvas>';
+                document.getElementById("canvas-holder4").innerHTML = '<canvas id="chart-area4" style="width:100%;height:90vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
                 document.getElementById('chart-area1').style.display = "none";
                 document.getElementById('chart-area2').style.display = "none";
