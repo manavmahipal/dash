@@ -17,45 +17,47 @@
     <div id="stateselect" style="width:100%;">
         <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="stateinfo(this.value)">            
             <option value="Andhra Pradesh">Andhra Pradesh</option>
-<option value="Andhra Pradesh">Andhra Pradesh</option>
-<option value="Arunachal">Arunachal</option>
-<option value="Assam">Assam</option>
-<option value="Bangladesh">Bangladesh</option>
-<option value="Bihar">Bihar</option>
-<option value="Chandigarh">Chandigarh</option>
-<option value="Chattisgarh">Chattisgarh</option>
-<option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
-<option value="Daman & Diu">Daman & Diu</option>
-<option value="Delhi">Delhi</option>
-<option value="DVC">DVC</option>
-<option value="Goa">Goa</option>
-<option value="Gujarat">Gujarat</option>
-<option value="Haryana">Haryana</option>
-<option value="Himachal">Himachal</option>
-<option value="J&K">J&K</option>
-<option value="Jharkhand">Jharkhand</option>
-<option value="Karnataka">Karnataka</option>
-<option value="Kerala">Kerala</option>
-<option value="Madhya Pradesh">Madhya Pradesh</option>
-<option value="Maharastra">Maharastra</option>
-<option value="Manipur">Manipur</option>
-<option value="Meghalaya">Meghalaya</option>
-<option value="Mizoram">Mizoram</option>
-<option value="Nagaland">Nagaland</option>
-<option value="Odisha">Odisha</option>
-<option value="PGCIL">PGCIL</option>
-<option value="PUDUCHERRY">PUDUCHERRY</option>
-<option value="Punjab">Punjab</option>
-<option value="Railways">Railways</option>
-<option value="Rajasthan">Rajasthan</option>
-<option value="SAIL">SAIL</option>
-<option value="Sikkim">Sikkim</option>
-<option value="Tamil Nadu">Tamil Nadu</option>
-<option value="TELANGANA">TELANGANA</option>
-<option value="Tripura">Tripura</option>
-<option value="Uttar Pradesh">Uttar Pradesh</option>
-<option value="Uttarakhand">Uttarakhand</option>
-<option value="West Bengal">West Bengal</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal">Arunachal</option>
+            <option value="Assam">Assam</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chattisgarh">Chattisgarh</option>
+            <option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
+            <option value="Daman & Diu">Daman & Diu</option>
+            <option value="Delhi-BRPL">Delhi-BRPL</option>
+            <option value="Delhi-BYPL">Delhi-BYPL</option>
+            <option value="Delhi-TPDDL">Delhi-TPDDL</option>
+            <option value="DVC">DVC</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal">Himachal</option>
+            <option value="J&K">J&K</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharastra">Maharastra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="PGCIL">PGCIL</option>
+            <option value="PUDUCHERRY">PUDUCHERRY</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Railways">Railways</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="SAIL">SAIL</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="TELANGANA">TELANGANA</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
         </select>
     </div>
     <br />
@@ -70,61 +72,94 @@
         function stateinfo(statename) {
             var source = 'https://manavmahipal.github.io/dash/index_bd.html';
             var iframe = document.getElementById('stateframe');
-
             if (statename == "Andhra Pradesh")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=0&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1jTlgmoaDWWuvjpKnswuHPrA0nDz9ZGNJO4vCz0bnC1U/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Bihar")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=2119954298&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1_lIK3rckXFTWTQN1rQ0x89KayeI-bXJE5sL6BF7tzFI/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Odisha")
+                source = 'https://docs.google.com/spreadsheets/d/1lQg4yxfReOmopPH9kfTXBsGxgdO8H5Al0ny22cdX7qM/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Railways")
+                source = 'https://docs.google.com/spreadsheets/d/1byay5hmlIqwqAUWTjN48kGpqHfh4gquCpkiVlR9_NkY/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "DVC")
+                source = 'https://docs.google.com/spreadsheets/d/1uSsbcQjStkYkigf2VoxD7vp7bk44h16zgBuV0cishNo/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "PGCIL")
+                source = 'https://docs.google.com/spreadsheets/d/1iqdcM7XVnLhQR4QOIeoosSbt2Wp7fOKV68412TYNmmU/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "SAIL")
+                source = 'https://docs.google.com/spreadsheets/d/1r9vrXN2c1sxo2lpddguSAbpZk3e8Dq339qZ2yoAHLKU/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Manipur")
+                source = 'https://docs.google.com/spreadsheets/d/1mMr6s9EuLQiaHbrCgGNgD-0n2XIN6o_OOL9xgwtN_Go/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Mizoram")
+                source = 'https://docs.google.com/spreadsheets/d/1d7arHQV_0okE7yApOG5OP2YHKNdn2CYUMtDDaqZ0A_Q/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Meghalaya")
+                source = 'https://docs.google.com/spreadsheets/d/1tSWT9KkNrBCfIyOGicoN5juvTYCNHduA0-AVyjpkFxk/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Nagaland")
+                source = 'https://docs.google.com/spreadsheets/d/1_kVl2rj0F3oDClD4cW9xwDxCT2kwKW4v7ZYTzie90j4/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Tripura")
+                source = 'https://docs.google.com/spreadsheets/d/1f3L6ZFVrc3lDdDAku6lmuLnvxg_LbcIXt1aqKtLfGAw/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Arunachal")
+                source = 'https://docs.google.com/spreadsheets/d/1XAkhVtUTTAHa701D1tnYg45rNmMJ4QpSguPc6-3GBVo/pubhtml/sheet?headers=false&gid=1472969889&range=A1:B40';
             else if (statename == "Jharkhand")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=210443644&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1VcYAV7eNp7_IgQtYgl_ErrmsJo5mC2rr2sw9erwy7yA/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Karnataka")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1336235328&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1tF1JnMZNOizQ7oHDXwKJRhOxlJQlfaZr04m5VD-blBc/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Kerala")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=16037417&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1Z9iMiv1Req2f-f0uWsJxmY7xxCTFLqMCr24uxnHpQSw/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Sikkim")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=713657273&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1Xzovz_oeLxSmRMUFEknmetBiTOknaHEYqFUAYDXQxho/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "PUDUCHERRY")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=226797579&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1fFWJ8GVabbXSv-WdedA2TCcXXCKlKnFrhD5pm1x4cXA/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "TELANGANA")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=932351762&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1wTDtTWITbIbFIxo871CCKZNrRZqkCCJ6gTeXQPPcKVQ/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Tamil Nadu")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1928767664&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1-ni1-rNhdqqF0JPTgtn-3YvSBvwizdebeUT2L0xH51Q/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "West Bengal")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=412892272&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1_tr5ZwNYOzWznsABCqOHOOLuNWKwEnQVZypyIft_A-0/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Maharastra")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=858546860&range=A1:B30';
+                source = 'https://docs.google.com/spreadsheets/d/1Ra90koPCwpuPVGl6Ms4DszYIffJ8A2gXr0jE0hJxnt8/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B30';
             else if (statename == "Uttar Pradesh")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=742319819&range=A1:B30';
+                source = 'https://docs.google.com/spreadsheets/d/12zDCigHlUCwXIEDT2iB0kJxbO4bOFXlhZS34tagzmTY/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Uttarakhand")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1922930495&range=A1:B40';
+                source = 'https://docs.google.com/spreadsheets/d/1rmQqPl9Mqes75n2g_Olx58uhMmJ3FtxQ40vpnW3pknM/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "Rajasthan")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=146859198&range=A1:B35';
+                source = 'https://docs.google.com/spreadsheets/d/1Tux-4FO3ZDk7vEplSnE0kDfj0EXEYI26cvb74Tke0Z0/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B35';
             else if (statename == "Chattisgarh")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1094630624&range=A1:A4';
+                source = 'https://docs.google.com/spreadsheets/d/1q_BolnYtDqrTzBxrZy7dDmeObATJ0Q13dBhS2CXS0Iw/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
             else if (statename == "J&K")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=2056217369&range=A1:A4';
+                source = 'https://docs.google.com/spreadsheets/d/1mWD5oue_1pit0MQBQH9loW_ic6vkk_iJzRjWMW_OtVQ/pubhtml/sheet?headers=false&gid=1425745973&range=A1:A4';
             else if (statename == "Punjab")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1905578887&range=A1:B50';
+                source = 'https://docs.google.com/spreadsheets/d/177tnJo8lAVrMh76ISQ8KzquZvwC2HtpGLMQMFkxi_2k/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B50';
             else if (statename == "Haryana")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=57442447&range=A1:B50';
+                source = 'https://docs.google.com/spreadsheets/d/1T2DzjgKzk6471ZJHBLACeU50LUj_6QglGeuiQJd9F_U/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B50';
             else if (statename == "Himachal")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1431895811&range=A1:B50';
+                source = 'https://docs.google.com/spreadsheets/d/1sruUIRHKLGZfHtabMtmQ92tA8pVL_20nbvyNH044vwU/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B50';
             else if (statename == "Chandigarh")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1364993414&range=A1:B50';
+                source = 'https://docs.google.com/spreadsheets/d/1W4GeewOdQmyjcqXkxSXo2s9gfdiXcpHjQyhcn6CzDSg/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B50';
             else if (statename == "Delhi")
                 source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1725033326&range=A1:B50';
             else if (statename == "Madhya Pradesh")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=944593485&range=A1:B35';
+                source = 'https://docs.google.com/spreadsheets/d/1eoMCNtknEGqJdCmtUxrAnGZJjCt1l9guR80k4Vpe0u8/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B35';
             else if (statename == "Daman & Diu")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1256114843&range=A1:B20';
+                source = 'https://docs.google.com/spreadsheets/d/1uyst0IU2APEwuFK399jd4e13PMXsfo8LzmjZRf77KH0/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B20';
             else if (statename == "Dadra & Nagar Haveli")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1260648510&range=A1:B22';
+                source = 'https://docs.google.com/spreadsheets/d/1JxkuDpncCi4yJyUGn2uVTR6Nsb38S33dwuScrmWH3K0/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B22';
             else if (statename == "Goa")
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1863971547&range=A1:B12';
+                source = 'https://docs.google.com/spreadsheets/d/1qBaD3tDozxjrI79Imub6bMA6F45uY1vBHhS5bj17Zwk/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B12';
+            else if (statename == "Gujarat")
+                source = 'https://docs.google.com/spreadsheets/d/1rcEKfTHS-e_-TuVpuiiJY4FDAp-d3xWb0xu91NJDRPU/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B30';
             else if (statename == "Gujarat")
                 source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=1218785070&range=A1:B30';
+            else if (statename == "Delhi-BRPL")
+                source = 'https://docs.google.com/spreadsheets/d/1_ZW03Icd4RbKRrr2ATzPXAhwmAQbChWp7C7BOdIw5LY/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Delhi-BYPL")
+                source = 'https://docs.google.com/spreadsheets/d/1bFnN8_IJPhJANnhUrGCvD2EOTmqTGvp_HxJbqdHDXSU/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Delhi-TPDDL")
+                source = 'https://docs.google.com/spreadsheets/d/1lw9SuDhPlMKIGfSA0gKsGHbWki3hKUAcmJWSdIVgG2o/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
+            else if (statename == "Assam")
+                source = 'https://docs.google.com/spreadsheets/d/1vrKQfK57PC5NqDAB7iGl9lgfUNDaszmv0rRAmkCrtMM/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B37';
+            else if (statename == "Bangladesh")
+                source = 'https://docs.google.com/spreadsheets/d/10yXyp2QEBy0WpR4BfXeGVmohguiwTRivX5als6y0kQ8/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B37';
             else
-                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=853163234&range=A1:B10';
+                source = 'https://docs.google.com/spreadsheets/d/1PN6otcUhKE025LRKO6p1322KsPko5T8yVcZqoPhoBXo/pubhtml/sheet?headers=false&gid=853163234&range=A1:B40';
             iframe.src = source;
             iframe.reload();
         }
