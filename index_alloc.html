@@ -396,6 +396,7 @@
                     // CREATE DYNAMIC TABLE.
                     var benefSeries = [];
                     var totalSeries = [];
+                    var totalalloc = 0;
                     var table = document.getElementById('datatable');//document.createElement('table');
                   //  table.style.border = "thin solid #a5f448";
                     for (var i = 0; i < obj.data.length ; i++) {
@@ -423,6 +424,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].e;
+                                totalalloc += parseFloat(obj.data[i].e);
                             }
                             if (parseFloat(obj.data[i].f) > 0) {
                                 benefSeries.push(obj.data[0].f);
@@ -446,6 +448,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].f;
+                                totalalloc += parseFloat(obj.data[i].f);
                             }
                             if (parseFloat(obj.data[i].g) > 0) {
                                 benefSeries.push(obj.data[0].g);
@@ -469,6 +472,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].g;
+                                totalalloc += parseFloat(obj.data[i].g);
                             }
                             if (parseFloat(obj.data[i].h) > 0) {
                                 benefSeries.push(obj.data[0].h);
@@ -492,6 +496,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].h;
+                                totalalloc += parseFloat(obj.data[i].h);
                             }
                             if (parseFloat(obj.data[i].i) > 0) {
                                 benefSeries.push(obj.data[0].i);
@@ -515,6 +520,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].i;
+                                totalalloc += parseFloat(obj.data[i].i);
                             }
                             if (parseFloat(obj.data[i].j) > 0) {
                                 benefSeries.push(obj.data[0].j);
@@ -538,6 +544,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].j;
+                                totalalloc += parseFloat(obj.data[i].j);
                             }
                             if (parseFloat(obj.data[i].k) > 0) {
                                 benefSeries.push(obj.data[0].k);
@@ -561,6 +568,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].k;
+                                totalalloc += parseFloat(obj.data[i].k);
                             }
                             if (parseFloat(obj.data[i].l) > 0) {
                                 benefSeries.push(obj.data[0].l);
@@ -584,6 +592,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].l;
+                                totalalloc += parseFloat(obj.data[i].l);
                             }
                             if (parseFloat(obj.data[i].m) > 0) {
                                 benefSeries.push(obj.data[0].m);
@@ -607,6 +616,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].m;
+                                totalalloc += parseFloat(obj.data[i].m);
                             }
                             if (parseFloat(obj.data[i].n) > 0) {
                                 benefSeries.push(obj.data[0].n);
@@ -630,6 +640,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].n;
+                                totalalloc += parseFloat(obj.data[i].n);
                             }
                             if (parseFloat(obj.data[i].o) > 0) {
                                 benefSeries.push(obj.data[0].o);
@@ -653,6 +664,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].o;
+                                totalalloc += parseFloat(obj.data[i].o);
                             }
                             if (parseFloat(obj.data[i].p) > 0) {
                                 benefSeries.push(obj.data[0].p);
@@ -676,6 +688,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].p;
+                                totalalloc += parseFloat(obj.data[i].p);
                             }
                             if (parseFloat(obj.data[i].q) > 0) {
                                 benefSeries.push(obj.data[0].q);
@@ -699,6 +712,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].q;
+                                totalalloc += parseFloat(obj.data[i].q);
                             }
                             if (parseFloat(obj.data[i].r) > 0) {
                                 benefSeries.push(obj.data[0].r);
@@ -722,6 +736,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].r;
+                                totalalloc += parseFloat(obj.data[i].r);
                             }
                             if (parseFloat(obj.data[i].s) > 0) {
                                 benefSeries.push(obj.data[0].s);
@@ -745,6 +760,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].s;
+                                totalalloc += parseFloat(obj.data[i].s);
                             }
                             if (parseFloat(obj.data[i].t) > 0) {
                                 benefSeries.push(obj.data[0].t);
@@ -768,6 +784,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].t;
+                                totalalloc += parseFloat(obj.data[i].t);
                             }
                             if (parseFloat(obj.data[i].u) > 0) {
                                 benefSeries.push(obj.data[0].u);
@@ -791,6 +808,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].u;
+                                totalalloc += parseFloat(obj.data[i].u);
                             }
                             if (parseFloat(obj.data[i].v) > 0) {
                                 benefSeries.push(obj.data[0].v);
@@ -814,6 +832,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].v;
+                                totalalloc += parseFloat(obj.data[i].v);
                             }
                             if (parseFloat(obj.data[i].w) > 0) {
                                 benefSeries.push(obj.data[0].w);
@@ -837,6 +856,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].w;
+                                totalalloc += parseFloat(obj.data[i].w);
                             }
                             if (parseFloat(obj.data[i].x) > 0) {
                                 benefSeries.push(obj.data[0].x);
@@ -860,6 +880,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].x;
+                                totalalloc += parseFloat(obj.data[i].x);
                             }
                             if (parseFloat(obj.data[i].y) > 0) {
                                 benefSeries.push(obj.data[0].y);
@@ -883,6 +904,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].y;
+                                totalalloc += parseFloat(obj.data[i].y);
                             }
                             if (parseFloat(obj.data[i].z) > 0) {
                                 benefSeries.push(obj.data[0].z);
@@ -906,6 +928,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].z;
+                                totalalloc += parseFloat(obj.data[i].z);
                             }
                             if (parseFloat(obj.data[i].aa) > 0) {
                                 benefSeries.push(obj.data[0].aa);
@@ -929,6 +952,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].aa;
+                                totalalloc += parseFloat(obj.data[i].aa);
                             }
                             if (parseFloat(obj.data[i].ab) > 0) {
                                 benefSeries.push(obj.data[0].ab);
@@ -951,6 +975,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ab;
+                                totalalloc += parseFloat(obj.data[i].ab);
                             }
                             if (parseFloat(obj.data[i].ac) > 0) {
                                 benefSeries.push(obj.data[0].ac);
@@ -973,6 +998,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ac;
+                                totalalloc += parseFloat(obj.data[i].ac);
                             }
                             if (parseFloat(obj.data[i].ad) > 0) {
                                 benefSeries.push(obj.data[0].ad);
@@ -995,6 +1021,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ad;
+                                totalalloc += parseFloat(obj.data[i].ad);
                             }
                             if (parseFloat(obj.data[i].ae) > 0) {
                                 benefSeries.push(obj.data[0].ae);
@@ -1017,6 +1044,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ae;
+                                totalalloc += parseFloat(obj.data[i].ae);
                             }
                             if (parseFloat(obj.data[i].af) > 0) {
                                 benefSeries.push(obj.data[0].af);
@@ -1039,6 +1067,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].af;
+                                totalalloc += parseFloat(obj.data[i].af);
                             }
                             if (parseFloat(obj.data[i].ag) > 0) {
                                 benefSeries.push(obj.data[0].ag);
@@ -1061,6 +1090,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ag;
+                                totalalloc += parseFloat(obj.data[i].ag);
                             }
                             if (parseFloat(obj.data[i].ah) > 0) {
                                 benefSeries.push(obj.data[0].ah);
@@ -1083,6 +1113,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ah;
+                                totalalloc += parseFloat(obj.data[i].ah);
                             }
                             if (parseFloat(obj.data[i].ai) > 0) {
                                 benefSeries.push(obj.data[0].ai);
@@ -1105,6 +1136,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ai;
+                                totalalloc += parseFloat(obj.data[i].ai);
                             }
                             if (parseFloat(obj.data[i].aj) > 0) {
                                 benefSeries.push(obj.data[0].aj);
@@ -1127,6 +1159,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].aj;
+                                totalalloc += parseFloat(obj.data[i].aj);
                             }
                             if (parseFloat(obj.data[i].ak) > 0) {
                                 benefSeries.push(obj.data[0].ak);
@@ -1149,6 +1182,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ak;
+                                totalalloc += parseFloat(obj.data[i].ak);
                             }
                             if (parseFloat(obj.data[i].al) > 0) {
                                 benefSeries.push(obj.data[0].al);
@@ -1171,6 +1205,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].al;
+                                totalalloc += parseFloat(obj.data[i].al);
                             }
                             if (parseFloat(obj.data[i].am) > 0) {
                                 benefSeries.push(obj.data[0].am);
@@ -1193,6 +1228,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].am;
+                                totalalloc += parseFloat(obj.data[i].am);
                             }
                             if (parseFloat(obj.data[i].an) > 0) {
                                 benefSeries.push(obj.data[0].an);
@@ -1215,6 +1251,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].an;
+                                totalalloc += parseFloat(obj.data[i].an);
                             }
                             if (parseFloat(obj.data[i].ao) > 0) {
                                 benefSeries.push(obj.data[0].ao);
@@ -1237,6 +1274,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ao;
+                                totalalloc += parseFloat(obj.data[i].ao);
                             }
                             if (parseFloat(obj.data[i].ap) > 0) {
                                 benefSeries.push(obj.data[0].ap);
@@ -1259,6 +1297,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ap;
+                                totalalloc += parseFloat(obj.data[i].ap);
                             }
                             if (parseFloat(obj.data[i].aq) > 0) {
                                 benefSeries.push(obj.data[0].aq);
@@ -1281,6 +1320,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].aq;
+                                totalalloc += parseFloat(obj.data[i].aq);
                             }
                             if (parseFloat(obj.data[i].ar) > 0) {
                                 benefSeries.push(obj.data[0].ar);
@@ -1303,6 +1343,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ar;
+                                totalalloc += parseFloat(obj.data[i].ar);
                             }
                             if (parseFloat(obj.data[i].as) > 0) {
                                 benefSeries.push(obj.data[0].as);
@@ -1325,6 +1366,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].as;
+                                totalalloc += parseFloat(obj.data[i].as);
                             }
                             if (parseFloat(obj.data[i].at) > 0) {
                                 benefSeries.push(obj.data[0].at);
@@ -1347,6 +1389,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].at;
+                                totalalloc += parseFloat(obj.data[i].at);
                             }
                             if (parseFloat(obj.data[i].au) > 0) {
                                 benefSeries.push(obj.data[0].au);
@@ -1369,6 +1412,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].au;
+                                totalalloc += parseFloat(obj.data[i].au);
                             }
                             if (parseFloat(obj.data[i].av) > 0) {
                                 benefSeries.push(obj.data[0].av);
@@ -1391,6 +1435,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].av;
+                                totalalloc += parseFloat(obj.data[i].av);
                             }
                             if (parseFloat(obj.data[i].aw) > 0) {
                                 benefSeries.push(obj.data[0].aw);
@@ -1413,6 +1458,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].aw;
+                                totalalloc += parseFloat(obj.data[i].aw);
                             }
                             if (parseFloat(obj.data[i].ax) > 0) {
                                 benefSeries.push(obj.data[0].ax);
@@ -1435,6 +1481,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ax;
+                                totalalloc += parseFloat(obj.data[i].ax);
                             }
                             if (parseFloat(obj.data[i].ay) > 0) {
                                 benefSeries.push(obj.data[0].ay);
@@ -1457,6 +1504,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ay;
+                                totalalloc += parseFloat(obj.data[i].ay);
                             }
                             if (parseFloat(obj.data[i].az) > 0) {
                                 benefSeries.push(obj.data[0].az);
@@ -1479,6 +1527,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].az;
+                                totalalloc += parseFloat(obj.data[i].az);
                             }
                             if (parseFloat(obj.data[i].ba) > 0) {
                                 benefSeries.push(obj.data[0].ba);
@@ -1502,6 +1551,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].ba;
+                                totalalloc += parseFloat(obj.data[i].ba);
                             }
                             if (parseFloat(obj.data[i].bb) > 0) {
                                 benefSeries.push(obj.data[0].bb);
@@ -1524,6 +1574,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bb;
+                                totalalloc += parseFloat(obj.data[i].bb);
                             }
                             if (parseFloat(obj.data[i].bc) > 0) {
                                 benefSeries.push(obj.data[0].bc);
@@ -1546,6 +1597,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bc;
+                                totalalloc += parseFloat(obj.data[i].bc);
                             }
                             if (parseFloat(obj.data[i].bd) > 0) {
                                 benefSeries.push(obj.data[0].bd);
@@ -1568,6 +1620,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bd;
+                                totalalloc += parseFloat(obj.data[i].bd);
                             }
                             if (parseFloat(obj.data[i].be) > 0) {
                                 benefSeries.push(obj.data[0].be);
@@ -1590,6 +1643,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].be;
+                                totalalloc += parseFloat(obj.data[i].be);
                             }
                             if (parseFloat(obj.data[i].bf) > 0) {
                                 benefSeries.push(obj.data[0].bf);
@@ -1612,6 +1666,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bf;
+                                totalalloc += parseFloat(obj.data[i].bf);
                             }
                             if (parseFloat(obj.data[i].bg) > 0) {
                                 benefSeries.push(obj.data[0].bg);
@@ -1634,6 +1689,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bg;
+                                totalalloc += parseFloat(obj.data[i].bg);
                             }
                             if (parseFloat(obj.data[i].bh) > 0) {
                                 benefSeries.push(obj.data[0].bh);
@@ -1656,6 +1712,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bh;
+                                totalalloc += parseFloat(obj.data[i].bh);
                             }
                             if (parseFloat(obj.data[i].bi) > 0) {
                                 benefSeries.push(obj.data[0].bi);
@@ -1678,6 +1735,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bi;
+                                totalalloc += parseFloat(obj.data[i].bi);
                             }
                             if (parseFloat(obj.data[i].bj) > 0) {
                                 benefSeries.push(obj.data[0].bj);
@@ -1700,10 +1758,11 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bj;
+                                totalalloc += parseFloat(obj.data[i].bj);
                             }
-                            if (parseFloat(obj.data[i].bm) > 0) {
-                                benefSeries.push(obj.data[0].bm);
-                                totalSeries.push(parseFloat(obj.data[i].bm));
+                            if (parseFloat(obj.data[i].bk) > 0) {
+                                benefSeries.push(obj.data[0].bk);
+                                totalSeries.push(parseFloat(obj.data[i].bk));
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -1713,7 +1772,7 @@
                                 tabCell.style.color = "#e6fee6";
                                 tabCell.style.width = "5%";
                                 tabCell.style.fontSize = "20px";
-                                tabCell.innerHTML = obj.data[0].bm;
+                                tabCell.innerHTML = obj.data[0].bk;
 
                                 var tabCell1 = tr.insertCell(-1);
                                 tabCell1.style.border = "thin solid #a5f448";
@@ -1721,7 +1780,8 @@
                                 tabCell1.style.color = "#e6fee6";
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
-                                tabCell1.innerHTML = obj.data[i].bm;
+                                tabCell1.innerHTML = obj.data[i].bk;
+                                totalalloc += parseFloat(obj.data[i].bk);
                             }
                             if (parseFloat(obj.data[i].bn) > 0) {
                                 benefSeries.push(obj.data[0].bn);
@@ -1744,6 +1804,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bn;
+                                totalalloc += parseFloat(obj.data[i].bn);
                             }
                             if (parseFloat(obj.data[i].bo) > 0) {
                                 benefSeries.push(obj.data[0].bo);
@@ -1766,6 +1827,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bo;
+                                totalalloc += parseFloat(obj.data[i].bo);
                             }
                             if (parseFloat(obj.data[i].bp) > 0) {
                                 benefSeries.push(obj.data[0].bp);
@@ -1788,6 +1850,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bp;
+                                totalalloc += parseFloat(obj.data[i].bp);
                             }
                             if (parseFloat(obj.data[i].bq) > 0) {
                                 benefSeries.push(obj.data[0].bq);
@@ -1810,6 +1873,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bq;
+                                totalalloc += parseFloat(obj.data[i].bq);
                             }
                             if (parseFloat(obj.data[i].br) > 0) {
                                 benefSeries.push(obj.data[0].br);
@@ -1832,6 +1896,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].br;
+                                totalalloc += parseFloat(obj.data[i].br);
                             }
                             if (parseFloat(obj.data[i].bs) > 0) {
                                 benefSeries.push(obj.data[0].bs);
@@ -1854,6 +1919,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bs;
+                                totalalloc += parseFloat(obj.data[i].bs);
                             }
                             if (parseFloat(obj.data[i].bt) > 0) {
                                 benefSeries.push(obj.data[0].bt);
@@ -1876,6 +1942,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bt;
+                                totalalloc += parseFloat(obj.data[i].bt);
                             }
                             if (parseFloat(obj.data[i].bu) > 0) {
                                 benefSeries.push(obj.data[0].bu);
@@ -1898,6 +1965,7 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bu;
+                                totalalloc += parseFloat(obj.data[i].bu);
                             }
                             if (parseFloat(obj.data[i].bv) > 0) {
                                 benefSeries.push(obj.data[0].bv);
@@ -1920,10 +1988,53 @@
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
                                 tabCell1.innerHTML = obj.data[i].bv;
+                                totalalloc += parseFloat(obj.data[i].bv);
+                            }
+                            if (parseFloat(obj.data[i].bw) > 0) {
+                                benefSeries.push(obj.data[0].bw);
+                                totalSeries.push(parseFloat(obj.data[i].bw));
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #a5f448";
+                                tabCell.style.backgroundColor = "#3a4c39";
+                                tabCell.style.color = "#e6fee6";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[0].bw;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #a5f448";
+                                tabCell1.style.backgroundColor = "#3a4c39";
+                                tabCell1.style.color = "#e6fee6";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].bw;
+                                totalalloc += parseFloat(obj.data[i].bw);
                             }
                         }
 
                     }
+
+                    tr = table.insertRow(-1);
+
+                    // tr1 = table1.insertRow(-1);
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.style.border = "thin solid #a5f448";
+                    tabCell.style.backgroundColor = "#3a4c39";
+                    tabCell.style.color = "#e6fee6";
+                    tabCell.style.width = "5%";
+                    tabCell.style.fontSize = "20px";
+                    tabCell.innerHTML = "Total";
+
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.style.border = "thin solid #a5f448";
+                    tabCell1.style.backgroundColor = "#3a4c39";
+                    tabCell1.style.color = "#e6fee6";
+                    tabCell1.style.width = "5%";
+                    tabCell1.style.fontSize = "20px";
+                    tabCell1.innerHTML = totalalloc;
 
                     var ctx = document.getElementById("chart-area1").getContext("2d");
                     //  alert(benefSeries[0] + "******" + totalSeries[0]);
@@ -2497,7 +2608,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Korba I&II") {
+                    else if (stationname == "") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].v) > 0) {
@@ -2524,7 +2635,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Vind-I") {
+                    else if (stationname == "Korba I&II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].w) > 0) {
@@ -2551,7 +2662,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Vind-II") {
+                    else if (stationname == "Vind-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].x) > 0) {
@@ -2578,7 +2689,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Vind-III") {
+                    else if (stationname == "Vind-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].y) > 0) {
@@ -2605,7 +2716,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Kawas") {
+                    else if (stationname == "Vind-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].z) > 0) {
@@ -2632,7 +2743,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Gandhar") {
+                    else if (stationname == "Kawas") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].aa) > 0) {
@@ -2659,7 +2770,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Sipat-II") {
+                    else if (stationname == "Gandhar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ab) > 0) {
@@ -2686,7 +2797,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Korba-III") {
+                    else if (stationname == "Sipat-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ac) > 0) {
@@ -2713,7 +2824,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Sipat-I") {
+                    else if (stationname == "Korba-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ad) > 0) {
@@ -2740,7 +2851,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Vind-IV") {
+                    else if (stationname == "Sipat-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ae) > 0) {
@@ -2767,7 +2878,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Mauda-I") {
+                    else if (stationname == "Vind-IV") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].af) > 0) {
@@ -2794,7 +2905,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Vind-V") {
+                    else if (stationname == "Mauda-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ag) > 0) {
@@ -2821,7 +2932,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Mauda-II") {
+                    else if (stationname == "Vind-V") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ah) > 0) {
@@ -2848,7 +2959,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Solapur") {
+                    else if (stationname == "Mauda-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ai) > 0) {
@@ -2875,7 +2986,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Rama-I&II") {
+                    else if (stationname == "Solapur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].aj) > 0) {
@@ -2902,7 +3013,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Rama-III") {
+                    else if (stationname == "Rama-I&II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ak) > 0) {
@@ -2929,7 +3040,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Simh-I") {
+                    else if (stationname == "Rama-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].al) > 0) {
@@ -2956,7 +3067,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Simh-II") {
+                    else if (stationname == "Simh-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].am) > 0) {
@@ -2983,7 +3094,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Tal-II") {
+                    else if (stationname == "Simh-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].an) > 0) {
@@ -3010,7 +3121,7 @@
                             }
                         }
                     }
-                    else if (stationname == "KyCCPP") {
+                    else if (stationname == "Tal-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ao) > 0) {
@@ -3037,7 +3148,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Kudgi I") {
+                    else if (stationname == "KyCCPP") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ap) > 0) {
@@ -3064,7 +3175,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Ramagundam Solar") {
+                    else if (stationname == "Kudgi I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].aq) > 0) {
@@ -3091,7 +3202,7 @@
                             }
                         }
                     }
-                    else if (stationname == "A&N SOLAR") {
+                    else if (stationname == "Ramagundam Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ar) > 0) {
@@ -3118,7 +3229,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Farakka") {
+                    else if (stationname == "A&N SOLAR") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].as) > 0) {
@@ -3145,7 +3256,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Kh-I") {
+                    else if (stationname == "Farakka") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].at) > 0) {
@@ -3172,7 +3283,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Kh-II") {
+                    else if (stationname == "Kh-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].au) > 0) {
@@ -3200,7 +3311,7 @@
                             }
                         }
                     }
-                    else if (stationname == "TSTPS-I") {
+                    else if (stationname == "Kh-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].av) > 0) {
@@ -3227,7 +3338,7 @@
                             }
                         }
                     }
-                    else if (stationname == "TTPS") {
+                    else if (stationname == "TSTPS-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].aw) > 0) {
@@ -3254,7 +3365,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Farakka-III") {
+                    else if (stationname == "TTPS") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ax) > 0) {
@@ -3281,7 +3392,7 @@
                             }
                         }
                     }
-                    else if (stationname == "BARH") {
+                    else if (stationname == "Farakka-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ay) > 0) {
@@ -3308,7 +3419,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Bongaigaon") {
+                    else if (stationname == "BARH") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].az) > 0) {
@@ -3335,7 +3446,7 @@
                             }
                         }
                     }
-                    else if (stationname == "D SOLAR") {
+                    else if (stationname == "Bongaigaon") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].ba) > 0) {
@@ -3362,7 +3473,7 @@
                             }
                         }
                     }
-                    else if (stationname == "TAL SOL") {
+                    else if (stationname == "D SOLAR") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bb) > 0) {
@@ -3390,7 +3501,7 @@
                             }
                         }
                     }
-                    else if (stationname == "UNCH SOL") {
+                    else if (stationname == "TAL SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bc) > 0) {
@@ -3417,7 +3528,7 @@
                             }
                         }
                     }
-                    else if (stationname == "FARD SOL") {
+                    else if (stationname == "UNCH SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bd) > 0) {
@@ -3445,7 +3556,7 @@
                             }
                         }
                     }
-                    else if (stationname == "RAJ SOL") {
+                    else if (stationname == "FARD SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].be) > 0) {
@@ -3473,7 +3584,7 @@
                             }
                         }
                     }
-                    else if (stationname == "SING SOL") {
+                    else if (stationname == "RAJ SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bf) > 0) {
@@ -3501,7 +3612,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Ananthapur Solar") {
+                    else if (stationname == "SING SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bg) > 0) {
@@ -3528,7 +3639,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Bhadla Solar") {
+                    else if (stationname == "Ananthapur Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bh) > 0) {
@@ -3556,7 +3667,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Mandsaur Solar") {
+                    else if (stationname == "Bhadla Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bi) > 0) {
@@ -3584,7 +3695,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Rojmal Wind Power") {
+                    else if (stationname == "Mandsaur Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bj) > 0) {
@@ -3613,12 +3724,12 @@
                             }
                         }
                     }
-                    else if (stationname == "Jhajjar") {
+                    else if (stationname == "Rojmal Wind Power") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
-                            if (parseFloat(obj.data[i].bm) > 0) {
+                            if (parseFloat(obj.data[i].bk) > 0) {
                                 benefSeries.push(obj.data[i].a);
-                                totalSeries.push(parseFloat(obj.data[i].bm));
+                                totalSeries.push(parseFloat(obj.data[i].bk));
 
 
                                 tr = table.insertRow(-1);
@@ -3638,11 +3749,11 @@
                                 tabCell1.style.color = "#e6fee6";
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
-                                tabCell1.innerHTML = obj.data[i].bm;
+                                tabCell1.innerHTML = obj.data[i].bk;
                             }
                         }
                     }
-                    else if (stationname == "Vallur") {
+                    else if (stationname == "Jhajjar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bn) > 0) {
@@ -3670,7 +3781,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Ratnagiri") {
+                    else if (stationname == "Vallur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bo) > 0) {
@@ -3699,7 +3810,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Muzaffarpur") {
+                    else if (stationname == "Ratnagiri") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bp) > 0) {
@@ -3728,7 +3839,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Raurkela") {
+                    else if (stationname == "Muzaffarpur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bq) > 0) {
@@ -3757,7 +3868,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Durgapur") {
+                    else if (stationname == "Raurkela") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].br) > 0) {
@@ -3786,7 +3897,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Bhillai CPP-II") {
+                    else if (stationname == "Durgapur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bs) > 0) {
@@ -3815,7 +3926,7 @@
                             }
                         }
                     }
-                    else if (stationname == "Bhillai CPP-III") {
+                    else if (stationname == "Bhillai CPP-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bt) > 0) {
@@ -3843,7 +3954,7 @@
                             }
                         }
                     }
-                    else if (stationname == "BRBCL") {
+                    else if (stationname == "Bhillai CPP-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bu) > 0) {
@@ -3872,8 +3983,8 @@
                             }
                         }
                     }
-                    else if (stationname == "KBUNL-II") {
-                        for (var i = 2; i < (obj.data.length - 2) ; i++) {
+                    else if (stationname == "BRBCL") {
+                        for (var i = 2; i < (obj.data.length - 2); i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bv) > 0) {
                                 benefSeries.push(obj.data[i].a);
@@ -3900,6 +4011,35 @@
                                 tabCell1.innerHTML = obj.data[i].bv;
 
 
+                            }
+                        }
+                    }
+                    else if (stationname == "KBUNL-II") {
+                        for (var i = 2; i < (obj.data.length - 2); i++) {
+                            //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
+                            if (parseFloat(obj.data[i].bw) > 0) {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].bW));
+
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #a5f448";
+                                tabCell.style.backgroundColor = "#3a4c39";
+                                tabCell.style.color = "#e6fee6";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].a;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #a5f448";
+                                tabCell1.style.backgroundColor = "#3a4c39";
+                                tabCell1.style.color = "#e6fee6";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].bW;
                             }
                         }
                     }
