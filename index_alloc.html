@@ -2144,7 +2144,7 @@
                     // CREATE DYNAMIC TABLE.
                     var benefSeries = [];
                     var totalSeries = [];
-
+                    var totalalloc = 0;
                     var table = document.getElementById('datatable');
                 //    var table = document.getElementById('datatable01');//document.createElement('table');
                //     table.style.border = "thin solid #a5f448";
@@ -2155,6 +2155,7 @@
                             if (parseFloat(obj.data[i].e) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].e));
+                                totalalloc += parseFloat(obj.data[i].e);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2175,6 +2176,25 @@
                                 tabCell1.innerHTML = obj.data[i].e;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Rihand-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2182,6 +2202,7 @@
                             if (parseFloat(obj.data[i].f) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].f));
+                                totalalloc += parseFloat(obj.data[i].f);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2202,6 +2223,25 @@
                                 tabCell1.innerHTML = obj.data[i].f;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Rihand-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2209,6 +2249,7 @@
                             if (parseFloat(obj.data[i].g) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].g));
+                                totalalloc += parseFloat(obj.data[i].g);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2229,6 +2270,25 @@
                                 tabCell1.innerHTML = obj.data[i].g;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Rihand-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2236,6 +2296,7 @@
                             if (parseFloat(obj.data[i].h) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].h));
+                                totalalloc += parseFloat(obj.data[i].h);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2256,6 +2317,25 @@
                                 tabCell1.innerHTML = obj.data[i].h;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Unch-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2263,6 +2343,7 @@
                             if (parseFloat(obj.data[i].i) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].i));
+                                totalalloc += parseFloat(obj.data[i].i);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2283,6 +2364,25 @@
                                 tabCell1.innerHTML = obj.data[i].i;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Unch-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2290,6 +2390,7 @@
                             if (parseFloat(obj.data[i].j) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].j));
+                                totalalloc += parseFloat(obj.data[i].j);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2310,6 +2411,25 @@
                                 tabCell1.innerHTML = obj.data[i].j;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Unch-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2317,6 +2437,7 @@
                             if (parseFloat(obj.data[i].k) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].k));
+                                totalalloc += parseFloat(obj.data[i].k);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2337,6 +2458,25 @@
                                 tabCell1.innerHTML = obj.data[i].k;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Unch-IV") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2344,6 +2484,7 @@
                             if (parseFloat(obj.data[i].l) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].l));
+                                totalalloc += parseFloat(obj.data[i].l);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2364,6 +2505,25 @@
                                 tabCell1.innerHTML = obj.data[i].l;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Dadri-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2371,6 +2531,7 @@
                             if (parseFloat(obj.data[i].m) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].m));
+                                totalalloc += parseFloat(obj.data[i].m);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2391,6 +2552,25 @@
                                 tabCell1.innerHTML = obj.data[i].m;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Dadri-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2398,6 +2578,7 @@
                             if (parseFloat(obj.data[i].n) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].n));
+                                totalalloc += parseFloat(obj.data[i].n);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2418,6 +2599,25 @@
                                 tabCell1.innerHTML = obj.data[i].n;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Tanda") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2425,6 +2625,7 @@
                             if (parseFloat(obj.data[i].o) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].o));
+                                totalalloc += parseFloat(obj.data[i].o);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2445,6 +2646,25 @@
                                 tabCell1.innerHTML = obj.data[i].o;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "BTPS") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2452,6 +2672,7 @@
                             if (parseFloat(obj.data[i].p) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].p));
+                                totalalloc += parseFloat(obj.data[i].p);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2472,6 +2693,25 @@
                                 tabCell1.innerHTML = obj.data[i].p;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Anta") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2479,6 +2719,7 @@
                             if (parseFloat(obj.data[i].q) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].q));
+                                totalalloc += parseFloat(obj.data[i].q);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2499,6 +2740,25 @@
                                 tabCell1.innerHTML = obj.data[i].q;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Auraiya") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2506,6 +2766,7 @@
                             if (parseFloat(obj.data[i].r) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].r));
+                                totalalloc += parseFloat(obj.data[i].r);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2526,6 +2787,25 @@
                                 tabCell1.innerHTML = obj.data[i].r;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Dadri Gas") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2533,6 +2813,7 @@
                             if (parseFloat(obj.data[i].s) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].s));
+                                totalalloc += parseFloat(obj.data[i].s);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2553,6 +2834,25 @@
                                 tabCell1.innerHTML = obj.data[i].s;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Faridabad") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2560,6 +2860,7 @@
                             if (parseFloat(obj.data[i].t) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].t));
+                                totalalloc += parseFloat(obj.data[i].t);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2580,6 +2881,25 @@
                                 tabCell1.innerHTML = obj.data[i].t;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Koldam ") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2587,6 +2907,7 @@
                             if (parseFloat(obj.data[i].u) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].u));
+                                totalalloc += parseFloat(obj.data[i].u);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2607,6 +2928,25 @@
                                 tabCell1.innerHTML = obj.data[i].u;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2614,6 +2954,7 @@
                             if (parseFloat(obj.data[i].v) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].v));
+                                totalalloc += parseFloat(obj.data[i].v);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2634,6 +2975,25 @@
                                 tabCell1.innerHTML = obj.data[i].v;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Korba I&II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2641,6 +3001,7 @@
                             if (parseFloat(obj.data[i].w) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].w));
+                                totalalloc += parseFloat(obj.data[i].w);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2661,6 +3022,25 @@
                                 tabCell1.innerHTML = obj.data[i].w;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Vind-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2668,6 +3048,7 @@
                             if (parseFloat(obj.data[i].x) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].x));
+                                totalalloc += parseFloat(obj.data[i].x);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2688,6 +3069,25 @@
                                 tabCell1.innerHTML = obj.data[i].x;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Vind-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2695,6 +3095,7 @@
                             if (parseFloat(obj.data[i].y) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].y));
+                                totalalloc += parseFloat(obj.data[i].y);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2715,6 +3116,25 @@
                                 tabCell1.innerHTML = obj.data[i].y;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Vind-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2722,6 +3142,7 @@
                             if (parseFloat(obj.data[i].z) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].z));
+                                totalalloc += parseFloat(obj.data[i].z);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2742,6 +3163,25 @@
                                 tabCell1.innerHTML = obj.data[i].z;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Kawas") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2749,6 +3189,7 @@
                             if (parseFloat(obj.data[i].aa) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].aa));
+                                totalalloc += parseFloat(obj.data[i].aa);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2769,6 +3210,25 @@
                                 tabCell1.innerHTML = obj.data[i].aa;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Gandhar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2776,6 +3236,7 @@
                             if (parseFloat(obj.data[i].ab) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ab));
+                                totalalloc += parseFloat(obj.data[i].ab);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2796,6 +3257,25 @@
                                 tabCell1.innerHTML = obj.data[i].ab;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Sipat-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2803,6 +3283,7 @@
                             if (parseFloat(obj.data[i].ac) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ac));
+                                totalalloc += parseFloat(obj.data[i].ac);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2823,6 +3304,25 @@
                                 tabCell1.innerHTML = obj.data[i].ac;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Korba-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2830,6 +3330,7 @@
                             if (parseFloat(obj.data[i].ad) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ad));
+                                totalalloc += parseFloat(obj.data[i].ad);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2850,6 +3351,25 @@
                                 tabCell1.innerHTML = obj.data[i].ad;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Sipat-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2857,6 +3377,7 @@
                             if (parseFloat(obj.data[i].ae) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ae));
+                                totalalloc += parseFloat(obj.data[i].ae);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2877,6 +3398,25 @@
                                 tabCell1.innerHTML = obj.data[i].ae;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Vind-IV") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2884,6 +3424,7 @@
                             if (parseFloat(obj.data[i].af) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].af));
+                                totalalloc += parseFloat(obj.data[i].af);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2904,6 +3445,25 @@
                                 tabCell1.innerHTML = obj.data[i].af;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Mauda-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2911,6 +3471,7 @@
                             if (parseFloat(obj.data[i].ag) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ag));
+                                totalalloc += parseFloat(obj.data[i].ag);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2931,6 +3492,25 @@
                                 tabCell1.innerHTML = obj.data[i].ag;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Vind-V") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2938,6 +3518,7 @@
                             if (parseFloat(obj.data[i].ah) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ah));
+                                totalalloc += parseFloat(obj.data[i].ah);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2958,6 +3539,25 @@
                                 tabCell1.innerHTML = obj.data[i].ah;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Mauda-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2965,6 +3565,7 @@
                             if (parseFloat(obj.data[i].ai) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ai));
+                                totalalloc += parseFloat(obj.data[i].ai);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -2985,6 +3586,25 @@
                                 tabCell1.innerHTML = obj.data[i].ai;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Solapur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -2992,6 +3612,7 @@
                             if (parseFloat(obj.data[i].aj) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].aj));
+                                totalalloc += parseFloat(obj.data[i].aj);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3012,6 +3633,25 @@
                                 tabCell1.innerHTML = obj.data[i].aj;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Rama-I&II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3019,6 +3659,7 @@
                             if (parseFloat(obj.data[i].ak) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ak));
+                                totalalloc += parseFloat(obj.data[i].ak);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3039,6 +3680,25 @@
                                 tabCell1.innerHTML = obj.data[i].ak;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Rama-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3046,6 +3706,7 @@
                             if (parseFloat(obj.data[i].al) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].al));
+                                totalalloc += parseFloat(obj.data[i].al);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3066,6 +3727,25 @@
                                 tabCell1.innerHTML = obj.data[i].al;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Simh-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3073,6 +3753,7 @@
                             if (parseFloat(obj.data[i].am) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].am));
+                                totalalloc += parseFloat(obj.data[i].am);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3093,6 +3774,25 @@
                                 tabCell1.innerHTML = obj.data[i].am;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Simh-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3100,6 +3800,7 @@
                             if (parseFloat(obj.data[i].an) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].an));
+                                totalalloc += parseFloat(obj.data[i].an);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3120,6 +3821,25 @@
                                 tabCell1.innerHTML = obj.data[i].an;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Tal-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3127,6 +3847,7 @@
                             if (parseFloat(obj.data[i].ao) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ao));
+                                totalalloc += parseFloat(obj.data[i].ao);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3147,6 +3868,25 @@
                                 tabCell1.innerHTML = obj.data[i].ao;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "KyCCPP") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3154,6 +3894,7 @@
                             if (parseFloat(obj.data[i].ap) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ap));
+                                totalalloc += parseFloat(obj.data[i].ap);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3174,6 +3915,25 @@
                                 tabCell1.innerHTML = obj.data[i].ap;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Kudgi I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3181,6 +3941,7 @@
                             if (parseFloat(obj.data[i].aq) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].aq));
+                                totalalloc += parseFloat(obj.data[i].aq);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3201,6 +3962,25 @@
                                 tabCell1.innerHTML = obj.data[i].aq;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Ramagundam Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3208,6 +3988,7 @@
                             if (parseFloat(obj.data[i].ar) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ar));
+                                totalalloc += parseFloat(obj.data[i].ar);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3228,6 +4009,25 @@
                                 tabCell1.innerHTML = obj.data[i].ar;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "A&N SOLAR") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3235,6 +4035,7 @@
                             if (parseFloat(obj.data[i].as) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].as));
+                                totalalloc += parseFloat(obj.data[i].as);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3255,6 +4056,25 @@
                                 tabCell1.innerHTML = obj.data[i].as;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Farakka") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3262,6 +4082,7 @@
                             if (parseFloat(obj.data[i].at) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].at));
+                                totalalloc += parseFloat(obj.data[i].at);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3282,6 +4103,25 @@
                                 tabCell1.innerHTML = obj.data[i].at;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Kh-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3289,6 +4129,7 @@
                             if (parseFloat(obj.data[i].au) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].au));
+                                totalalloc += parseFloat(obj.data[i].au);
 
                                 tr = table.insertRow(-1);
 
@@ -3310,6 +4151,25 @@
                                 tabCell1.innerHTML = obj.data[i].au;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Kh-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3317,6 +4177,7 @@
                             if (parseFloat(obj.data[i].av) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].av));
+                                totalalloc += parseFloat(obj.data[i].av);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3337,6 +4198,25 @@
                                 tabCell1.innerHTML = obj.data[i].av;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "TSTPS-I") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3344,6 +4224,7 @@
                             if (parseFloat(obj.data[i].aw) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].aw));
+                                totalalloc += parseFloat(obj.data[i].aw);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3364,6 +4245,25 @@
                                 tabCell1.innerHTML = obj.data[i].aw;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "TTPS") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3371,6 +4271,7 @@
                             if (parseFloat(obj.data[i].ax) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ax));
+                                totalalloc += parseFloat(obj.data[i].ax);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3391,6 +4292,25 @@
                                 tabCell1.innerHTML = obj.data[i].ax;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Farakka-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3398,6 +4318,7 @@
                             if (parseFloat(obj.data[i].ay) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ay));
+                                totalalloc += parseFloat(obj.data[i].ay);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3418,6 +4339,25 @@
                                 tabCell1.innerHTML = obj.data[i].ay;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "BARH") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3425,6 +4365,7 @@
                             if (parseFloat(obj.data[i].az) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].az));
+                                totalalloc += parseFloat(obj.data[i].az);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3445,6 +4386,25 @@
                                 tabCell1.innerHTML = obj.data[i].az;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Bongaigaon") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3452,6 +4412,7 @@
                             if (parseFloat(obj.data[i].ba) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].ba));
+                                totalalloc += parseFloat(obj.data[i].ba);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3472,6 +4433,25 @@
                                 tabCell1.innerHTML = obj.data[i].ba;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "D SOLAR") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3479,6 +4459,7 @@
                             if (parseFloat(obj.data[i].bb) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bb));
+                                totalalloc += parseFloat(obj.data[i].bb);
 
                                 tr = table.insertRow(-1);
 
@@ -3500,6 +4481,25 @@
                                 tabCell1.innerHTML = obj.data[i].bb;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "TAL SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3507,6 +4507,7 @@
                             if (parseFloat(obj.data[i].bc) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bc));
+                                totalalloc += parseFloat(obj.data[i].bc);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3527,6 +4528,25 @@
                                 tabCell1.innerHTML = obj.data[i].bc;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "UNCH SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3534,6 +4554,7 @@
                             if (parseFloat(obj.data[i].bd) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bd));
+                                totalalloc += parseFloat(obj.data[i].bd);
 
                                 tr = table.insertRow(-1);
 
@@ -3555,6 +4576,25 @@
                                 tabCell1.innerHTML = obj.data[i].bd;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "FARD SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3562,6 +4602,7 @@
                             if (parseFloat(obj.data[i].be) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].be));
+                                totalalloc += parseFloat(obj.data[i].be);
 
                                 tr = table.insertRow(-1);
 
@@ -3583,6 +4624,25 @@
                                 tabCell1.innerHTML = obj.data[i].be;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "RAJ SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3590,6 +4650,7 @@
                             if (parseFloat(obj.data[i].bf) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bf));
+                                totalalloc += parseFloat(obj.data[i].bf);
 
                                 tr = table.insertRow(-1);
 
@@ -3611,6 +4672,25 @@
                                 tabCell1.innerHTML = obj.data[i].bf;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "SING SOL") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3618,6 +4698,7 @@
                             if (parseFloat(obj.data[i].bg) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bg));
+                                totalalloc += parseFloat(obj.data[i].bg);
                                 tr = table.insertRow(-1);
 
                                 // tr1 = table1.insertRow(-1);
@@ -3638,6 +4719,25 @@
                                 tabCell1.innerHTML = obj.data[i].bg;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Ananthapur Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3645,6 +4745,7 @@
                             if (parseFloat(obj.data[i].bh) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bh));
+                                totalalloc += parseFloat(obj.data[i].bh);
 
                                 tr = table.insertRow(-1);
 
@@ -3666,6 +4767,25 @@
                                 tabCell1.innerHTML = obj.data[i].bh;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Bhadla Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3673,6 +4793,7 @@
                             if (parseFloat(obj.data[i].bi) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bi));
+                                totalalloc += parseFloat(obj.data[i].bi);
 
                                 tr = table.insertRow(-1);
 
@@ -3694,6 +4815,25 @@
                                 tabCell1.innerHTML = obj.data[i].bi;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Mandsaur Solar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3701,6 +4841,7 @@
                             if (parseFloat(obj.data[i].bj) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bj));
+                                totalalloc += parseFloat(obj.data[i].bj);
 
 
                                 tr = table.insertRow(-1);
@@ -3723,6 +4864,25 @@
                                 tabCell1.innerHTML = obj.data[i].bj;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Rojmal Wind Power") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3730,6 +4890,7 @@
                             if (parseFloat(obj.data[i].bk) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bk));
+                                totalalloc += parseFloat(obj.data[i].bk);
 
 
                                 tr = table.insertRow(-1);
@@ -3752,6 +4913,25 @@
                                 tabCell1.innerHTML = obj.data[i].bk;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Jhajjar") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3759,6 +4939,7 @@
                             if (parseFloat(obj.data[i].bn) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bn));
+                                totalalloc += parseFloat(obj.data[i].bn);
 
                                 tr = table.insertRow(-1);
 
@@ -3780,6 +4961,25 @@
                                 tabCell1.innerHTML = obj.data[i].bn;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Vallur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3787,6 +4987,7 @@
                             if (parseFloat(obj.data[i].bo) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bo));
+                                totalalloc += parseFloat(obj.data[i].bo);
 
 
                                 tr = table.insertRow(-1);
@@ -3809,6 +5010,25 @@
                                 tabCell1.innerHTML = obj.data[i].bo;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Ratnagiri") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3816,6 +5036,7 @@
                             if (parseFloat(obj.data[i].bp) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bp));
+                                totalalloc += parseFloat(obj.data[i].bp);
 
 
                                 tr = table.insertRow(-1);
@@ -3838,6 +5059,25 @@
                                 tabCell1.innerHTML = obj.data[i].bp;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Muzaffarpur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3845,6 +5085,7 @@
                             if (parseFloat(obj.data[i].bq) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bq));
+                                totalalloc += parseFloat(obj.data[i].bq);
 
 
                                 tr = table.insertRow(-1);
@@ -3867,6 +5108,25 @@
                                 tabCell1.innerHTML = obj.data[i].bq;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Raurkela") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3874,6 +5134,7 @@
                             if (parseFloat(obj.data[i].br) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].br));
+                                totalalloc += parseFloat(obj.data[i].br);
 
 
                                 tr = table.insertRow(-1);
@@ -3896,6 +5157,25 @@
                                 tabCell1.innerHTML = obj.data[i].br;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Durgapur") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3903,6 +5183,7 @@
                             if (parseFloat(obj.data[i].bs) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bs));
+                                totalalloc += parseFloat(obj.data[i].bs);
 
 
                                 tr = table.insertRow(-1);
@@ -3925,6 +5206,25 @@
                                 tabCell1.innerHTML = obj.data[i].bs;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Bhillai CPP-II") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3932,6 +5232,7 @@
                             if (parseFloat(obj.data[i].bt) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bt));
+                                totalalloc += parseFloat(obj.data[i].bt);
 
                                 tr = table.insertRow(-1);
 
@@ -3953,6 +5254,25 @@
                                 tabCell1.innerHTML = obj.data[i].bt;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "Bhillai CPP-III") {
                         for (var i = 2; i < (obj.data.length - 2) ; i++) {
@@ -3960,6 +5280,7 @@
                             if (parseFloat(obj.data[i].bu) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bu));
+                                totalalloc += parseFloat(obj.data[i].bu);
 
 
                                 tr = table.insertRow(-1);
@@ -3982,6 +5303,25 @@
                                 tabCell1.innerHTML = obj.data[i].bu;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "BRBCL") {
                         for (var i = 2; i < (obj.data.length - 2); i++) {
@@ -3989,6 +5329,7 @@
                             if (parseFloat(obj.data[i].bv) > 0) {
                                 benefSeries.push(obj.data[i].a);
                                 totalSeries.push(parseFloat(obj.data[i].bv));
+                                totalalloc += parseFloat(obj.data[i].bv);
 
 
                                 tr = table.insertRow(-1);
@@ -4013,13 +5354,33 @@
 
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     else if (stationname == "KBUNL-II") {
                         for (var i = 2; i < (obj.data.length - 2); i++) {
                             //    alert(obj.data[i].a + "---" + parseFloat(obj.data[i].e));
                             if (parseFloat(obj.data[i].bw) > 0) {
                                 benefSeries.push(obj.data[i].a);
-                                totalSeries.push(parseFloat(obj.data[i].bW));
+                                totalSeries.push(parseFloat(obj.data[i].bw));
+                                totalalloc += parseFloat(obj.data[i].bw);
 
 
                                 tr = table.insertRow(-1);
@@ -4039,9 +5400,28 @@
                                 tabCell1.style.color = "#e6fee6";
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
-                                tabCell1.innerHTML = obj.data[i].bW;
+                                tabCell1.innerHTML = obj.data[i].bw;
                             }
                         }
+
+                        tr = table.insertRow(-1);
+
+                        // tr1 = table1.insertRow(-1);
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.style.border = "thin solid #a5f448";
+                        tabCell.style.backgroundColor = "#3a4c39";
+                        tabCell.style.color = "#e6fee6";
+                        tabCell.style.width = "5%";
+                        tabCell.style.fontSize = "20px";
+                        tabCell.innerHTML = "Total";
+
+                        var tabCell1 = tr.insertCell(-1);
+                        tabCell1.style.border = "thin solid #a5f448";
+                        tabCell1.style.backgroundColor = "#3a4c39";
+                        tabCell1.style.color = "#e6fee6";
+                        tabCell1.style.width = "5%";
+                        tabCell1.style.fontSize = "20px";
+                        tabCell1.innerHTML = totalalloc;
                     }
                     var ctx = document.getElementById("chart-area2").getContext("2d");
                     //  alert(benefSeries[0] + "******" + totalSeries[0]);
