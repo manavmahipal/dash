@@ -181,25 +181,13 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                     tabCell4.style.backgroundColor = "#f6ffc7";
                     tabCell4.style.width = "33%";
                     tabCell4.colSpan = "3";
-                    tabCell4.innerHTML = "Target date -" + obj.data[i].targetdate;
+                    tabCell4.innerHTML = "commitment -" + obj.data[i].presentcommitment;
 
                     var tabCell5 = tr2.insertCell(-1);
                     tabCell5.style.border = "thin solid #a5f448";
                     tabCell5.style.backgroundColor = "#f6ffc7";
-                    tabCell5.innerHTML = "commitment -" + obj.data[i].presentcommitment;
+                    tabCell5.innerHTML = "Responsibility -" + obj.data[i].responsibility;
 
-                    tr2 = table.insertRow(-1);
-                    var tabCell4 = tr2.insertCell(-1);
-                    tabCell4.style.border = "thin solid #a5f448";
-                    tabCell4.style.backgroundColor = "#f6ffc7";
-                    tabCell4.style.width = "33%";
-                    tabCell4.colSpan = "3";
-                    tabCell4.innerHTML = "Responsibility -" + obj.data[i].responsibility;
-
-                    var tabCell5 = tr2.insertCell(-1);
-                    tabCell5.style.border = "thin solid #a5f448";
-                    tabCell5.style.backgroundColor = "#f6ffc7";
-                    tabCell5.innerHTML = "Monitored by -" + obj.data[i].monitoredby;
 
                     tr1 = table.insertRow(-1);
                     var tabCell2 = tr1.insertCell(-1);
