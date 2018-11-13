@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Responsive Multi-Level Menu - Demo 1</title>
+		<meta name="description" content="Responsive Multi-Level Menu: Space-saving drop-down menu with subtle effects" />
+		<meta name="keywords" content="multi-level menu, mobile menu, responsive, space-saving, drop-down menu, css, jquery" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+       <!-- <link rel="stylesheet" type="text/css" href="css/default.css" />-->
+		    <link rel="stylesheet" type="text/css" href="css/component.css" />
+		    <script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		
+			
+					
+				
+					<div id="dl-menu" class="dl-menuwrapper">
+                        
+                        <button class="dl-trigger">Menu</button>
+                        <ul class="dl-menu">
+                            <li>
+                                <a href="./index_news.html">Power Sector Updates</a>
+                            </li>
+                            <li>
+                                <a href="#">Critical Issues</a>
+                                <ul class="dl-submenu">
+                                    <li><a href="./index.html">Commercial</a></li>
+                                    <li><a href="./index_consul.html">Consultancy</a></li>
+                                    <li><a href="./index_bd.html">Business Development</a></li>
+                                    <!--<li>
+                    <a href="#">Children</a>
+                    <ul class="dl-submenu">
+                        <li><a href="#">Boys</a></li>
+                        <li><a href="#">Girls</a></li>
+                    </ul>
+                </li>-->
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Market Analysis</a>
+                                <ul class="dl-submenu">
+                                    <li><a href="./index_market.html">Market Share</a></li>
+                                    <li><a href="./index_iex.html">IEX Sale</a></li>
+                                    <li><a href="./index_afc.html">AFC Recovery</a></li>
+                                    <li><a href="./index_urs.html">URS</a></li>
+                                    <li><a href="./index_demand.html">Demand</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./index_realnew.html">Billing &amp; Realization</a>
+                            </li>
+                            <li>
+                                <a href="#">Tariff</a>
+                                <ul class="dl-submenu">
+                                    <li><a href="./index_ecr.html">Existing Stations</a></li>
+                                    <li><a href="./index_newprojects.html">Future Projects</a></li>
+                                    <li><a href="./index_state_tariff.html">Tariff Data</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./index_stateinfo.html">State Information</a></li>
+                            <li><a href="./index_perf.html">Performance Report</a></li>
+                            <li>
+                                <a href="#">Allocations</a>
+                                <ul class="dl-submenu">
+                                    <li><a href="./index_alloc_new.html">Future Projects</a></li>
+                                    <li><a href="./index_alloc.html">Existing Stations</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./index_discom.html">Discom Officials</a></li>
+                        </ul>
+                        <img src="./ntpc.jpg" style="width:15%; height: 10vh;" /><img src="./logo - Copy.png" style="width:68%; height: 10vh;position:absolute;padding-top:-100px;" />
+					</div><!-- /dl-menuwrapper -->
+        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/jquery.dlmenu.js"></script>
+		<script>
+			$(function() {
+				$( '#dl-menu' ).dlmenu();
+			});
+		</script>
+        <span style="color:#ff6a00;font-size:20px;">*Total traded volume for FY 18-19 crossed <span style="font-size:25px;"><b>365.7 MUs</b></span> (in 179 days) which is more than the traded volume of FY 17-18 (365 MUs).</span>
+		<br/>  <iframe name="billframe" id="billframe" src="https://manavmahipal.github.io/dash/src/index - Copy.html" frameborder="0" style="height: 85vh; width:100%;"></iframe>
+	</body>
+</html>
