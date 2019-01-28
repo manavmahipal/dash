@@ -136,7 +136,7 @@
                         counter = counter + 1;
                         var tabCell3 = tr.insertCell(-1);
                         tabCell3.style.width = "10%";
-                        tabCell3.innerHTML = obj.data[i].data;
+                        tabCell3.innerHTML = "Issue : "+obj.data[i].data;
                     }
                     else {
                         tr = table.insertRow(-1);
@@ -144,7 +144,7 @@
                         var tabCell3 = tr.insertCell(-1);
                         tabCell3.style.backgroundColor = "#c9ebff";
                         tabCell3.style.width = "10%";
-                        tabCell3.innerHTML = "<b><a href=\"#\" onclick='showdesciption(" + counter + ")'>Desciption : </a></b><br/><div style=\"display:none;\" name=\"" + counter + "\ value=\"" + counter + "\ id=\"" + counter + "\">" + obj.data[i].data + "</div>";;
+                        tabCell3.innerHTML = "<b><a href=\"#\" onclick='showdesciption(" + counter + ")'>Upadtes : </a></b><br/><div style=\"display:none;\" name=\"" + counter + "\ value=\"" + counter + "\ id=\"" + counter + "\">" + obj.data[i].data + "</div>";;
                         for (var k = i+1; k < obj.data.length; k++ ) {
                             if (obj.data[k].type == "Update") {
                                 document.getElementById(counter).innerHTML += "<br/>" + obj.data[k].data;
