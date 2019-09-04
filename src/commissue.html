@@ -2,40 +2,46 @@
 <html>
 <head>
     <title>Commercial Issues</title>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
         body {
             font-family: sans-serif;
         }
+
         #theForm {
             border: 1px solid silver;
             padding: 20px;
             margin-bottom: 20px;
         }
-        #theForm > div {
-            margin-bottom: 10px;
-        }
+
+            #theForm > div {
+                margin-bottom: 10px;
+            }
+
         .label {
             display: inline-block;
             width: 150px;
         }
+
         #key {
             width: 400px;
             max-width: 100%;
         }
+
         #output {
             overflow: auto;
         }
+
         .checkboxGroup {
             display: inline-block;
             vertical-align: top;
         }
     </style>
 
-  <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
-  <script src="GetSheetDone.js"></script>
-  <script>
+    <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+    <script src="GetSheetDone.js"></script>
+    <script>
         let key,
             sheetNum,
             sheetType,counter=0;
@@ -64,7 +70,7 @@
         //function attachEvents() {
          // alert("I am an alert box!");
           //document.getElementById('theForm').submit();
-          window.onload = function (ev) { 
+          window.onload = function (ev) {
            // alert("I am an alert boxasdfsadas!");
              ev.preventDefault();
             readValues();
@@ -91,9 +97,9 @@
               var obj = JSON.parse(jsonarray);
              // document.getElementById("showDatafirst").innerHTML = obj.title + ", " + obj.updated + ", " + obj.data.length + "</span><br/>";
              // var objjjjj = JSON.parse(obj.data);
-            
-            
-             
+
+
+
              // JSON.Array jsonaaarray = new JSONArray(jsonString);
 //document.getElementById('showDatafirst').innerHTML = "</span><br/>" + jsonarray;
 var coll = [];
@@ -125,14 +131,14 @@ var table = document.getElementById('datatable01');//document.createElement('tab
             {
                 th.innerHTML = "";//coll[i];
                 tr.appendChild(th);
-            }            
+            }
         }
  */
         // ADD JSON DATA TO THE TABLE AS ROWS.
         for (var i = 0; i < obj.data.length; i++) {
-            
+
             tr = table.insertRow(-1);
-            
+
             var tabCell0 = tr.insertCell(-1);
             tabCell0.style.border = "thin solid #a5f448";
             tabCell0.style.backgroundColor = "#abb5ff";
@@ -155,16 +161,32 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                     trgroup = table.insertRow(-1);
                     var tabCellgroup = trgroup.insertCell(-1);
                     tabCellgroup.style.border = "thin solid #a5f448";
-                    tabCellgroup.innerHTML = "<b>" + obj.data[i].group + "</b>  (" + obj.data[i].date + ")";
+                   // tabCellgroup.innerHTML = "<b>" + obj.data[i].priority;
+                    if (obj.data[i].priority == "IMPORTANT") {
+                        tabCellgroup.style.backgroundColor = "#ff9e03";
+                        tabCellgroup.innerHTML = "<font color=#784a01>" + obj.data[i].priority + "</font>";
+                    }
+                    else if (obj.data[i].priority == "URGENT") {
+                        tabCellgroup.style.backgroundColor = "#ff0000";
+                        tabCellgroup.innerHTML = "<font color=#570101>" + obj.data[i].priority + "</font>";
+                    }
+                    else if (obj.data[i].priority == "NORMAL") {
+                        tabCellgroup.style.backgroundColor = "#0e4d1a";
+                        tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
+                    }
+                    else if (obj.data[i].priority == "IMMEDIATE") {
+                        tabCellgroup.style.backgroundColor = "#ff03c0";
+                        tabCellgroup.innerHTML = "<font color=#7a2a66>" + obj.data[i].priority + "</font>";
+                    }
+                    else{
+                        tabCellgroup.style.backgroundColor = "#f5faf6";
+                        tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
+                    }
                     var tabCellpriority = trgroup.insertCell(-1);
                     tabCellpriority.style.border = "thin solid #a5f448";
-                    tabCellpriority.innerHTML = obj.data[i].priority;
+                    tabCellpriority.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
 
-                    trtarget = table.insertRow(-1);
-                    var tabCelltarget = trtarget.insertCell(-1);
-                    tabCelltarget.style.border = "thin solid #a5f448";
-                    tabCelltarget.colSpan = "2";
-                    tabCelltarget.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
+
 
                     trblank = table.insertRow(-1);
                     var tabCellblank = trblank.insertCell(-1);
@@ -173,7 +195,7 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                     tabCellblank.innerHTML = "&nbsp;";
 
                   //  tabCell.innerHTML = obj.data[i].region;
-            
+
         }
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         document.getElementById('showData').innerHTML = '';
@@ -249,7 +271,7 @@ var table = document.getElementById('datatable01');//document.createElement('tab
            */
                 // ADD JSON DATA TO THE TABLE AS ROWS.
                 for (var i = 0; i < obj.data.length; i++) {
-                   
+
                         if (typename == "ALL") {
                             tr = table.insertRow(-1);
 
@@ -275,16 +297,32 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                             trgroup = table.insertRow(-1);
                             var tabCellgroup = trgroup.insertCell(-1);
                             tabCellgroup.style.border = "thin solid #a5f448";
-                            tabCellgroup.innerHTML = "<b>" + obj.data[i].group + "</b>  (" + obj.data[i].date + ")";
+                            // tabCellgroup.innerHTML = "<b>" + obj.data[i].priority;
+                            if (obj.data[i].priority == "IMPORTANT") {
+                                tabCellgroup.style.backgroundColor = "#ff9e03";
+                                tabCellgroup.innerHTML = "<font color=#784a01>" + obj.data[i].priority + "</font>";
+                            }
+                            else if (obj.data[i].priority == "URGENT") {
+                                tabCellgroup.style.backgroundColor = "#ff0000";
+                                tabCellgroup.innerHTML = "<font color=#570101>" + obj.data[i].priority + "</font>";
+                            }
+                            else if (obj.data[i].priority == "NORMAL") {
+                                tabCellgroup.style.backgroundColor = "#0e4d1a";
+                                tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
+                            }
+                            else if (obj.data[i].priority == "IMMEDIATE") {
+                                tabCellgroup.style.backgroundColor = "#ff03c0";
+                                tabCellgroup.innerHTML = "<font color=#7a2a66>" + obj.data[i].priority + "</font>";
+                            }
+                            else {
+                                tabCellgroup.style.backgroundColor = "#f5faf6";
+                                tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
+                            }
                             var tabCellpriority = trgroup.insertCell(-1);
                             tabCellpriority.style.border = "thin solid #a5f448";
-                            tabCellpriority.innerHTML = obj.data[i].priority;
+                            tabCellpriority.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
 
-                            trtarget = table.insertRow(-1);
-                            var tabCelltarget = trtarget.insertCell(-1);
-                            tabCelltarget.style.border = "thin solid #a5f448";
-                            tabCelltarget.colSpan = "2";
-                            tabCelltarget.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
+
 
                             trblank = table.insertRow(-1);
                             var tabCellblank = trblank.insertCell(-1);
@@ -320,16 +358,31 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                                 trgroup = table.insertRow(-1);
                                 var tabCellgroup = trgroup.insertCell(-1);
                                 tabCellgroup.style.border = "thin solid #a5f448";
-                                tabCellgroup.innerHTML = "<b>" + obj.data[i].group + "</b>  (" + obj.data[i].date + ")";
+                                // tabCellgroup.innerHTML = "<b>" + obj.data[i].priority;
+                                if (obj.data[i].priority == "IMPORTANT") {
+                                    tabCellgroup.style.backgroundColor = "#ff9e03";
+                                    tabCellgroup.innerHTML = "<font color=#784a01>" + obj.data[i].priority + "</font>";
+                                }
+                                else if (obj.data[i].priority == "URGENT") {
+                                    tabCellgroup.style.backgroundColor = "#ff0000";
+                                    tabCellgroup.innerHTML = "<font color=#570101>" + obj.data[i].priority + "</font>";
+                                }
+                                else if (obj.data[i].priority == "NORMAL") {
+                                    tabCellgroup.style.backgroundColor = "#0e4d1a";
+                                    tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
+                                }
+                                else if (obj.data[i].priority == "IMMEDIATE") {
+                                    tabCellgroup.style.backgroundColor = "#ff03c0";
+                                    tabCellgroup.innerHTML = "<font color=#7a2a66>" + obj.data[i].priority + "</font>";
+                                }
+                                else {
+                                    tabCellgroup.style.backgroundColor = "#f5faf6";
+                                    tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
+                                }
                                 var tabCellpriority = trgroup.insertCell(-1);
                                 tabCellpriority.style.border = "thin solid #a5f448";
-                                tabCellpriority.innerHTML = obj.data[i].priority;
+                                tabCellpriority.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
 
-                                trtarget = table.insertRow(-1);
-                                var tabCelltarget = trtarget.insertCell(-1);
-                                tabCelltarget.style.border = "thin solid #a5f448";
-                                tabCelltarget.colSpan = "2";
-                                tabCelltarget.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
 
                                 trblank = table.insertRow(-1);
                                 var tabCellblank = trblank.insertCell(-1);
@@ -340,7 +393,7 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                             }
                         }
                     }
-                
+
                 // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
                 document.getElementById('showData').innerHTML = '';
                 document.getElementById('showData').appendChild(table);
@@ -353,39 +406,38 @@ var table = document.getElementById('datatable01');//document.createElement('tab
 
 
       // }
-  </script>
-</head >
-      <body>
+    </script>
+</head>
+<body>
 
-          <div id="typeselect" style="width:100%;">
-              <select name="typedrop" id="typedrop" style="width:100%;height:30px;font-size:20px;"   onchange="typeselect(this.value)">
-                  <option value="ALL">ALL</option>
-                  <option value="RE">RE</option>
-                  <option value="ER">ER</option>
-                  <option value="NR">NR</option>
-                  <option value="NER">NER</option>
-                  <option value="SR">SR</option>
-                  <option value="WR">WR</option>
-                  <option value="P&S">P&S</option>
-                  <option value="RA">RA</option>
-                  <option value="BILLING">BILLING</option>
-                  <option value="Respective Groups">Respective Groups</option>
-              </select>
-          </div>
+    <div id="typeselect" style="width:100%;">
+        <select name="typedrop" id="typedrop" style="width:100%;height:30px;font-size:20px;" onchange="typeselect(this.value)">
+            <option value="ALL">ALL</option>
+            <option value="RE">RE</option>
+            <option value="ER">ER</option>
+            <option value="NR">NR</option>
+            <option value="NER">NER</option>
+            <option value="SR">SR</option>
+            <option value="WR">WR</option>
+            <option value="P&S">P&S</option>
+            <option value="RA">RA</option>
+            <option value="BILLING">BILLING</option>
+            <option value="Respective Groups">Respective Groups</option>
+        </select>
+    </div>
 
-          <br/>
-          <div id="output">
-        </div>
+    <br />
+    <div id="output">
+    </div>
 
-<div id="showDatafirst">
-        </div>
+    <div id="showDatafirst">
+    </div>
 
 
-          <table id="datatable01" cellpadding="0" cellspacing="0">
-          </table>
+    <table id="datatable01" cellpadding="0" cellspacing="0"></table>
 
-<div id="showData">
-        </div>
+    <div id="showData">
+    </div>
 
 </body>
 </html>
