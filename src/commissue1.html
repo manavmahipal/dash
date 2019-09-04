@@ -92,7 +92,7 @@
              // document.getElementById("showDatafirst").innerHTML = obj.title + ", " + obj.updated + ", " + obj.data.length + "</span><br/>";
              // var objjjjj = JSON.parse(obj.data);
             
-              
+              alert(obj.data.length);
              
              // JSON.Array jsonaaarray = new JSONArray(jsonString);
 //document.getElementById('showDatafirst').innerHTML = "</span><br/>" + jsonarray;
@@ -145,26 +145,26 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                     tabCell3.style.backgroundColor = "#c9ebff";
                     tabCell3.style.width = "90%";
                     tabCell3.colSpan = "2";
-                    tabCell3.innerHTML = "<b>Issues:</b>" + obj.data[i].issue;
+                    tabCell3.innerHTML = "<b>Issues:</b>" + obj.data[i][1];
                     trstatus = table.insertRow(-1);
                     var tabCellstatus = trstatus.insertCell(-1);
                     tabCellstatus.style.border = "thin solid #a5f448";
                     tabCellstatus.colSpan = "2";
-                    tabCellstatus.innerHTML = "<b>Status:</b>"+obj.data[i].status;
+                    tabCellstatus.innerHTML = "<b>Status:</b>"+obj.data[i][2];
 
                     trgroup = table.insertRow(-1);
                     var tabCellgroup = trgroup.insertCell(-1);
                     tabCellgroup.style.border = "thin solid #a5f448";
-                    tabCellgroup.innerHTML = "<b>" + obj.data[i].group + "</b>  (" + obj.data[i].date + ")";
+                    tabCellgroup.innerHTML = "<b>" + obj.data[i][3];
                     var tabCellpriority = trgroup.insertCell(-1);
                     tabCellpriority.style.border = "thin solid #a5f448";
-                    tabCellpriority.innerHTML = obj.data[i].priority;
+                    tabCellpriority.innerHTML = obj.data[i][4];
 
                     trtarget = table.insertRow(-1);
                     var tabCelltarget = trtarget.insertCell(-1);
                     tabCelltarget.style.border = "thin solid #a5f448";
                     tabCelltarget.colSpan = "2";
-                    tabCelltarget.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
+                    tabCelltarget.innerHTML = "<b>Target:</b>" + obj.data[i][5];
 
                     trblank = table.insertRow(-1);
                     var tabCellblank = trblank.insertCell(-1);
