@@ -13,9 +13,11 @@
 
 </head>
 <body>
-    
+    <script type="text/javascript">
+        alert("yahoo");
+        </script>
     <div id="stateselect" style="width:100%;">
-        <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="stateinfo(this.value)">            
+        <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="stateinfo(this.value)">
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Arunachal">Arunachal</option>
@@ -61,16 +63,25 @@
         </select>
     </div>
     <br />
+    <script type="text/javascript">
+        alert("yahoo");
+    </script>
     <table style="width:100%; text-align:center;font-size:x-large;color:#677c74;">
         <tr>
             <td style="width:100%; text-align:center;font-size:x-large;color:#677c74;">
-                <iframe id="stateframe" name="stateframe" style="height: 100%; width:99%;overflow-x:scroll;min-height:1700px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1jTlgmoaDWWuvjpKnswuHPrA0nDz9ZGNJO4vCz0bnC1U/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40"></frame>
-            </td>       
+                <iframe id="stateframe" name="stateframe" style="height: 100%; width:99%;overflow-x:scroll;min-height:1700px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1jTlgmoaDWWuvjpKnswuHPrA0nDz9ZGNJO4vCz0bnC1U/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40"></iframe>
+            </td>
         </tr>
     </table>
-    <script>
+    <script type="text/javascript">
+        alert("yahoo");
+    </script>
+    <script type="text/javascript">
+        alert(statename);
         function stateinfo(statename) {
+            alert(statename);
             var source = 'https://manavmahipal.github.io/dash/index_bd.html';
+            alert(statename);
             var iframe = document.getElementById('stateframe');
             if (statename == "Andhra Pradesh")
                 source = 'https://docs.google.com/spreadsheets/d/1jTlgmoaDWWuvjpKnswuHPrA0nDz9ZGNJO4vCz0bnC1U/pubhtml/sheet?headers=false&gid=1425745973&range=A1:B40';
