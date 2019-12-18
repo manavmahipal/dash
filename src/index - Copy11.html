@@ -1,0 +1,206 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>get-sheet-done demo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #theForm {
+            border: 1px solid silver;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+            #theForm > div {
+                margin-bottom: 10px;
+            }
+
+        .label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        #key {
+            width: 400px;
+            max-width: 100%;
+        }
+
+        #output {
+            overflow: auto;
+        }
+
+        .checkboxGroup {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .table1 {
+            width: 29%;
+            max-width: 130px;
+            float: left;
+            overflow: hidden;
+        }
+
+        .table2 {
+            width: 69%;
+            padding-left: 0px;
+            float: left;
+            overflow: auto;
+        }
+    </style>
+
+    <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+    <script src="GetSheetDone.js"></script>
+
+    <script src="countUp.js"></script>
+
+
+
+</head>
+<body>
+    <div id="trading_table" style="width:100%;margin: 0 auto;">
+        <table style="width:100%;text-align:center;">
+            <tr>
+                <td style="width:50%;text-align:center;font-size:x-large;background-color:#bae1e5;color:#5d7072;">Offered (MUs)</td>
+                <td style="width:50%;text-align:center;font-size:x-large;background-color:#c2fec1;color:#749873;">Cleared (MUs)</td>
+            </tr>
+            <tr>
+                <td id="offered_in_1718" style="width:50%;text-align:center;font-size:xx-large;background-color:#bae1e5;color:#4a5a5b;">No internet Connection</td>
+                <td id="cleared_in_1718" style="width:50%;text-align:center;font-size:xx-large;background-color:#c2fec1;color:#4d654d;">no internet connection</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="trading_reporttable" style="width:100%;margin: 0 auto;">
+        <table style="width:100%;text-align:center;">
+            <tr>
+                <td class="table1" style="text-align:left;font-size:x-large;color:#677c74;">
+                    <iframe style="overflow:auto;min-height:200px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1iYytiqDgwxm8-kftu7S8jcAumkgc-zL2TXeivUivGhM/pubhtml/sheet?headers=false&gid=1815157351&range=A12:A19"></iframe>
+                </td>
+                <td class="table2" style="text-align:left;font-size:x-large;color:#677c74;">
+                    <iframe style="overflow:auto;min-height:200px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1iYytiqDgwxm8-kftu7S8jcAumkgc-zL2TXeivUivGhM/pubhtml/sheet?headers=false&gid=1815157351&range=B12:H19"></iframe>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <iframe width="100%" height="550px" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQnx7jqNgaUawuti-g7pPz7o8ZE3DSEezH_iKfmkIhWCX3so9-giVwSmDrUNn6uJbaVCmgS3U0B8hZL/pubchart?oid=1456213570&amp;format=interactive"></iframe>
+
+
+
+
+    <script>
+
+
+        let key,
+            sheetNum,
+            sheetType, counter = 0, cc = 0;
+
+        function readValues() {
+            key = '1iYytiqDgwxm8-kftu7S8jcAumkgc-zL2TXeivUivGhM';
+            sheetNum = '1';
+            sheetType = 'cols';
+        }
+
+        window.onload = function (ev) {
+            ev.preventDefault();
+            readValues();
+            console.log(key, sheetNum, sheetType);
+
+            let promise;
+            switch (sheetType) {
+                case 'cols':
+                    promise = GetSheetDone.labeledCols(key, sheetNum);
+                    break;
+                case 'cols-rows':
+                    promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                    break;
+                case 'raw':
+                default:
+                    promise = GetSheetDone.raw(key, sheetNum);
+                    break;
+            }
+            promise.then((data) => {
+                var jsonarray = JSON.stringify(data);
+                var obj = JSON.parse(jsonarray);
+                var coll = [];
+                for (var i = 0; i < obj.data.length; i++) {
+                    for (var ky in obj.data[i]) {
+                        if (coll.indexOf(ky) === -1) {
+                            coll.push(ky);
+                        }
+                    }
+                }
+                //alert(jsonarray);
+                // CREATE DYNAMIC TABLE.
+                // var table = document.getElementById('datatable01');//document.createElement('table');
+                //  table.style.border = "thin solid #a5f448";
+                // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+                var plantlist = obj.data;
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    decimal: '.',
+                };
+                var demo = new CountUp(document.getElementById('offered_in_1718'), 0, parseFloat(plantlist[25].offered), 2, 2.5, options);
+                if (!demo.error) {
+                    demo.start();
+                } else {
+                    console.error(demo.error);
+                }
+                var demoo = new CountUp(document.getElementById('cleared_in_1718'), 0, parseFloat(plantlist[25].cleared), 2, 2.5, options);
+                if (!demoo.error) {
+                    demoo.start();
+                } else {
+                    console.error(demoo.error);
+                }
+
+
+            }).catch(err => {
+                console.log('Error');
+                console.log(err);
+                document.getElementById('output').innerHTML = err.message;
+            })
+
+
+
+
+
+
+        }
+
+              // }
+
+
+
+
+
+
+    </script>
+
+
+
+
+    <div id="output">
+    </div>
+
+    <div id="showDatafirst">
+    </div>
+
+
+
+
+    <table id="datatable02" cellpadding="0" cellspacing="0"></table>
+
+    <div id="showData">
+    </div>
+
+
+
+</body>
+</html>
