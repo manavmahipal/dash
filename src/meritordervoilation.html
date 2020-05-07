@@ -38,7 +38,13 @@
             vertical-align: top;
         }
     </style>
-
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            var now = new Date();
+           // var today = now.getDate() + '-' + (now.getMonth() + 1 + '-' + now.getFullYear());
+            $('#datePicker').val(today);
+        });
+    </script>
     <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
     <script src="GetSheetDone.js"></script>
     <script>
@@ -62,7 +68,7 @@
             }
         }
         function readValues() {
-            key = '1WnkFmAy4Ii-iaLDQ5nBRzLtqtsL1JfC15UU7YmxEBnY';
+            key = '1PhagOFafsteDGuZluk5eJ8HYWlEMJ8UvKXQy2GyvWkQ';
             sheetNum ='1';
             sheetType = 'cols';
         }
@@ -97,9 +103,55 @@
               var obj = JSON.parse(jsonarray);
              // document.getElementById("showDatafirst").innerHTML = obj.title + ", " + obj.updated + ", " + obj.data.length + "</span><br/>";
              // var objjjjj = JSON.parse(obj.data);
+            //  alert(jsonarray);
+              var today = new Date();
+              var dd ="";
+              var mm = "";
+              var yyyy = today.getFullYear();
+              if (today.getDate() == "1")
+                  var dd = "01";
+              else if (today.getDate() == "2")
+                  var dd = "02";
+              else if (today.getDate() == "3")
+                  var dd = "03";
+              else if (today.getDate() == "4")
+                  var dd = "04";
+              else if (today.getDate() == "5")
+                  var dd = "05";
+              else if (today.getDate() == "6")
+                  var dd = "06";
+              else if (today.getDate() == "7")
+                  var dd = "07";
+              else if (today.getDate() == "8")
+                  var dd = "08";
+              else if (today.getDate() == "9")
+                  var dd = "09";
+              else
+                  var dd = today.getDate();
+                 
+              if ((today.getMonth() + 1) == "1")
+                  var mm = "01";
+              else if ((today.getMonth() + 1) == "2")
+                  var mm = "02";
+              else if ((today.getMonth() + 1) == "3")
+                  var mm = "03";
+              else if ((today.getMonth() + 1) == "4")
+                  var mm = "04";
+              else if ((today.getMonth() + 1) == "5")
+                  var mm = "05";
+              else if ((today.getMonth() + 1) == "6")
+                  var mm = "06";
+              else if ((today.getMonth() + 1) == "7")
+                  var mm = "07";
+              else if ((today.getMonth() + 1) == "8")
+                  var mm = "08";
+              else if ((today.getMonth() + 1) == "9")
+                  var mm = "09";
+              else
+                  var mm = today.getMonth() + 1;
 
-
-
+              var date_today = dd + "-" + mm + "-" + yyyy;
+             // alert(dd + "-" + mm + "-" + yyyy);
              // JSON.Array jsonaaarray = new JSONArray(jsonString);
 //document.getElementById('showDatafirst').innerHTML = "</span><br/>" + jsonarray;
 var coll = [];
@@ -112,12 +164,12 @@ for (var i = 0; i < obj.data.length; i++) {
         }
 // CREATE DYNAMIC TABLE.
 var table = document.getElementById('datatable01');//document.createElement('table');
-        table.style.border = "thin solid #a5f448";
+        table.style.border = "thin solid #00118f";
         // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
       //  var tr = table.insertRow(-1);                   // TABLE ROW.
       /*  for (var i = 0; i < 8; i++) {
             var th = document.createElement("th");
-            th.style.border = "thin solid #a5f448";
+            th.style.border = "thin solid #00118f";
             if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 6)
             {
                 th.innerHTML = coll[i];
@@ -137,66 +189,85 @@ var table = document.getElementById('datatable01');//document.createElement('tab
         // ADD JSON DATA TO THE TABLE AS ROWS.
         for (var i = 0; i < obj.data.length; i++) {
 
-            tr = table.insertRow(-1);
+            if (obj.data[i].date == "")
+                break;
+            if (obj.data[i].date == date_today) {
+                tr = table.insertRow(-1);
 
-            var tabCell0 = tr.insertCell(-1);
-            tabCell0.style.border = "thin solid #a5f448";
-            tabCell0.style.backgroundColor = "#abb5ff";
-            tabCell0.style.width = "5%";
-            tabCell0.rowSpan = "4";
-                    counter = counter + 1;
-                    tabCell0.innerHTML = counter;
-                    var tabCell3 = tr.insertCell(-1);
-                    tabCell3.style.border = "thin solid #a5f448";
-                    tabCell3.style.backgroundColor = "#c9ebff";
-                    tabCell3.style.width = "90%";
-                    tabCell3.colSpan = "2";
-                    tabCell3.innerHTML = "<b>Issues:</b>" + obj.data[i].issue;
-                    trstatus = table.insertRow(-1);
-                    var tabCellstatus = trstatus.insertCell(-1);
-                    tabCellstatus.style.border = "thin solid #a5f448";
-                    tabCellstatus.colSpan = "2";
-                    tabCellstatus.innerHTML = "<b>Status:</b>"+obj.data[i].status;
+                var tabCell0 = tr.insertCell(-1);
+                tabCell0.style.border = "thin solid #00118f";
+                tabCell0.style.backgroundColor = "#abb5ff";
+                tabCell0.style.width = "5%";
+                tabCell0.rowSpan = "6";
+                tabCell0.textAlign = "center";
+                counter = counter + 1;
+                tabCell0.innerHTML = counter;
+                var tabCell3 = tr.insertCell(-1);
+                tabCell3.style.border = "thin solid #00118f";
+                tabCell3.style.backgroundColor = "#c9ebff";
+                tabCell3.style.width = "55%";
+                tabCell3.innerHTML = "<b>State:</b> " + obj.data[i].state;
+                var tabCelldate = tr.insertCell(-1);
+                tabCelldate.style.border = "thin solid #00118f";
+                tabCelldate.style.backgroundColor = "#c9ebff";
+                tabCelldate.style.width = "55%";
+                tabCelldate.innerHTML = "<b>Date:</b> " + obj.data[i].date;
+                trstatus = table.insertRow(-1);
+                var tabCellcoecr = trstatus.insertCell(-1);
+                tabCellcoecr.style.border = "thin solid #00118f";
+                tabCellcoecr.innerHTML = "<b>C/O ECR:</b>  " + obj.data[i].cutoffecr;
+                var tabCellPD = trstatus.insertCell(-1);
+                tabCellPD.style.border = "thin solid #00118f";
+                tabCellPD.innerHTML = "<b>Peak Demand:</b> " + obj.data[i].peakdemand;
+                trdevprd = table.insertRow(-1);
+                var tabCelldevprd = trdevprd.insertCell(-1);
+                tabCelldevprd.style.border = "thin solid #00118f";
+                tabCelldevprd.colSpan = "2";
+                tabCelldevprd.innerHTML = "<b>Deviation Prd:</b> " + obj.data[i].deviationperiod;
 
-                    trgroup = table.insertRow(-1);
-                    var tabCellgroup = trgroup.insertCell(-1);
-                    tabCellgroup.style.border = "thin solid #a5f448";
-                   // tabCellgroup.innerHTML = "<b>" + obj.data[i].priority;
-                    if (obj.data[i].priority == "IMPORTANT") {
-                        tabCellgroup.style.backgroundColor = "#ff9e03";
-                        tabCellgroup.innerHTML = "<font color=#784a01>" + obj.data[i].priority + "</font>";
-                    }
-                    else if (obj.data[i].priority == "URGENT") {
-                        tabCellgroup.style.backgroundColor = "#ff0000";
-                        tabCellgroup.innerHTML = "<font color=#570101>" + obj.data[i].priority + "</font>";
-                    }
-                    else if (obj.data[i].priority == "NORMAL") {
-                        tabCellgroup.style.backgroundColor = "#0e4d1a";
-                        tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
-                    }
-                    else if (obj.data[i].priority == "IMMEDIATE") {
-                        tabCellgroup.style.backgroundColor = "#ff03c0";
-                        tabCellgroup.innerHTML = "<font color=#7a2a66>" + obj.data[i].priority + "</font>";
-                    }
-                    else{
-                        tabCellgroup.style.backgroundColor = "#f5faf6";
-                        tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
-                    }
-                    var tabCellpriority = trgroup.insertCell(-1);
-                    tabCellpriority.style.border = "thin solid #a5f448";
-                    tabCellpriority.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
+                trntpc = table.insertRow(-1);
+                var tabCellntpc = trntpc.insertCell(-1);
+                tabCellntpc.style.border = "thin solid #00118f";
+                tabCellntpc.colSpan = "2";
+                tabCellntpc.style.backgroundColor = "#fcbdbd";
+                tabCellntpc.innerHTML = "<font color=#990008><b>Down:</b>  " + obj.data[i].ntpcstationbackeddown + "   <i>(" + obj.data[i].ntpcecr + ")</i></font>";
+
+                trother = table.insertRow(-1);
+                var tabCellother = trother.insertCell(-1);
+                tabCellother.style.border = "thin solid #00118f";
+                tabCellother.colSpan = "2";
+                tabCellother.style.backgroundColor = "#a8f7a6";
+                tabCellother.innerHTML = "<font color=#004f10><b>Up:</b>  " + obj.data[i].stationgettingsch + "   <i>(" + obj.data[i].otherecr + ")</i></font>";
+
+                trreason = table.insertRow(-1);
+                var tabCellreason = trreason.insertCell(-1);
+                tabCellreason.style.border = "thin solid #00118f";
+                tabCellreason.colSpan = "2";
+                tabCellreason.innerHTML = "<b>Reasons:</b>  " + obj.data[i].reasons;
 
 
 
-                    trblank = table.insertRow(-1);
-                    var tabCellblank = trblank.insertCell(-1);
-                    tabCellblank.style.border = "thin solid #a5f448";
-                    tabCellblank.colSpan = "3";
-                    tabCellblank.innerHTML = "&nbsp;";
 
+
+                trblank = table.insertRow(-1);
+                var tabCellblank = trblank.insertCell(-1);
+                tabCellblank.style.border = "thin solid #00118f";
+                tabCellblank.colSpan = "3";
+                tabCellblank.innerHTML = "&nbsp;";
+            }
+            
                   //  tabCell.innerHTML = obj.data[i].region;
 
         }
+        if (counter == 0)
+        {
+            trnodata = table.insertRow(-1);
+            var tabCellnodata = trnodata.insertCell(-1);
+            tabCellnodata.style.border = "thin solid #00118f";
+           // tabCellnodata.colSpan = "2";
+            tabCellnodata.innerHTML = "<b>No data for this date</b>  ";
+        }
+        //alert(counter);
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         document.getElementById('showData').innerHTML = '';
         document.getElementById('showData').appendChild(table);
@@ -233,6 +304,18 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                 //  document.getElementById('output').innerHTML = JSON.stringify(data.data);
                 var jsonarray = JSON.stringify(data);
                 var obj = JSON.parse(jsonarray);
+
+                alert(jsonarray);
+                alert(typename);
+                alert(typename.split("-")[0]);
+                alert(typename.split("-")[1]);
+                alert(typename.split("-")[2]);
+
+                var date_input = typename.split("-")[2] + "-" + typename.split("-")[1] + "-" + typename.split("-")[0];
+                alert(date_input);
+
+                var date_today = "08-05-2020";
+
                 // document.getElementById("showDatafirst").innerHTML = obj.title + ", " + obj.updated + ", " + obj.data.length + "</span><br />";
                 // var objjjjj = JSON.parse(obj.data);
                 // JSON.Array jsonaaarray = new JSONArray(jsonString);
@@ -270,130 +353,84 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                   }
            */
                 // ADD JSON DATA TO THE TABLE AS ROWS.
+                alert(obj.data.length);
                 for (var i = 0; i < obj.data.length; i++) {
+                    if (obj.data[i].date == "")
+                        break;
+                    if (obj.data[i].date == date_today) {
+                        tr = table.insertRow(-1);
 
-                        if (typename == "ALL") {
-                            tr = table.insertRow(-1);
+                        var tabCell0 = tr.insertCell(-1);
+                        tabCell0.style.border = "thin solid #00118f";
+                        tabCell0.style.backgroundColor = "#abb5ff";
+                        tabCell0.style.width = "5%";
+                        tabCell0.rowSpan = "6";
+                        tabCell0.textAlign = "center";
+                        counter = counter + 1;
+                        tabCell0.innerHTML = counter;
+                        var tabCell3 = tr.insertCell(-1);
+                        tabCell3.style.border = "thin solid #00118f";
+                        tabCell3.style.backgroundColor = "#c9ebff";
+                        tabCell3.style.width = "55%";
+                        tabCell3.innerHTML = "<b>State:</b> " + obj.data[i].state;
+                        var tabCelldate = tr.insertCell(-1);
+                        tabCelldate.style.border = "thin solid #00118f";
+                        tabCelldate.style.backgroundColor = "#c9ebff";
+                        tabCelldate.style.width = "55%";
+                        tabCelldate.innerHTML = "<b>Date:</b> " + obj.data[i].date;
+                        trstatus = table.insertRow(-1);
+                        var tabCellcoecr = trstatus.insertCell(-1);
+                        tabCellcoecr.style.border = "thin solid #00118f";
+                        tabCellcoecr.innerHTML = "<b>C/O ECR:</b>  " + obj.data[i].cutoffecr;
+                        var tabCellPD = trstatus.insertCell(-1);
+                        tabCellPD.style.border = "thin solid #00118f";
+                        tabCellPD.innerHTML = "<b>Peak Demand:</b> " + obj.data[i].peakdemand;
+                        trdevprd = table.insertRow(-1);
+                        var tabCelldevprd = trdevprd.insertCell(-1);
+                        tabCelldevprd.style.border = "thin solid #00118f";
+                        tabCelldevprd.colSpan = "2";
+                        tabCelldevprd.innerHTML = "<b>Deviation Prd:</b> " + obj.data[i].deviationperiod;
 
-                            var tabCell0 = tr.insertCell(-1);
-                            tabCell0.style.border = "thin solid #a5f448";
-                            tabCell0.style.backgroundColor = "#abb5ff";
-                            tabCell0.style.width = "5%";
-                            tabCell0.rowSpan = "4";
-                            counter = counter + 1;
-                            tabCell0.innerHTML = counter;
-                            var tabCell3 = tr.insertCell(-1);
-                            tabCell3.style.border = "thin solid #a5f448";
-                            tabCell3.style.backgroundColor = "#c9ebff";
-                            tabCell3.style.width = "90%";
-                            tabCell3.colSpan = "2";
-                            tabCell3.innerHTML = "<b>Issues:</b>" + obj.data[i].issue;
-                            trstatus = table.insertRow(-1);
-                            var tabCellstatus = trstatus.insertCell(-1);
-                            tabCellstatus.style.border = "thin solid #a5f448";
-                            tabCellstatus.colSpan = "2";
-                            tabCellstatus.innerHTML = "<b>Status:</b>" + obj.data[i].status;
+                        trntpc = table.insertRow(-1);
+                        var tabCellntpc = trntpc.insertCell(-1);
+                        tabCellntpc.style.border = "thin solid #00118f";
+                        tabCellntpc.colSpan = "2";
+                        tabCellntpc.style.backgroundColor = "#fcbdbd";
+                        tabCellntpc.innerHTML = "<font color=#990008><b>Down:</b>  " + obj.data[i].ntpcstationbackeddown + "   <i>(" + obj.data[i].ntpcecr + ")</i></font>";
 
-                            trgroup = table.insertRow(-1);
-                            var tabCellgroup = trgroup.insertCell(-1);
-                            tabCellgroup.style.border = "thin solid #a5f448";
-                            // tabCellgroup.innerHTML = "<b>" + obj.data[i].priority;
-                            if (obj.data[i].priority == "IMPORTANT") {
-                                tabCellgroup.style.backgroundColor = "#ff9e03";
-                                tabCellgroup.innerHTML = "<font color=#784a01>" + obj.data[i].priority + "</font>";
-                            }
-                            else if (obj.data[i].priority == "URGENT") {
-                                tabCellgroup.style.backgroundColor = "#ff0000";
-                                tabCellgroup.innerHTML = "<font color=#570101>" + obj.data[i].priority + "</font>";
-                            }
-                            else if (obj.data[i].priority == "NORMAL") {
-                                tabCellgroup.style.backgroundColor = "#0e4d1a";
-                                tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
-                            }
-                            else if (obj.data[i].priority == "IMMEDIATE") {
-                                tabCellgroup.style.backgroundColor = "#ff03c0";
-                                tabCellgroup.innerHTML = "<font color=#7a2a66>" + obj.data[i].priority + "</font>";
-                            }
-                            else {
-                                tabCellgroup.style.backgroundColor = "#f5faf6";
-                                tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
-                            }
-                            var tabCellpriority = trgroup.insertCell(-1);
-                            tabCellpriority.style.border = "thin solid #a5f448";
-                            tabCellpriority.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
+                        trother = table.insertRow(-1);
+                        var tabCellother = trother.insertCell(-1);
+                        tabCellother.style.border = "thin solid #00118f";
+                        tabCellother.colSpan = "2";
+                        tabCellother.style.backgroundColor = "#a8f7a6";
+                        tabCellother.innerHTML = "<font color=#004f10><b>Up:</b>  " + obj.data[i].stationgettingsch + "   <i>(" + obj.data[i].otherecr + ")</i></font>";
 
-
-
-                            trblank = table.insertRow(-1);
-                            var tabCellblank = trblank.insertCell(-1);
-                            tabCellblank.style.border = "thin solid #a5f448";
-                            tabCellblank.colSpan = "3";
-                            tabCellblank.innerHTML = "&nbsp;";
-                            //  tabCell.innerHTML = obj.data[i].region;
-                        }
-                        else {
-                            if (obj.data[i].group == typename) {
-                                tr = table.insertRow(-1);
+                        trreason = table.insertRow(-1);
+                        var tabCellreason = trreason.insertCell(-1);
+                        tabCellreason.style.border = "thin solid #00118f";
+                        tabCellreason.colSpan = "2";
+                        tabCellreason.innerHTML = "<b>Reasons:</b>  " + obj.data[i].reasons;
 
 
-                                var tabCell0 = tr.insertCell(-1);
-                                tabCell0.style.border = "thin solid #a5f448";
-                                tabCell0.style.backgroundColor = "#abb5ff";
-                                tabCell0.style.width = "5%";
-                                tabCell0.rowSpan = "4";
-                                counter = counter + 1;
-                                tabCell0.innerHTML = counter;
-                                var tabCell3 = tr.insertCell(-1);
-                                tabCell3.style.border = "thin solid #a5f448";
-                                tabCell3.style.backgroundColor = "#c9ebff";
-                                tabCell3.style.width = "90%";
-                                tabCell3.colSpan = "2";
-                                tabCell3.innerHTML = "<b>Issues:</b>" + obj.data[i].issue;
-                                trstatus = table.insertRow(-1);
-                                var tabCellstatus = trstatus.insertCell(-1);
-                                tabCellstatus.style.border = "thin solid #a5f448";
-                                tabCellstatus.colSpan = "2";
-                                tabCellstatus.innerHTML = "<b>Status:</b>" + obj.data[i].status;
-
-                                trgroup = table.insertRow(-1);
-                                var tabCellgroup = trgroup.insertCell(-1);
-                                tabCellgroup.style.border = "thin solid #a5f448";
-                                // tabCellgroup.innerHTML = "<b>" + obj.data[i].priority;
-                                if (obj.data[i].priority == "IMPORTANT") {
-                                    tabCellgroup.style.backgroundColor = "#ff9e03";
-                                    tabCellgroup.innerHTML = "<font color=#784a01>" + obj.data[i].priority + "</font>";
-                                }
-                                else if (obj.data[i].priority == "URGENT") {
-                                    tabCellgroup.style.backgroundColor = "#ff0000";
-                                    tabCellgroup.innerHTML = "<font color=#570101>" + obj.data[i].priority + "</font>";
-                                }
-                                else if (obj.data[i].priority == "NORMAL") {
-                                    tabCellgroup.style.backgroundColor = "#0e4d1a";
-                                    tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
-                                }
-                                else if (obj.data[i].priority == "IMMEDIATE") {
-                                    tabCellgroup.style.backgroundColor = "#ff03c0";
-                                    tabCellgroup.innerHTML = "<font color=#7a2a66>" + obj.data[i].priority + "</font>";
-                                }
-                                else {
-                                    tabCellgroup.style.backgroundColor = "#f5faf6";
-                                    tabCellgroup.innerHTML = "<font color=#07eb35>" + obj.data[i].priority + "</font>";
-                                }
-                                var tabCellpriority = trgroup.insertCell(-1);
-                                tabCellpriority.style.border = "thin solid #a5f448";
-                                tabCellpriority.innerHTML = "<b>Target:</b>" + obj.data[i].targetdate;
 
 
-                                trblank = table.insertRow(-1);
-                                var tabCellblank = trblank.insertCell(-1);
-                                tabCellblank.style.border = "thin solid #a5f448";
-                                tabCellblank.colSpan = "3";
-                                tabCellblank.innerHTML = "&nbsp;";
-                                //  tabCell.innerHTML = obj.data[i].region;
-                            }
-                        }
+
+                        trblank = table.insertRow(-1);
+                        var tabCellblank = trblank.insertCell(-1);
+                        tabCellblank.style.border = "thin solid #00118f";
+                        tabCellblank.colSpan = "3";
+                        tabCellblank.innerHTML = "&nbsp;";
                     }
 
+                       
+                    }
+                if (counter == 0) {
+                    trnodata = table.insertRow(-1);
+                    var tabCellnodata = trnodata.insertCell(-1);
+                    tabCellnodata.style.border = "thin solid #00118f";
+                    // tabCellnodata.colSpan = "2";
+                    tabCellnodata.innerHTML = "<b>No data for this date</b>  ";
+                }
                 // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
                 document.getElementById('showData').innerHTML = '';
                 document.getElementById('showData').appendChild(table);
@@ -411,33 +448,22 @@ var table = document.getElementById('datatable01');//document.createElement('tab
 <body>
 
     <div id="typeselect" style="width:100%;">
-        <select name="typedrop" id="typedrop" style="width:100%;height:30px;font-size:20px;" onchange="typeselect(this.value)">
-            <option value="ALL">ALL</option>
-            <option value="RE">RE</option>
-            <option value="ER">ER</option>
-            <option value="NR">NR</option>
-            <option value="NER">NER</option>
-            <option value="SR">SR</option>
-            <option value="WR">WR</option>
-            <option value="P&S">P&S</option>
-            <option value="RA">RA</option>
-            <option value="BILLING">BILLING</option>
-            <option value="Respective Groups">Respective Groups</option>
-        </select>
+        <input name="datePicker" id="datePicker" type="date" onchange="typeselect(this.value)" />
     </div>
+        
 
-    <br />
-    <div id="output">
-    </div>
+        <br />
+        <div id="output">
+        </div>
 
-    <div id="showDatafirst">
-    </div>
+        <div id="showDatafirst">
+        </div>
 
 
-    <table id="datatable01" cellpadding="0" cellspacing="0"></table>
+        <table id="datatable01" cellpadding="0" cellspacing="0"></table>
 
-    <div id="showData">
-    </div>
+        <div id="showData">
+        </div>
 
 </body>
 </html>
