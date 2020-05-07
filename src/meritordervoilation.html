@@ -305,14 +305,14 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                 var jsonarray = JSON.stringify(data);
                 var obj = JSON.parse(jsonarray);
 
-                alert(jsonarray);
-                alert(typename);
-                alert(typename.split("-")[0]);
-                alert(typename.split("-")[1]);
-                alert(typename.split("-")[2]);
+               // alert(jsonarray);
+             //   alert(typename);
+             //   alert(typename.split("-")[0]);
+            //    alert(typename.split("-")[1]);
+             //   alert(typename.split("-")[2]);
 
                 var date_input = typename.split("-")[2] + "-" + typename.split("-")[1] + "-" + typename.split("-")[0];
-                alert(date_input);
+                //alert(date_input);
 
                 var date_today = "08-05-2020";
 
@@ -353,11 +353,11 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                   }
            */
                 // ADD JSON DATA TO THE TABLE AS ROWS.
-                alert(obj.data.length);
+               // alert(obj.data.length);
                 for (var i = 0; i < obj.data.length; i++) {
                     if (obj.data[i].date == "")
                         break;
-                    if (obj.data[i].date == date_today) {
+                    if (obj.data[i].date == date_input) {
                         tr = table.insertRow(-1);
 
                         var tabCell0 = tr.insertCell(-1);
