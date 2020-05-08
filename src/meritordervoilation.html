@@ -218,19 +218,19 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                 tabCellcoecr.innerHTML = "<b>Peak Demand:</b>  " + obj.data[i].peakdemand;
                 var tabCellPD = trstatus.insertCell(-1);
                 tabCellPD.style.border = "thin solid #00118f";
-                tabCellPD.innerHTML = "<b>C/O ECR:</b> " + obj.data[i].cutoffecr;
+                tabCellPD.innerHTML = "<b>Cut-off ECR:</b> " + obj.data[i].cutoffecr;
                 trdevprd = table.insertRow(-1);
                 var tabCelldevprd = trdevprd.insertCell(-1);
                 tabCelldevprd.style.border = "thin solid #00118f";
                 tabCelldevprd.colSpan = "2";
-                tabCelldevprd.innerHTML = "<b>Deviation Prd:</b> " + obj.data[i].deviationperiod;
+                tabCelldevprd.innerHTML = "<b>MO voilation time:</b> " + obj.data[i].movoilationtime;
 
                 trntpc = table.insertRow(-1);
                 var tabCellntpc = trntpc.insertCell(-1);
                 tabCellntpc.style.border = "thin solid #00118f";
                 tabCellntpc.colSpan = "2";
                 tabCellntpc.style.backgroundColor = "#fcbdbd";
-                tabCellntpc.innerHTML = "<font color=#990008><b>Down:</b>  " + obj.data[i].ntpcstationbackeddown + "   <i>(" + obj.data[i].ntpcecr + ")</i></font>";
+                tabCellntpc.innerHTML = "<font color=#990008><b>NTPC Stn Down:</b>  " + obj.data[i].ntpcstationbackeddown + "   <i>(" + obj.data[i].ntpcecr + ")</i></font>";
 
                 trother = table.insertRow(-1);
                 var tabCellother = trother.insertCell(-1);
@@ -384,19 +384,19 @@ var table = document.getElementById('datatable01');//document.createElement('tab
                         tabCellcoecr.innerHTML = "<b>Peak Demand:</b>  " + obj.data[i].peakdemand;
                         var tabCellPD = trstatus.insertCell(-1);
                         tabCellPD.style.border = "thin solid #00118f";
-                        tabCellPD.innerHTML = "<b>C/O ECR:</b> " + obj.data[i].cutoffecr;
+                        tabCellPD.innerHTML = "<b>Cut-off ECR:</b> " + obj.data[i].cutoffecr;
                         trdevprd = table.insertRow(-1);
                         var tabCelldevprd = trdevprd.insertCell(-1);
                         tabCelldevprd.style.border = "thin solid #00118f";
                         tabCelldevprd.colSpan = "2";
-                        tabCelldevprd.innerHTML = "<b>Deviation Prd:</b> " + obj.data[i].deviationperiod;
+                        tabCelldevprd.innerHTML = "<b>MO voilation time:</b> " + obj.data[i].movoilationtime;
 
                         trntpc = table.insertRow(-1);
                         var tabCellntpc = trntpc.insertCell(-1);
                         tabCellntpc.style.border = "thin solid #00118f";
                         tabCellntpc.colSpan = "2";
                         tabCellntpc.style.backgroundColor = "#fcbdbd";
-                        tabCellntpc.innerHTML = "<font color=#990008><b>Down:</b>  " + obj.data[i].ntpcstationbackeddown + "   <i>(" + obj.data[i].ntpcecr + ")</i></font>";
+                        tabCellntpc.innerHTML = "<font color=#990008><b>NTPC Stn Down:</b>  " + obj.data[i].ntpcstationbackeddown + "   <i>(" + obj.data[i].ntpcecr + ")</i></font>";
 
                         trother = table.insertRow(-1);
                         var tabCellother = trother.insertCell(-1);
