@@ -105,6 +105,8 @@
              // var objjjjj = JSON.parse(obj.data);
             //  alert(jsonarray);
               var today = new Date();
+	      today.setDate(today.getDate() - 1);
+		//alert(today);
               var dd ="";
               var mm = "";
               var yyyy = today.getFullYear();
