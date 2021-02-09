@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>get-sheet-done demo</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #theForm {
+            border: 1px solid silver;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+            #theForm > div {
+                margin-bottom: 10px;
+            }
+
+        .label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        #key {
+            width: 400px;
+            max-width: 100%;
+        }
+
+        #output {
+            overflow: auto;
+        }
+
+        .checkboxGroup {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .table1 {
+            width: 29%;
+            max-width: 130px;
+            float: left;
+            overflow: hidden;
+        }
+
+        .table2 {
+            width: 69%;
+            padding-left: 0px;
+            float: left;
+            overflow: auto;
+        }
+    </style>
+
+  <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+  <script src="GetSheetDone.js"></script>
+   
+</head >
+      <body>
+          <div id="typeselect" style="width:100%;">
+              <select name="typedrop" id="typedrop" style="width:100%;height:30px;font-size:20px;" onchange="typeselect(this.value)">
+                  <option value="1">Thermal and JVs</option>
+                  <option value="2">Gas</option>
+                  <option value="3">Solar</option>
+              </select>
+          </div>
+
+          <div id="trading_reporttable" style="width:100%;margin: 0 auto;">
+              <table style="width:100%;text-align:center;">
+                  <tr>
+                      <td colspan="2" style="text-align:left;font-size:x-large;color:#677c74;">
+                          <iframe style="overflow:auto;min-height:1500px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1brC9mUN3FP1yiJW8QQAMaZfZFguVv8xy6AF5ieRZExw/pubhtml/sheet?headers=false&gid=0&range=A1:AI63"></iframe>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+
+          <div id="trading_reporttable1" style="width:100%;margin: 0 auto;">
+              <table style="width:100%;text-align:center;">
+                  <tr>
+                      <td colspan="2" style="text-align:left;font-size:x-large;color:#677c74;">
+                          <iframe style="overflow:auto;min-height:250px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1brC9mUN3FP1yiJW8QQAMaZfZFguVv8xy6AF5ieRZExw/pubhtml/sheet?headers=false&gid=1084572440&range=A1:AP11"></iframe>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+          <div id="trading_reporttable2" style="width:100%;margin: 0 auto;">
+              <table style="width:100%;text-align:center;">
+                  <tr>
+                      <td colspan="2" style="text-align:left;font-size:x-large;color:#677c74;">
+                          <iframe style="overflow:auto;min-height:320px;" seamless frameborder="0" scrolling="yes" src="https://docs.google.com/spreadsheets/d/1brC9mUN3FP1yiJW8QQAMaZfZFguVv8xy6AF5ieRZExw/pubhtml/sheet?headers=false&gid=301234717&range=A1:T14"></iframe>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+
+          <script>
+              window.onload = function (ev) {
+                  document.getElementById("trading_reporttable").style.display = "inline-block";
+                  document.getElementById("trading_reporttable1").style.display = "none";
+                  document.getElementById("trading_reporttable2").style.display = "none";
+              }
+
+              function typeselect(typename) {
+                  if (typename == "1") {
+                      document.getElementById("trading_reporttable").style.display = "inline-block";
+                      document.getElementById("trading_reporttable1").style.display = "none";
+                      document.getElementById("trading_reporttable2").style.display = "none";
+                  }
+                  if (typename == "2") {
+                      document.getElementById("trading_reporttable").style.display = "none";
+                      document.getElementById("trading_reporttable1").style.display = "inline-block";
+                      document.getElementById("trading_reporttable2").style.display = "none";
+                  }
+                  if (typename == "3") {
+                      document.getElementById("trading_reporttable").style.display = "none";
+                      document.getElementById("trading_reporttable1").style.display = "none";
+                      document.getElementById("trading_reporttable2").style.display = "inline-block";
+                  }
+              }
+          </script>
+</body>
+</html>
