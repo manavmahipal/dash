@@ -67,8 +67,9 @@
     <br />
     <div id="stateselect" style="width:100%;">
         <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="statedrilldown(this.value)">
+            <option value="Andhra Pradesh">Andhra Pradesh<option>
                 <option value="Andhra Pradesh">Andhra Pradesh<option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh<option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh<option>
                 <option value="Assam">Assam<option>
                 <option value="Bangladesh">Bangladesh<option>
                 <option value="Bihar">Bihar<option>
@@ -427,10 +428,11 @@
                     for (var i = 0; i < obj.data.length ; i++) {
                        // alert(obj.data[i].state + "---" + statename);
                         if (obj.data[i].state == statename) {
-                              alert(obj.data[i].state+ "-hurray--" + statename);
-                           /* 09-02-2021 if ((obj.data[i].d) != "#N/A") {
-                                benefSeries.push(obj.data[i].b);
-                                totalSeries.push(parseFloat(obj.data[i].c));
+                             // alert(obj.data[i].state+ "-hurray--" + statename);
+                           if ((obj.data[i].station) != "") {
+                            alert(obj.data[i].station+ "-hurray--" + obj.data[i].allocation);
+                                benefSeries.push(obj.data[i].station);
+                                totalSeries.push(parseFloat(obj.data[i].allocation));
 
                                 tr = table.insertRow(-1);
 
@@ -441,7 +443,7 @@
                                 tabCell.style.color = "#e6fee6";
                                 tabCell.style.width = "5%";
                                 tabCell.style.fontSize = "20px";
-                                tabCell.innerHTML = obj.data[i].b;
+                                tabCell.innerHTML = obj.data[i].station;
 
                                 var tabCell1 = tr.insertCell(-1);
                                 tabCell1.style.border = "thin solid #a5f448";
@@ -449,9 +451,9 @@
                                 tabCell1.style.color = "#e6fee6";
                                 tabCell1.style.width = "5%";
                                 tabCell1.style.fontSize = "20px";
-                                tabCell1.innerHTML = obj.data[i].c;
-                                totalalloc += parseFloat(obj.data[i].c);
-                            }*/
+                                tabCell1.innerHTML = obj.data[i].allocation;
+                                totalalloc += parseFloat(obj.data[i].allocation);
+                            }
                         }
 
                     }
@@ -474,7 +476,7 @@
                     tabCell1.style.width = "5%";
                     tabCell1.style.fontSize = "20px";
                     tabCell1.innerHTML = totalalloc;
-/* 09-02-2021
+
                     var ctx = document.getElementById("chart-area1").getContext("2d");
                     //  alert(benefSeries[0] + "******" + totalSeries[0]);
                     ///   alert(benefSeries[1] + "******" + totalSeries[1]);
@@ -519,9 +521,9 @@
                                 position: 'outside'
                             }
                         }
-                    };*/
+                    };
                     //alert("yahoo1");
-                   /* 09-02-2021 window.myPie = new Chart(ctx, config);
+                    window.myPie = new Chart(ctx, config);
                     document.getElementById("chart-area1").ondblclick = function (evt) {
                         var activePoint = myPie.getElementAtEvent(evt)[0];
                         var data = activePoint._chart.data;
@@ -531,7 +533,7 @@
                      //   alert(label + "---" + value);
                         //window.location.reload();
                         stationdrilldown(label); //console.log(label, value);
-                    };*/
+                    };
                 }).catch(err => {
                     console.log('Error');
                     console.log(err);
@@ -539,7 +541,7 @@
                     document.getElementById('outputty').innerHTML = err.message;
                 })
             }
-         /* 09-02-2021   function stationdrilldown(stationname) {
+   /*09-02-2021      function stationdrilldown(stationname) {
                 document.getElementById("canvas-holder2").innerHTML = '&nbsp;';
                 document.getElementById("canvas-holder2").innerHTML = '<canvas id="chart-area2" style="width:100%;height:80vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
