@@ -5,7 +5,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+    <script type='text/javascript' src='fetch-jsonp.js'></script>
     <script src="https://manavmahipal.github.io/dash/src/GetSheetDone.js"></script>
     <link rel="stylesheet" href="https://manavmahipal.github.io/dash/styles.css">
     <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
@@ -46,7 +46,7 @@
             overflow: auto;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="Chart.bundle.js"></script>
     <script src="utils.js"></script>
 
     <script type="text/javascript" src="Chart.PieceLabel.js"></script>
@@ -113,97 +113,71 @@
     <div id="plantselect" style="width:100%;display:none;">
         <select name="plantdrop" id="plantdrop" style="width:100%;height:30px;font-size:20px;" onchange="stationdrilldown(this.value)">
             <option value="Anantpur">Anantpur</option>
-            <option value="ANTA_GPS">ANTA_GPS</option>
-            <option value="AURAIYA_GPS">AURAIYA_GPS</option>
-            <option value="Badla Solar">Badla Solar</option>
-            <option value="Barethi">Barethi</option>
-            <option value="Barh I">Barh I</option>
-            <option value="BARH II">BARH II</option>
-            <option value="Barauni I">Barauni I</option>
-            <option value="Barauni II">Barauni II</option>
-            <option value="BGTPP">BGTPP</option>
-            <option value="Bilhaur">Bilhaur</option>
-            <option value="Bongaigaon (RCE-II)">Bongaigaon (RCE-II)</option>
-            <option value="BRBCL">BRBCL</option>
-            <option value="Dadri SPV">Dadri SPV</option>
-            <option value="DADRI_GPS">DADRI_GPS</option>
-            <option value="DADRI-I">DADRI-I</option>
-            <option value="DADRI-II">DADRI-II</option>
-            <option value="Darlipali">Darlipali</option>
-            <option value="FARAKKA-I & II">FARAKKA-I & II</option>
-            <option value="FARAKKA-III">FARAKKA-III</option>
-            <option value="Faridabad Sol">Faridabad Sol</option>
-            <option value="Faridabad_GPS">Faridabad_GPS</option>
-            <option value="GADARWARA">GADARWARA</option>
-            <option value="Gadarwara_SPV">Gadarwara_SPV</option>
-            <option value="GANDHAR_GPS">GANDHAR_GPS</option>
-            <option value="Gazmara">Gazmara</option>
-            <option value="Gidderbaha">Gidderbaha</option>
-            <option value="JHAJJAR">JHAJJAR</option>
-            <option value="KATWA">KATWA</option>
-            <option value="KAWAS_GPS">KAWAS_GPS</option>
-            <option value="KHARGONE-I">KHARGONE-I</option>
-            <option value="KHSTPP-I">KHSTPP-I</option>
-            <option value="KHSTPP-II">KHSTPP-II</option>
-            <option value="KOLDAM">KOLDAM</option>
-            <option value="Kolodyne HEEP">Kolodyne HEEP</option>
-            <option value="KORBA-I&II">KORBA-I&II</option>
-            <option value="KORBA-III">KORBA-III</option>
-            <option value="KUDGI">KUDGI</option>
-            <option value="LARA -II">LARA -II</option>
-            <option value="LARA-I">LARA-I</option>
-            <option value="Lata Tapovan">Lata Tapovan</option>
-            <option value="Lohari Nagpala">Lohari Nagpala</option>
-            <option value="Meja">Meja</option>
-            <option value="MOUDA-I">MOUDA-I</option>
-            <option value="MOUDA-II">MOUDA-II</option>
-            <option value="MTPS-II">MTPS-II</option>
-            <option value="MTPS (Kanti)-I">MTPS (Kanti)-I</option>
-            <option value="North Karanpura">North Karanpura</option>
-            <option value="NSM 2">NSM 2</option>
-            <option value="Patratu STPP">Patratu STPP</option>
-            <option value="PortBlair SPV">PortBlair SPV</option>
-            <option value="Pudimadaka">Pudimadaka</option>
-            <option value="Rajgarh SPV">Rajgarh SPV</option>
-            <option value="Ramagundam SPV">Ramagundam SPV</option>
-            <option value="Rammam">Rammam</option>
-            <option value="RGCCPP">RGCCPP</option>
-            <option value="RGPPL_MSEB">RGPPL_MSEB</option>
-            <option value="RGPPL_OTHERS">RGPPL_OTHERS</option>
-            <option value="RIHAND-I">RIHAND-I</option>
-            <option value="RIHAND-II">RIHAND-II</option>
-            <option value="RIHAND-III">RIHAND-III</option>
-            <option value="RSTPSU1TO6">RSTPSU1TO6</option>
-            <option value="RSTPSU7">RSTPSU7</option>
-            <option value="RupsiaBagar">RupsiaBagar</option>
-            <option value="SIMHST1">SIMHST1</option>
-            <option value="SIMHST2">SIMHST2</option>
-            <option value="SINGRAULI">SINGRAULI</option>
-            <option value="Singrauli Small Hydro">Singrauli Small Hydro</option>
-            <option value="Singrauli SPV">Singrauli SPV</option>
-            <option value="SIPAT-I">SIPAT-I</option>
-            <option value="SIPAT-II">SIPAT-II</option>
-            <option value="SOLAPUR">SOLAPUR</option>
-            <option value="SPD">SPD</option>
-            <option value="TTPS">TTPS</option>
-            <option value="Talcher III">Talcher III</option>
-            <option value="Talcher SPV">Talcher SPV</option>
-            <option value="TALST2">TALST2</option>
-            <option value="TANDA">TANDA</option>            
-            <option value="TANDA-II">TANDA-II</option>
-            <option value="Tapovan Vishnugarh">Tapovan Vishnugarh</option>
-            <option value="TSTPP-I">TSTPP-I</option>
-            <option value="Unchahar SPV">Unchahar SPV</option>
-            <option value="UNCHAHAR-I">UNCHAHAR-I</option>
-            <option value="UNCHAHAR-II">UNCHAHAR-II</option>
-            <option value="UNCHAHAR-III">UNCHAHAR-III</option>
-            <option value="UNCHAHAR-IV">UNCHAHAR-IV</option>
-            <option value="VALLURNTECL">VALLURNTECL</option>
-            <option value="VSTPS-I">VSTPS-I</option>
-            <option value="VSTPS-II">VSTPS-II</option>
-            <option value="VSTPS-III">VSTPS-III</option>
-            <option value="VSTPS-IV">VSTPS-IV</option>
-            <option value="VSTPS-V">VSTPS-V</option>
+<option value="ANTA_GPS">ANTA_GPS</option>
+<option value="AURAIYA_GPS">AURAIYA_GPS</option>
+<option value="Barauni I">Barauni I</option>
+<option value="Barauni II">Barauni II</option>
+<option value="BARH II">BARH II</option>
+<option value="BGTPP">BGTPP</option>
+<option value="BRBCL">BRBCL</option>
+<option value="Dadri SPV">Dadri SPV</option>
+<option value="DADRI_GPS">DADRI_GPS</option>
+<option value="DADRI-I">DADRI-I</option>
+<option value="DADRI-II">DADRI-II</option>
+<option value="Darlipali">Darlipali</option>
+<option value="FARAKKA-I & II">FARAKKA-I & II</option>
+<option value="FARAKKA-III">FARAKKA-III</option>
+<option value="Faridabad Sol">Faridabad Sol</option>
+<option value="Faridabad_GPS">Faridabad_GPS</option>
+<option value="GADARWARA">GADARWARA</option>
+<option value="GANDHAR_GPS">GANDHAR_GPS</option>
+<option value="JHAJJAR">JHAJJAR</option>
+<option value="KANTI">KANTI</option>
+<option value="KAWAS_GPS">KAWAS_GPS</option>
+<option value="KHARGONE-I">KHARGONE-I</option>
+<option value="KHSTPP-I">KHSTPP-I</option>
+<option value="KHSTPP-II">KHSTPP-II</option>
+<option value="KOLDAM">KOLDAM</option>
+<option value="KORBA-I&II">KORBA-I&II</option>
+<option value="KORBA-III">KORBA-III</option>
+<option value="KUDGI">KUDGI</option>
+<option value="LARA-I">LARA-I</option>
+<option value="Meja">Meja</option>
+<option value="MOUDA-I">MOUDA-I</option>
+<option value="MOUDA-II">MOUDA-II</option>
+<option value="NPGCL">NPGCL</option>
+<option value="NSM 2">NSM 2</option>
+<option value="Ramagundam SPV">Ramagundam SPV</option>
+<option value="RGCCPP">RGCCPP</option>
+<option value="RIHAND-I">RIHAND-I</option>
+<option value="RIHAND-II">RIHAND-II</option>
+<option value="RIHAND-III">RIHAND-III</option>
+<option value="RSTPSU1TO6">RSTPSU1TO6</option>
+<option value="RSTPSU7">RSTPSU7</option>
+<option value="SIMHST1">SIMHST1</option>
+<option value="SIMHST2">SIMHST2</option>
+<option value="SINGRAULI">SINGRAULI</option>
+<option value="Singrauli Small Hydro">Singrauli Small Hydro</option>
+<option value="Singrauli SPV">Singrauli SPV</option>
+<option value="SIPAT-I">SIPAT-I</option>
+<option value="SIPAT-II">SIPAT-II</option>
+<option value="SOLAPUR">SOLAPUR</option>
+<option value="Solar (Developer mode)">Solar (Developer mode)</option>
+<option value="SPD">SPD</option>
+<option value="TALST2">TALST2</option>
+<option value="TANDA">TANDA</option>
+<option value="TANDA-II">TANDA-II</option>
+<option value="TSTPP-I">TSTPP-I</option>
+<option value="UNCHAHAR-I">UNCHAHAR-I</option>
+<option value="UNCHAHAR-II">UNCHAHAR-II</option>
+<option value="UNCHAHAR-III">UNCHAHAR-III</option>
+<option value="UNCHAHAR-IV">UNCHAHAR-IV</option>
+<option value="VALLURNTECL">VALLURNTECL</option>
+<option value="VSTPS-I">VSTPS-I</option>
+<option value="VSTPS-II">VSTPS-II</option>
+<option value="VSTPS-III">VSTPS-III</option>
+<option value="VSTPS-IV">VSTPS-IV</option>
+<option value="VSTPS-V">VSTPS-V</option>
         </select>
     </div>
     
@@ -636,8 +610,8 @@
                     //   //alert(benefSeries[6] + "******" + totalSeries[2]);
                     var config = {
                         type: 'pie',
-                        radius:  '90', 
-                        innerRadius: '90',
+                        radius:  '70', 
+                        innerRadius: '70',
                         data: {
                             datasets: [{
                                 data: totalSeries,
@@ -656,6 +630,7 @@
                             },
                             responsive: true,
                             legend: {
+                                display:false,
                                 position: 'bottom',
                                 labels: {
                                     boxWidth: 10,
@@ -805,8 +780,8 @@
                     //   //alert(benefSeries[6] + "******" + totalSeries[2]);
                     var config = {
                         type: 'pie',
-                        radius: '90',
-                        innerRadius: '90',
+                        radius: '70',
+                        innerRadius: '70',
                         data: {
                             datasets: [{
                                 data: totalSeries,
@@ -817,6 +792,7 @@
                         options: {
                             responsive: true,
                             legend: {
+                                display: false,
                                 position: 'bottom',
                                 labels: {
                                     boxWidth: 10,
@@ -959,8 +935,8 @@
                     //   //alert(benefSeries[6] + "******" + totalSeries[2]);
                     var config = {
                         type: 'pie',
-                        radius:  '90', 
-                        innerRadius: '90',
+                        radius:  '70', 
+                        innerRadius: '70',
                         data: {
                             datasets: [{
                                 data: totalSeries,
@@ -979,6 +955,7 @@
                             },
                             responsive: true,
                             legend: {
+                                display: false,
                                 position: 'bottom',
                                 labels: {
                                     boxWidth: 10,

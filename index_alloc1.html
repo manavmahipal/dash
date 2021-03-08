@@ -1,0 +1,1255 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type='text/javascript' src='fetch-jsonp.js'></script>
+    <script src="https://manavmahipal.github.io/dash/src/GetSheetDone.js"></script>
+    <link rel="stylesheet" href="https://manavmahipal.github.io/dash/styles.css">
+    <script src="https://manavmahipal.github.io/dash/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://manavmahipal.github.io/dash/script_alloc.js"></script>
+    <script src="Chart.PieceLabel.js"></script>
+
+    <title>CSS MenuMaker</title>
+    <style>
+        .table1 {
+            width: 29%;
+            max-width: 130px;
+            float: left;
+            overflow: hidden;
+        }
+
+        .table11 {
+            width: 18%;
+            max-width: 70px;
+            float: left;
+        }
+
+        .table2 {
+            width: 69%;
+            padding-left: 0px;
+            float: left;
+            overflow: auto;
+        }
+
+        .table22 {
+            width: 75%;
+            padding-left: 0px;
+            float: left;
+            overflow: auto;
+        }
+
+        .table33 {
+            float: left;
+            overflow: auto;
+        }
+    </style>
+    <script src="Chart.bundle.js"></script>
+    <script src="utils.js"></script>
+
+    <script type="text/javascript" src="Chart.PieceLabel.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="switch switch-blue">
+            <input type="radio" class="switch-input" name="view2" value="state" id="weekasd2" checked onchange="handleClick(this)">
+            <label for="weekasd2" class="switch-label switch-label-off">&nbsp;&nbsp;&nbsp;State-Wise&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" class="switch-input" name="view2" value="plant" id="monthasd2" onchange="handleClick(this)">
+            <label for="monthasd2" class="switch-label switch-label-on">&nbsp;&nbsp;&nbsp;Plant-Wise&nbsp;&nbsp;&nbsp;</label>
+            <span class="switch-selection"></span>
+        </div>
+    </section>
+    <br />
+    <div id="stateselect" style="width:100%;">
+        <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="statedrilldown(this.value)">
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chattisgarh">Chattisgarh</option>
+            <option value="DD">DD</option>
+            <option value="Delhi">Delhi</option>
+            <option value="DNH">DNH</option>
+            <option value="DVC">DVC</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="PGCIL">PGCIL</option>
+            <option value="Puducherry">Puducherry</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Railways">Railways</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="SAIL">SAIL</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+        </select>
+    </div>
+
+
+    <div id="plantselect" style="width:100%;display:none;">
+        <select name="plantdrop" id="plantdrop" style="width:100%;height:30px;font-size:20px;" onchange="stationdrilldown(this.value)">
+            <option value="Anantpur">Anantpur</option>
+<option value="ANTA_GPS">ANTA_GPS</option>
+<option value="AURAIYA_GPS">AURAIYA_GPS</option>
+<option value="Barauni I">Barauni I</option>
+<option value="Barauni II">Barauni II</option>
+<option value="BARH II">BARH II</option>
+<option value="BGTPP">BGTPP</option>
+<option value="BRBCL">BRBCL</option>
+<option value="Dadri SPV">Dadri SPV</option>
+<option value="DADRI_GPS">DADRI_GPS</option>
+<option value="DADRI-I">DADRI-I</option>
+<option value="DADRI-II">DADRI-II</option>
+<option value="Darlipali">Darlipali</option>
+<option value="FARAKKA-I & II">FARAKKA-I & II</option>
+<option value="FARAKKA-III">FARAKKA-III</option>
+<option value="Faridabad Sol">Faridabad Sol</option>
+<option value="Faridabad_GPS">Faridabad_GPS</option>
+<option value="GADARWARA">GADARWARA</option>
+<option value="GANDHAR_GPS">GANDHAR_GPS</option>
+<option value="JHAJJAR">JHAJJAR</option>
+<option value="KANTI">KANTI</option>
+<option value="KAWAS_GPS">KAWAS_GPS</option>
+<option value="KHARGONE-I">KHARGONE-I</option>
+<option value="KHSTPP-I">KHSTPP-I</option>
+<option value="KHSTPP-II">KHSTPP-II</option>
+<option value="KOLDAM">KOLDAM</option>
+<option value="KORBA-I&II">KORBA-I&II</option>
+<option value="KORBA-III">KORBA-III</option>
+<option value="KUDGI">KUDGI</option>
+<option value="LARA-I">LARA-I</option>
+<option value="Meja">Meja</option>
+<option value="MOUDA-I">MOUDA-I</option>
+<option value="MOUDA-II">MOUDA-II</option>
+<option value="NPGCL">NPGCL</option>
+<option value="NSM 2">NSM 2</option>
+<option value="Ramagundam SPV">Ramagundam SPV</option>
+<option value="RGCCPP">RGCCPP</option>
+<option value="RIHAND-I">RIHAND-I</option>
+<option value="RIHAND-II">RIHAND-II</option>
+<option value="RIHAND-III">RIHAND-III</option>
+<option value="RSTPSU1TO6">RSTPSU1TO6</option>
+<option value="RSTPSU7">RSTPSU7</option>
+<option value="SIMHST1">SIMHST1</option>
+<option value="SIMHST2">SIMHST2</option>
+<option value="SINGRAULI">SINGRAULI</option>
+<option value="Singrauli Small Hydro">Singrauli Small Hydro</option>
+<option value="Singrauli SPV">Singrauli SPV</option>
+<option value="SIPAT-I">SIPAT-I</option>
+<option value="SIPAT-II">SIPAT-II</option>
+<option value="SOLAPUR">SOLAPUR</option>
+<option value="Solar (Developer mode)">Solar (Developer mode)</option>
+<option value="SPD">SPD</option>
+<option value="TALST2">TALST2</option>
+<option value="TANDA">TANDA</option>
+<option value="TANDA-II">TANDA-II</option>
+<option value="TSTPP-I">TSTPP-I</option>
+<option value="UNCHAHAR-I">UNCHAHAR-I</option>
+<option value="UNCHAHAR-II">UNCHAHAR-II</option>
+<option value="UNCHAHAR-III">UNCHAHAR-III</option>
+<option value="UNCHAHAR-IV">UNCHAHAR-IV</option>
+<option value="VALLURNTECL">VALLURNTECL</option>
+<option value="VSTPS-I">VSTPS-I</option>
+<option value="VSTPS-II">VSTPS-II</option>
+<option value="VSTPS-III">VSTPS-III</option>
+<option value="VSTPS-IV">VSTPS-IV</option>
+<option value="VSTPS-V">VSTPS-V</option>
+        </select>
+    </div>
+    
+    <!--<section class="container">
+        <div class="switch switch-blue">
+            <input type="radio" class="switch-input" name="view2" value="state" id="weekasd2" checked onchange="handleClick(this)">
+            <label for="weekasd2" class="switch-label switch-label-off">&nbsp;&nbsp;&nbsp;State-Wise&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" class="switch-input" name="view2" value="plant" id="monthasd2" onchange="handleClick(this)">
+            <label for="monthasd2" class="switch-label switch-label-on">&nbsp;&nbsp;&nbsp;Plant-Wise&nbsp;&nbsp;&nbsp;</label>
+            <span class="switch-selection"></span>
+        </div>
+    </section>
+    <br />
+    <div id="stateselect" style="width:100%;">
+        <select name="statedrop" id="statedrop" style="width:100%;height:30px;font-size:20px;" onchange="statedrilldown(this.value)">
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chattisgarh">Chattisgarh</option>
+                <option value="DD">DD</option>
+                <option value="Delhi">Delhi</option>
+                <option value="DNH">DNH</option>
+                <option value="DVC">DVC</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="PGCIL">PGCIL</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Railways">Railways</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="SAIL">SAIL</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>                
+        </select>
+    </div>
+
+
+    <div id="plantselect" style="width:100%;display:none;">
+        <select name="plantdrop" id="plantdrop" style="width:100%;height:30px;font-size:20px;" onchange="stationdrilldown(this.value)">
+            <option value="Anantpur">Anantpur</option>
+<option value="ANTA_GPS">ANTA_GPS</option>
+<option value="AURAIYA_GPS">AURAIYA_GPS</option>
+<option value="Badla Solar">Badla Solar</option>
+<option value="Barethi">Barethi</option>
+<option value="BARH II">BARH II</option>
+<option value="Barh I">Barh I</option>
+<option value="Barauni I">Barauni I</option>
+<option value="Barauni II">Barauni II</option>
+<option value="BGTPP">BGTPP</option>
+<option value="Bilhaur">Bilhaur</option>
+<option value="Bongaigaon (RCE-II)">Bongaigaon (RCE-II)</option>
+<option value="BRBCL">BRBCL</option>
+<option value="Dadri SPV">Dadri SPV</option>
+<option value="DADRI_GPS">DADRI_GPS</option>
+<option value="DADRI-I">DADRI-I</option>
+<option value="DADRI-II">DADRI-II</option>
+<option value="Darlipali">Darlipali</option>
+<option value="FARAKKA-I & II">FARAKKA-I & II</option>
+<option value="FARAKKA-III">FARAKKA-III</option>
+<option value="Faridabad Sol">Faridabad Sol</option>
+<option value="Faridabad_GPS">Faridabad_GPS</option>
+<option value="GADARWARA">GADARWARA</option>
+<option value="Gadarwara_SPV">Gadarwara_SPV</option>
+<option value="GANDHAR_GPS">GANDHAR_GPS</option>
+<option value="Gazmara">Gazmara</option>
+<option value="Gidderbaha">Gidderbaha</option>
+<option value="JHAJJAR">JHAJJAR</option>
+<option value="KATWA">KATWA</option>
+<option value="KAWAS_GPS">KAWAS_GPS</option>
+<option value="KHARGONE-I">KHARGONE-I</option>
+<option value="KHSTPP-I">KHSTPP-I</option>
+<option value="KHSTPP-II">KHSTPP-II</option>
+<option value="KOLDAM">KOLDAM</option>
+<option value="Kolodyne HEEP">Kolodyne HEEP</option>
+<option value="KORBA-I&II">KORBA-I&II</option>
+<option value="KORBA-III">KORBA-III</option>
+<option value="KUDGI">KUDGI</option>
+<option value="LARA -II">LARA -II</option>
+<option value="LARA-I">LARA-I</option>
+<option value="Lata Tapovan">Lata Tapovan</option>
+<option value="Lohari Nagpala">Lohari Nagpala</option>
+<option value="Meja">Meja</option>
+<option value="MOUDA-I">MOUDA-I</option>
+<option value="MOUDA-II">MOUDA-II</option>
+<option value="MTPS-II">MTPS-II</option>
+<option value="North Karanpura">North Karanpura</option>
+<option value="NSM 2">NSM 2</option>
+<option value="Patratu STPP">Patratu STPP</option>
+<option value="PortBlair SPV">PortBlair SPV</option>
+<option value="Pudimadaka">Pudimadaka</option>
+<option value="Rajgarh SPV">Rajgarh SPV</option>
+<option value="Ramagundam SPV">Ramagundam SPV</option>
+<option value="Rammam">Rammam</option>
+<option value="RGCCPP">RGCCPP</option>
+<option value="RGPPL_MSEB">RGPPL_MSEB</option>
+<option value="RGPPL_OTHERS">RGPPL_OTHERS</option>
+<option value="RIHAND-I">RIHAND-I</option>
+<option value="RIHAND-II">RIHAND-II</option>
+<option value="RIHAND-III">RIHAND-III</option>
+<option value="RSTPSU1TO6">RSTPSU1TO6</option>
+<option value="RSTPSU7">RSTPSU7</option>
+<option value="RupsiaBagar">RupsiaBagar</option>
+<option value="SIMHST1">SIMHST1</option>
+<option value="SIMHST2">SIMHST2</option>
+<option value="SINGRAULI">SINGRAULI</option>
+<option value="Singrauli Small Hydro">Singrauli Small Hydro</option>
+<option value="Singrauli SPV">Singrauli SPV</option>
+<option value="SIPAT-I">SIPAT-I</option>
+<option value="SIPAT-II">SIPAT-II</option>
+<option value="SOLAPUR">SOLAPUR</option>
+<option value="SPD">SPD</option>
+<option value="TALA">TALA</option>
+<option value="Talcher III">Talcher III</option>
+<option value="Talcher SPV">Talcher SPV</option>
+<option value="TALST2">TALST2</option>
+<option value="TANDA">TANDA</option>
+<option value="TANDA-II">TANDA-II</option>
+<option value="Tapovan Vishnugarh">Tapovan Vishnugarh</option>
+<option value="TSTPP-I">TSTPP-I</option>
+<option value="Unchahar SPV">Unchahar SPV</option>
+<option value="UNCHAHAR-I">UNCHAHAR-I</option>
+<option value="UNCHAHAR-II">UNCHAHAR-II</option>
+<option value="UNCHAHAR-III">UNCHAHAR-III</option>
+<option value="UNCHAHAR-IV">UNCHAHAR-IV</option>
+<option value="VALLURNTECL">VALLURNTECL</option>
+<option value="VSTPS-I">VSTPS-I</option>
+<option value="VSTPS-II">VSTPS-II</option>
+<option value="VSTPS-III">VSTPS-III</option>
+<option value="VSTPS-IV">VSTPS-IV</option>
+<option value="VSTPS-V">VSTPS-V</option>
+        </select>
+    </div>
+-->
+
+    <div id="canvas-holder" style="width:100%;">
+        <canvas id="chart-area" style="width:100%;height:500px;" />
+    </div>
+    <div id="canvas-holder1" style="width:100%;">
+        <canvas id="chart-area1" style="width:100%;height:500px;" />
+    </div>
+    <div id="canvas-holder2" style="width:100%;">
+        <canvas id="chart-area2" style="width:100%;height:500px;" />
+    </div>
+    <div id="canvas-holder3" style="width:100%;">
+        <canvas id="chart-area3" style="width:100%;height:100vh;" />
+    </div>
+    <div id="canvas-holder4" style="width:100%;">
+        <canvas id="chart-area4" style="width:100%;height:100vh;" />
+    </div>
+
+
+
+
+
+    <table id="datatable"></table>
+
+    <div id="outputty" style="width:100%;"></div>
+
+
+
+
+
+    <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
+    <script src="GetSheetDone.js"></script>
+    <script>
+            function handleClick(myRadio) {
+                if (myRadio.value == "plant") {
+                    document.getElementById('stateselect').style.display = "none";
+                    document.getElementById('plantselect').style.display = "inline";
+                }
+                else if (myRadio.value == "state") {
+                    document.getElementById('stateselect').style.display = "inline";
+                    document.getElementById('plantselect').style.display = "none";
+                }
+            }
+            let key,
+                sheetNum,
+                sheetType, counter = 0;
+            function readValues() {
+                key = '1qSpsVYhSVJqom-kfDrAccDmWaps9DCEFZxj2GPRsRCw';
+                sheetNum = '1';
+                sheetType = 'cols';
+            }
+            window.onload = function (ev) {
+                ev.preventDefault();
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                stateregion();
+                /*document.getElementById('chart-area').style.display = "inline";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "none";
+              let promise;
+              switch (sheetType) {
+                case 'cols':
+                  promise = GetSheetDone.labeledCols(key, sheetNum);
+                  break;
+                case 'cols-rows':
+                  promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                  break;
+                case 'raw':
+                default:
+                  promise = GetSheetDone.raw(key, sheetNum);
+                  break;
+              }
+              promise.then((data) => {
+                  var jsonarray = JSON.stringify(data);
+                  document.getElementById('outputty').innerHTML = jsonarray;
+                var obj = JSON.parse(jsonarray);
+  var coll = [];
+  for (var i = 0; i < obj.data.length; i++) {
+      for (var ky in obj.data[i]) {
+                  if (coll.indexOf(ky) === -1) {
+                      coll.push(ky);
+                  }
+              }
+          }
+                  // CREATE DYNAMIC TABLE.
+  var benefSeries = [];
+  var totalSeries = [];
+  document.getElementById('datatable01').innerHTML = "";
+  var table = document.getElementById('datatable01');//document.createElement('table');
+          table.style.border = "thin solid #0095f2";
+          for (var i = 2; i < (obj.data.length-1) ; i++) {//(obj.data.length - 2) ; i++) {
+              benefSeries.push(obj.data[i].a);
+              totalSeries.push(parseFloat(obj.data[i].b));
+              tr = table.insertRow(-1);
+              var tabCell0 = tr.insertCell(-1);
+              tabCell0.style.border = "thin solid #0095f2";
+              tabCell0.style.backgroundColor = "#abb5ff";
+              tabCell0.style.width = "5%";
+                      counter = counter + 1;
+                      tabCell0.innerHTML = counter;
+              //
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #0095f2";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].a;
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #0095f2";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].b;
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #0095f2";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].c;
+                      var tabCell3 = tr.insertCell(-1);
+                      tabCell3.style.border = "thin solid #0095f2";
+                      tabCell3.style.backgroundColor = "#c9ebff";
+                      tabCell3.style.width = "10%";
+                      tabCell3.innerHTML = obj.data[i].d;
+          }
+          document.getElementById('showData').innerHTML = '';
+          document.getElementById('showData').appendChild(table);
+          var ctx = document.getElementById("chart-area").getContext("2d");
+          var config = {
+              type: 'pie',
+              data: {
+                  datasets: [{
+                      data: totalSeries,
+                      backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                  }],
+                  labels: benefSeries
+              },
+              options: {
+                  responsive: true,
+                  legend: {
+                      position: 'bottom',
+                      labels: {
+                          boxWidth: 10,
+                          fontStyle: 'bold',
+                          fontSize: 10
+                      }
+                  },
+                  pieceLabel: {
+                      render: function (args) {
+                          return args.label+'  (' + args.value+' MW)  ';
+                      },
+                      fontSize: 9,
+                      fontStyle: 'bold',
+                      fontColor: '#3e2507',
+                      position: 'outside'
+                  }
+              }
+          };
+          ////alert("yahoo1");
+          window.myPie = new Chart(ctx, config);
+         document.getElementById("chart-area").ondblclick = function (evt) {
+              var activePoint = myPie.getElementAtEvent(evt)[0];
+              var data = activePoint._chart.data;
+              var datasetIndex = activePoint._datasetIndex;
+              var label = data.labels[activePoint._index];
+              var value = data.datasets[datasetIndex].data[activePoint._index];
+            //  //alert(label + "---" + value);
+              statedrilldown(label); //console.log(label, value);
+          };
+              }).catch(err => {
+                console.log('Error');
+                console.log(err);
+                document.getElementById('output').innerHTML = err.message;
+              })*/
+            }
+          function statedrilldown(statename) {
+                document.getElementById("canvas-holder1").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:100%;height:70vh;"></canvas>';
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "inline";
+                document.getElementById('chart-area2').style.display = "none";
+                document.getElementById('chart-area3').style.display = "none";
+                document.getElementById('chart-area4').style.display = "none";
+
+                document.getElementById('datatable').innerHTML = "";
+                //ev.preventDefault();
+                //  //alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                     // document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+                    var totalalloc = 0;
+                    var table = document.getElementById('datatable');//document.createElement('table');
+                  //  table.style.border = "thin solid #0095f2";
+                 // alert(obj.data.length);
+                  //alert(jsonarray);
+                    for (var i = 0; i < obj.data.length ; i++) {
+                       // //alert(obj.data[i].state + "---" + statename);
+                        if (obj.data[i].state == statename) {
+                             // //alert(obj.data[i].state+ "-hurray--" + statename);
+                           if ((obj.data[i].station) != "") {
+                            //alert(obj.data[i].station+ "-hurray--" + obj.data[i].allocation);
+                                benefSeries.push(obj.data[i].station);
+                                totalSeries.push(parseFloat(obj.data[i].allocation));
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].station;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].allocation;
+                                totalalloc += parseFloat(obj.data[i].allocation);
+                            }
+                        }
+
+                    }
+
+                    tr = table.insertRow(-1);
+
+                    // tr1 = table1.insertRow(-1);
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.style.border = "thin solid #0095f2";
+                    tabCell.style.backgroundColor = "#085687";
+                    tabCell.style.color = "#99fcff";
+                    tabCell.style.width = "5%";
+                    tabCell.style.fontSize = "20px";
+                    tabCell.innerHTML = "Total";
+
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.style.border = "thin solid #0095f2";
+                    tabCell1.style.backgroundColor = "#085687";
+                    tabCell1.style.color = "#99fcff";
+                    tabCell1.style.width = "5%";
+                    tabCell1.style.fontSize = "20px";
+                    //totalalloc=(Math.round(totalalloc + "e+2")  + "e-2");
+                    tabCell1.innerHTML = totalalloc.toFixed(1);
+
+                    var ctx = document.getElementById("chart-area1").getContext("2d");
+                    //  //alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   //alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   //alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        radius:  '70', 
+                        innerRadius: '70',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            layout: {
+                                padding: {
+                                    left: 0,
+                                    right: 0,
+                                    top: 0,
+                                    bottom: 0
+                                }
+                            },
+                            responsive: true,
+                            legend: {
+                                display:false,
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   //alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                overlap: false,
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    ////alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+                    document.getElementById("chart-area1").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                     //   //alert(label + "---" + value);
+                        //window.location.reload();
+                        stationdrilldown(label); //console.log(label, value);
+                    };
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    //alert("Error aa gaya");
+                    document.getElementById('outputty').innerHTML = err.message;
+                })
+            }
+        function stationdrilldown(stationname) {
+                document.getElementById("canvas-holder2").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder2").innerHTML = '<canvas id="chart-area2" style="width:100%;height:80vh;"></canvas>';
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "inline";
+                document.getElementById('chart-area3').style.display = "none";
+                document.getElementById('chart-area4').style.display = "none";
+                // //alert(stationname);
+                document.getElementById('datatable').innerHTML = "";
+                //  //alert(stationname);
+                //ev.preventDefault();
+                //  //alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                //  //alert(stationname+"00");
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                //  //alert(stationname + "01");
+                //  //alert(stationname == "Singrauli");
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                    //  document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+                    var totalalloc = 0;
+                    var table = document.getElementById('datatable');
+                //    var table = document.getElementById('datatable01');//document.createElement('table');
+               //     table.style.border = "thin solid #0095f2";
+                    //  //alert(stationname == "Singrauli");
+                    //alert(stationname);
+                  //alert(jsonarray);
+                    for (var i = 0; i < obj.data.length ; i++) {
+                       // //alert(obj.data[i].state + "---" + statename);
+                        if (obj.data[i].station == stationname) {
+                             // //alert(obj.data[i].state+ "-hurray--" + statename);
+                           
+                            //alert(obj.data[i].state+ "-hurray--" + obj.data[i].allocation);
+                                benefSeries.push(obj.data[i].state);
+                                totalSeries.push(parseFloat(obj.data[i].allocation));
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].state;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].allocation;
+                                totalalloc += parseFloat(obj.data[i].allocation);
+                            
+                        }
+
+                    }
+
+                    tr = table.insertRow(-1);
+
+                    // tr1 = table1.insertRow(-1);
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.style.border = "thin solid #0095f2";
+                    tabCell.style.backgroundColor = "#085687";
+                    tabCell.style.color = "#99fcff";
+                    tabCell.style.width = "5%";
+                    tabCell.style.fontSize = "20px";
+                    tabCell.innerHTML = "Total";
+
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.style.border = "thin solid #0095f2";
+                    tabCell1.style.backgroundColor = "#085687";
+                    tabCell1.style.color = "#99fcff";
+                    tabCell1.style.width = "5%";
+                    tabCell1.style.fontSize = "20px";
+                    tabCell1.innerHTML = totalalloc.toFixed(1);
+
+                    var ctx = document.getElementById("chart-area2").getContext("2d");
+                    //  //alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   //alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   //alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        radius: '70',
+                        innerRadius: '70',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                display: false,
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   //alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                overlap: false,
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    ////alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+                    document.getElementById("chart-area2").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                        // //alert(label + "---" + value);
+                        //window.location.reload();
+                        statedrilldown(label); //console.log(label, value);
+                    };
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    document.getElementById('output').innerHTML = err.message;
+                })
+            }
+         function stateregion() {
+            document.getElementById("canvas-holder1").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:100%;height:70vh;"></canvas>';
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "inline";
+                document.getElementById('chart-area2').style.display = "none";
+                document.getElementById('chart-area3').style.display = "none";
+                document.getElementById('chart-area4').style.display = "none";
+
+                document.getElementById('datatable').innerHTML = "";
+                //ev.preventDefault();
+                //  //alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                     // document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+                    var benefSeries = [];
+                    var totalSeries = [];
+                    var totalalloc = 0;
+                    var table = document.getElementById('datatable');//document.createElement('table');
+                  //  table.style.border = "thin solid #0095f2";
+                  ////alert(statename);
+                  //alert(jsonarray);
+                    for (var i = 0; i < obj.data.length ; i++) {
+                       // //alert(obj.data[i].state + "---" + statename);
+                        if (obj.data[i].state == "Andhra Pradesh") {
+                             // //alert(obj.data[i].state+ "-hurray--" + statename);
+                           if ((obj.data[i].station) != "") {
+                            //alert(obj.data[i].station+ "-hurray--" + obj.data[i].allocation);
+                                benefSeries.push(obj.data[i].station);
+                                totalSeries.push(parseFloat(obj.data[i].allocation));
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].station;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].allocation;
+                                totalalloc += parseFloat(obj.data[i].allocation);
+                            }
+                        }
+
+                    }
+
+                    tr = table.insertRow(-1);
+
+                    // tr1 = table1.insertRow(-1);
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.style.border = "thin solid #0095f2";
+                    tabCell.style.backgroundColor = "#085687";
+                    tabCell.style.color = "#99fcff";
+                    tabCell.style.width = "5%";
+                    tabCell.style.fontSize = "20px";
+                    tabCell.innerHTML = "Total";
+
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.style.border = "thin solid #0095f2";
+                    tabCell1.style.backgroundColor = "#085687";
+                    tabCell1.style.color = "#99fcff";
+                    tabCell1.style.width = "5%";
+                    tabCell1.style.fontSize = "20px";
+                    tabCell1.innerHTML = totalalloc.toFixed(1);
+
+                    var ctx = document.getElementById("chart-area1").getContext("2d");
+                    //  //alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   //alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   //alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        radius:  '70', 
+                        innerRadius: '70',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            layout: {
+                                padding: {
+                                    left: 0,
+                                    right: 0,
+                                    top: 0,
+                                    bottom: 0
+                                }
+                            },
+                            responsive: true,
+                            legend: {
+                                display: false,
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   //alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                overlap: false,
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    ////alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+                    document.getElementById("chart-area1").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                     //   //alert(label + "---" + value);
+                        //window.location.reload();
+                        stationdrilldown(label); //console.log(label, value);
+                    };
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    //alert("Error aa gaya");
+                    document.getElementById('outputty').innerHTML = err.message;
+                })
+            }
+         /* 09-02-2021    function stateregiondrilldown(region) {
+                document.getElementById("canvas-holder4").innerHTML = '&nbsp;';
+                document.getElementById("canvas-holder4").innerHTML = '<canvas id="chart-area4" style="width:70%;height:80vh;"></canvas>';
+                document.getElementById('chart-area').style.display = "none";
+                document.getElementById('chart-area1').style.display = "none";
+                document.getElementById('chart-area2').style.display = "none";
+                document.getElementById('chart-area3').style.display = "none";
+                document.getElementById('chart-area4').style.display = "inline";
+
+                document.getElementById('datatable').innerHTML = "";
+                //  //alert(stationname);
+                //ev.preventDefault();
+                //  //alert(statename + "state name");
+                readValues();
+                console.log(key, sheetNum, sheetType);
+                //  //alert(stationname+"00");
+                let promise;
+                switch (sheetType) {
+                    case 'cols':
+                        promise = GetSheetDone.labeledCols(key, sheetNum);
+                        break;
+                    case 'cols-rows':
+                        promise = GetSheetDone.labeledColsRows(key, sheetNum);
+                        break;
+                    case 'raw':
+                    default:
+                        promise = GetSheetDone.raw(key, sheetNum);
+                        break;
+                }
+                //  //alert(stationname + "01");
+                //  //alert(stationname == "Singrauli");
+                promise.then((data) => {
+                    var jsonarray = JSON.stringify(data);
+                    //  document.getElementById('outputty').innerHTML = jsonarray;
+                    var obj = JSON.parse(jsonarray);
+                    var coll = [];
+                    for (var i = 0; i < obj.data.length; i++) {
+                        for (var ky in obj.data[i]) {
+                            if (coll.indexOf(ky) === -1) {
+                                coll.push(ky);
+                            }
+                        }
+                    }
+                    // CREATE DYNAMIC TABLE.
+
+                    var table = document.getElementById('datatable');
+
+                    var benefSeries = [];
+                    var totalSeries = [];
+              //      var table = document.getElementById('datatable01');//document.createElement('table');
+              //      table.style.border = "thin solid #0095f2";
+                    //  //alert(stationname == "Singrauli");
+                    if (region == "NR") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "Uttar Pradesh" || obj.data[i].a == "Uttrakhand" || obj.data[i].a == "Rajasthan" || obj.data[i].a == "Delhi" || obj.data[i].a == "Punjab" || obj.data[i].a == "Haryana" || obj.data[i].a == "Himachal" || obj.data[i].a == "J&K" || obj.data[i].a == "Chandigarh") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].a;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].b;
+
+                            }
+                        }
+                    }
+                    else if (region == "WR") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "Madhya Pradesh" || obj.data[i].a == "Chattisgarh" || obj.data[i].a == "Maharastra" || obj.data[i].a == "Gujarat" || obj.data[i].a == "Goa" || obj.data[i].a == "Daman & Diu" || obj.data[i].a == "Dadra & Nagar Haveli") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].a;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].b;
+
+                            }
+                        }
+                    }
+                    else if (region == "SR") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "Andhra Pradesh" || obj.data[i].a == "Karnataka" || obj.data[i].a == "Tamil Nadu" || obj.data[i].a == "Kerala" || obj.data[i].a == "A & N" || obj.data[i].a == "TELANGANA" || obj.data[i].a == "PUDUCHERRY") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].a;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].b;
+
+                            }
+                        }
+                    }
+                    else if (region == "ER") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "West Bengal" || obj.data[i].a == "Bihar" || obj.data[i].a == "Jharkhand" || obj.data[i].a == "Odisha" || obj.data[i].a == "Sikkim" || obj.data[i].a == "Assam" || obj.data[i].a == "Meghalaya" || obj.data[i].a == "Tripura" || obj.data[i].a == "Nagaland" || obj.data[i].a == "Arunachal" || obj.data[i].a == "Mizoram" || obj.data[i].a == "Manipur") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+
+
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].a;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].b;
+
+                            }
+                        }
+                    }
+                    else if (region == "SPL") {
+                        for (var i = 2; i < (obj.data.length - 1) ; i++) {
+                            if (obj.data[i].a == "Railways" || obj.data[i].a == "SAIL" || obj.data[i].a == "DVC" || obj.data[i].a == "PGCIL" || obj.data[i].a == "Bangladesh" || obj.data[i].a == "NTPC Merchant Power") {
+                                benefSeries.push(obj.data[i].a);
+                                totalSeries.push(parseFloat(obj.data[i].b));
+
+
+
+                                tr = table.insertRow(-1);
+
+                                // tr1 = table1.insertRow(-1);
+                                var tabCell = tr.insertCell(-1);
+                                tabCell.style.border = "thin solid #0095f2";
+                                tabCell.style.backgroundColor = "#99fcff";
+                                tabCell.style.color = "#085687";
+                                tabCell.style.width = "5%";
+                                tabCell.style.fontSize = "20px";
+                                tabCell.innerHTML = obj.data[i].a;
+
+                                var tabCell1 = tr.insertCell(-1);
+                                tabCell1.style.border = "thin solid #0095f2";
+                                tabCell1.style.backgroundColor = "#99fcff";
+                                tabCell1.style.color = "#085687";
+                                tabCell1.style.width = "5%";
+                                tabCell1.style.fontSize = "20px";
+                                tabCell1.innerHTML = obj.data[i].b;
+
+                            }
+                        }
+                    }
+                    var ctx = document.getElementById("chart-area4").getContext("2d");
+                    //  //alert(benefSeries[0] + "******" + totalSeries[0]);
+                    ///   //alert(benefSeries[1] + "******" + totalSeries[1]);
+                    //   //alert(benefSeries[6] + "******" + totalSeries[2]);
+                    var config = {
+                        type: 'pie',
+                        radius: '90',
+                        innerRadius: '90',
+                        data: {
+                            datasets: [{
+                                data: totalSeries,
+                                backgroundColor: ["#68f2c3", "#59c0df", "#66eee4", "#42ff00", "#fff014", "#f33131", "#9cfe1f", "#2da7c1", "#ffc800", "#4b3832", "#be9b7b", "#f7d0cb", "#56d9ec", "#e6a8bf", "#bddff9", "#1e72bf", "#ead1ab", "#a2dbc5", "#c7ae7d"]
+                            }],
+                            labels: benefSeries
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontStyle: 'bold',
+                                    fontSize: 10
+                                }
+                            },
+                            pieceLabel: {
+                                render: function (args) {
+                                    //   //alert(args.label+"12312");
+                                    return args.label + '  (' + args.value + ' MW)  ';
+                                },
+                                fontSize: 9,
+                                fontColor: '#3e2507',
+                                overlap: false,
+                                position: 'outside'
+                            }
+                        }
+                    };
+                    ////alert("yahoo1");
+                    window.myPie = new Chart(ctx, config);
+                    document.getElementById("chart-area4").ondblclick = function (evt) {
+                        var activePoint = myPie.getElementAtEvent(evt)[0];
+                        var data = activePoint._chart.data;
+                        var datasetIndex = activePoint._datasetIndex;
+                        var label = data.labels[activePoint._index];
+                        var value = data.datasets[datasetIndex].data[activePoint._index];
+                        // //alert(label + "---" + value);
+                        //window.location.reload();
+                        statedrilldown(label); //console.log(label, value);
+                    };
+                }).catch(err => {
+                    console.log('Error');
+                    console.log(err);
+                    document.getElementById('output').innerHTML = err.message;
+                })
+            }*/
+            // }
+    </script>
+
+</body>
+</html>
