@@ -506,7 +506,7 @@
             }
           function statedrilldown(statename) {
                 document.getElementById("canvas-holder1").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:80%;height:70vh;"></canvas>';
+                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:80%;height:45vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
                 document.getElementById('chart-area1').style.display = "inline";
                 document.getElementById('chart-area2').style.display = "none";
@@ -671,7 +671,7 @@
             }
         function stationdrilldown(stationname) {
                 document.getElementById("canvas-holder2").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder2").innerHTML = '<canvas id="chart-area2" style="width:80%;height:80vh;"></canvas>';
+                document.getElementById("canvas-holder2").innerHTML = '<canvas id="chart-area2" style="width:80%;height:45vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
                 document.getElementById('chart-area1').style.display = "none";
                 document.getElementById('chart-area2').style.display = "inline";
@@ -780,8 +780,8 @@
                     //   //alert(benefSeries[6] + "******" + totalSeries[2]);
                     var config = {
                         type: 'pie',
-                        radius: '70',
-                        innerRadius: '70',
+                        radius: '30',
+                        innerRadius: '30',
                         data: {
                             datasets: [{
                                 data: totalSeries,
@@ -832,7 +832,7 @@
             }
          function stateregion() {
             document.getElementById("canvas-holder1").innerHTML = '&nbsp;';
-                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:80%;height:70vh;"></canvas>';
+                document.getElementById("canvas-holder1").innerHTML = '<canvas id="chart-area1" style="width:80%;height:45vh;"></canvas>';
                 document.getElementById('chart-area').style.display = "none";
                 document.getElementById('chart-area1').style.display = "inline";
                 document.getElementById('chart-area2').style.display = "none";
@@ -935,8 +935,8 @@
                     //   //alert(benefSeries[6] + "******" + totalSeries[2]);
                     var config = {
                         type: 'pie',
-                        radius:  '70', 
-                        innerRadius: '70',
+                        radius:  '30', 
+                        innerRadius: '30',
                         data: {
                             datasets: [{
                                 data: totalSeries,
@@ -947,8 +947,8 @@
                         options: {
                             layout: {
                                 padding: {
-                                    left: 0,
-                                    right: 0,
+                                    left: 10,
+                                    right: 10,
                                     top: 0,
                                     bottom: 0
                                 }
