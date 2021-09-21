@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
     <title>get-sheet-done demo</title>
@@ -56,7 +56,7 @@
   <script type='text/javascript' src='https://unpkg.com/fetch-jsonp@1.1.1'></script>
   <script src="GetSheetDone.js"></script>
     
-    <script src="countUp.js"></script>   
+    <script src="https://manavmahipal.github.io/dash/src/countUp.js"></script>   
    
 
 
@@ -96,7 +96,7 @@
           <div id="merchant_trading_table" style="width:100%;margin: 0 auto;">
               <table style="width:100%;text-align:center;">
                   <tr>
-                      <td colspan="2" style="width:50%;text-align:center;font-size:x-large;background-color:#31d7e8;color:#5d7072;">Merchant Power (DAM) (21-22)</td>
+                      <td colspan="2" style="width:50%;text-align:center;font-size:x-large;background-color:#31d7e8;color:#5d7072;">Merchant Power (DAM) </td>
                   </tr>
                   <tr>
                         <td style="width:50%;text-align:center;font-size:x-large;background-color:#bae1e5;color:#5d7072;">Offered (MUs)</td>
@@ -187,13 +187,71 @@
           <script>
 
 
-              
+              window.onload = function exampleFunction() {
+            //alert('yahoo');
+			var options = {
+                          useEasing: true,
+                          useGrouping: true,
+                          separator: ',',
+                          decimal: '.',
+                      };
+                      //var demo = new CountUp(document.getElementById('offered_in_1718'), 0, parseFloat(plantlist[25].offered), 2, 2.5, options);
+                      var demo = new CountUp(document.getElementById('offered_in_1718'), 0, 1344.0, 2, 2.5, options);
+                      if (!demo.error) {
+                          demo.start();
+                      } else {
+                          console.error(demo.error);
+                      }
+                      //var demoo = new CountUp(document.getElementById('cleared_in_1718'), 0, parseFloat(plantlist[25].cleared), 2, 2.5, options);
+                      var demoo = new CountUp(document.getElementById('cleared_in_1718'), 0, 555.7, 2, 2.5, options);
+                      if (!demoo.error) {
+                          demoo.start();
+                      } else {
+                          console.error(demoo.error);
+                      }
+					  //var demo = new CountUp(document.getElementById('RTMoffered_in_1718'), 0, parseFloat(plantlist[26].offered), 2, 2.5, options);
+                      var demo = new CountUp(document.getElementById('RTMoffered_in_1718'), 0, 4781.32, 2, 2.5, options);
+                      if (!demo.error) {
+                          demo.start();
+                      } else {
+                          console.error(demo.error);
+                      }
+                      //var demoo = new CountUp(document.getElementById('RTMcleared_in_1718'), 0, parseFloat(plantlist[26].cleared), 2, 2.5, options);
+                      var demoo = new CountUp(document.getElementById('RTMcleared_in_1718'), 0, 853.89, 2, 2.5, options);
+                      if (!demoo.error) {
+                          demoo.start();
+                      } else {
+                          console.error(demoo.error);
+                      }
+                      //var demo = new CountUp(document.getElementById('merchant_offered_in_1718'), 0, parseFloat(plantlist[24].merchantoffered), 2, 2.5, options);
+		      var demo = new CountUp(document.getElementById('merchant_offered_in_1718'), 0, 351.15, 2, 2.5, options);
+                      if (!demo.error) {
+                          demo.start();
+                      } else {
+                          console.error(demo.error);
+                      }
+                      //var demoo = new CountUp(document.getElementById('merchant_cleared_in_1718'), 0, parseFloat(plantlist[24].merchantcleared), 2, 2.5, options);
+                      var demoo = new CountUp(document.getElementById('merchant_cleared_in_1718'), 0, 220.48, 2, 2.5, options);
+                      if (!demoo.error) {
+                          demoo.start();
+                      } else {
+                          console.error(demoo.error);
+                      }
+        }
 
-              window.onload = function (ev) {
+            /*  window.onload = function (ev) {
                   ev.preventDefault();
                   
-                  
                       
+                      alert("yahoo");
+                      // CREATE DYNAMIC TABLE.
+                      // var table = document.getElementById('datatable01');//document.createElement('table');
+                      //  table.style.border = "thin solid #a5f448";
+                      // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+                      			//var plantlist = obj.data;
+                     // for (var ik = 0; ik < 10; ik++) {
+                    //  alert(jsonarray);
+                     // }
                       var options = {
                           useEasing: true,
                           useGrouping: true,
@@ -249,11 +307,14 @@
                       console.log(err);
                       document.getElementById('output').innerHTML = err.message;
                   })
+				  */
 
 
 
 
 
+
+             
 
 
 
@@ -283,3 +344,4 @@
 
 </body>
 </html>
+
