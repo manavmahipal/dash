@@ -187,54 +187,13 @@
           <script>
 
 
-              let key,
-                  sheetNum,
-                  sheetType, counter = 0, cc = 0;
-
-              function readValues() {
-                  key = '1iYytiqDgwxm8-kftu7S8jcAumkgc-zL2TXeivUivGhM';
-                  sheetNum = '1';
-                  sheetType = 'cols';
-              }
+              
 
               window.onload = function (ev) {
                   ev.preventDefault();
-                  readValues();
-                  console.log(key, sheetNum, sheetType);
-
-                  let promise;
-                  switch (sheetType) {
-                      case 'cols':
-                          promise = GetSheetDone.labeledCols(key, sheetNum);
-                          break;
-                      case 'cols-rows':
-                          promise = GetSheetDone.labeledColsRows(key, sheetNum);
-                          break;
-                      case 'raw':
-                      default:
-                          promise = GetSheetDone.raw(key, sheetNum);
-                          break;
-                  }
-                  promise.then((data) => {
-                      var jsonarray = JSON.stringify(data);
-                      var obj = JSON.parse(jsonarray);
-                      var coll = [];
-                      for (var i = 0; i < obj.data.length; i++) {
-                          for (var ky in obj.data[i]) {
-                              if (coll.indexOf(ky) === -1) {
-                                  coll.push(ky);
-                              }
-                          }
-                      }
-                      //alert(jsonarray);
-                      // CREATE DYNAMIC TABLE.
-                      // var table = document.getElementById('datatable01');//document.createElement('table');
-                      //  table.style.border = "thin solid #a5f448";
-                      // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-                      var plantlist = obj.data;
-                     // for (var ik = 0; ik < 10; ik++) {
-                    //  alert(jsonarray);
-                     // }
+                  
+                  
+                      
                       var options = {
                           useEasing: true,
                           useGrouping: true,
@@ -295,10 +254,6 @@
 
 
 
-
-              }
-
-              // }
 
 
 
